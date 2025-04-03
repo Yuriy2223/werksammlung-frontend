@@ -3,37 +3,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 
-  /* @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2"),
-         url("../assets/fonts/Roboto-Regular.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
 
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Bold.woff2") format("woff2"),
-         url("../assets/fonts/Roboto-Bold.woff") format("woff");
-    font-weight: bold;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Italic.woff2") format("woff2"),
-         url("../assets/fonts/Roboto-Italic.woff") format("woff");
-    font-weight: normal;
-    font-style: italic;
-  }
-
-  @font-face {
-    font-family: "Roboto";
-    src: url("../assets/fonts/Roboto-Medium.woff2") format("woff2"),
-         url("../assets/fonts/Roboto-Medium.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-  } */
 
     :root {
     --font-family: "Roboto", sans-serif;
