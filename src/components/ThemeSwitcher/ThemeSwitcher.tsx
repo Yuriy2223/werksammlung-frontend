@@ -2,6 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { Sun, Moon, CloudFog } from "lucide-react";
 import { ThemeType } from "../../styles/Theme.ts";
+import { selectTheme } from "../../redux/theme/selectors.ts";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store.ts";
+import { setTheme } from "../../redux/theme/slice.ts";
 
 const themeOrder: ThemeType[] = ["light", "dark", "grey"];
 
@@ -14,7 +18,7 @@ const SwitcherContainer = styled.button`
   border-radius: 8px;
   background-color: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.colorText};
-  border: ${({ theme }) => theme.colorText};
+  border: 1px solid ${({ theme }) => theme.colorText};
 
   &:hover {
     background-color: ${({ theme }) => theme.primary};
@@ -25,23 +29,18 @@ const SwitcherContainer = styled.button`
   }
 `;
 
-interface ThemeSwitcherProps {
-  toggleTheme: (theme: ThemeType) => void;
-  currentTheme: ThemeType;
-}
+export const ThemeSwitcher: React.FC = () => {
+  const dispatch = useAppDispatch();
+  const theme = useSelector(selectTheme);
 
-export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({
-  toggleTheme,
-  currentTheme,
-}) => {
   const handleThemeChange = () => {
-    const currentIndex = themeOrder.indexOf(currentTheme);
-    const nextIndex = (currentIndex + 1) % themeOrder.length;
-    toggleTheme(themeOrder[nextIndex]);
+    const currentIndex = themeOrder.indexOf(theme);
+    const nextTheme = themeOrder[(currentIndex + 1) % themeOrder.length];
+    dispatch(setTheme(nextTheme));
   };
 
   const getThemeIcon = () => {
-    switch (currentTheme) {
+    switch (theme) {
       case "light":
         return <Sun />;
       case "dark":

@@ -6,15 +6,14 @@ const LogoContainer = styled(NavLink)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  text-decoration: none;
 
   P {
     font-weight: 500;
     font-size: 20px;
-    line-height: 1.2;
     letter-spacing: -0.02em;
+    text-transform: uppercase;
     color: ${({ theme }) => theme.colorText};
+    word-spacing: 8px;
   }
 `;
 

@@ -3,7 +3,7 @@ import { DefaultTheme } from "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    backBody: string;
+    bgBody: string;
     colorText: string;
     primary: string;
     secondary: string;
@@ -20,7 +20,7 @@ export type ThemeType = "light" | "dark" | "grey";
 // tertiary -- колір для тіней (запасний)
 
 export const lightTheme: DefaultTheme = {
-  backBody: "var(--backBody)",
+  bgBody: "var(--backBody)",
   colorText: "var(--colorText)",
   primary: "var(--primary)",
   secondary: "var(--secondary)",
@@ -29,7 +29,7 @@ export const lightTheme: DefaultTheme = {
 };
 
 export const darkTheme: DefaultTheme = {
-  backBody: "var(--backBody)",
+  bgBody: "var(--backBody)",
   colorText: "var(--colorText)",
   primary: "var(--primary)",
   secondary: "var(--secondary)",
@@ -38,7 +38,7 @@ export const darkTheme: DefaultTheme = {
 };
 
 export const greyTheme: DefaultTheme = {
-  backBody: "var(--backBody)",
+  bgBody: "var(--backBody)",
   colorText: "var(--colorText)",
   primary: "var(--primary)",
   secondary: "var(--secondary)",

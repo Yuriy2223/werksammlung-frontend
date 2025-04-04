@@ -1,9 +1,9 @@
-import { Header } from "../Header/Header";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
+import { Header } from "../Header/Header";
 
 const LayoutWrapper = styled.div`
-  background-color: ${({ theme }) => theme.backBody};
+  background-color: ${({ theme }) => theme.bgBody};
   min-height: 100vh;
 `;
 

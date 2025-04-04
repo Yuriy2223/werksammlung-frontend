@@ -1,31 +1,31 @@
-import { ThemeProvider } from "styled-components";
-import { Header } from "./components/Header/Header";
 import { ToastContainer } from "react-toastify";
-import { themes, ThemeType } from "./styles/Theme.ts";
-import { useState } from "react";
-import { GlobalStyles } from "./styles/GlobalStyles.ts";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Layout } from "./components/Layout/Layout.tsx";
+import HomePage from "./pages/UserPage/UserPage.tsx";
+import UserPage from "./pages/UserPage/UserPage.tsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 
 export const App = () => {
-  const [themeType, setThemeType] = useState<ThemeType>("light");
-  const toggleTheme = (newTheme: ThemeType) => {
-    setThemeType(newTheme);
-  };
   return (
-    <ThemeProvider theme={themes[themeType]}>
-      <GlobalStyles />
-      <Header toggleTheme={toggleTheme} currentTheme={themeType} />
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
+          <Route path="user" element={<UserPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+
       <ToastContainer
-        // position="top-center"
+        position="top-center"
         autoClose={2000}
-        // hideProgressBar={false}
-        // newestOnTop={false}
-        // closeOnClick
-        // rtl={false}
-        // pauseOnFocusLoss
-        // draggable
-        // pauseOnHover
+        hideProgressBar={true}
+        closeOnClick
+        pauseOnHover
+        draggable
       />
-    </ThemeProvider>
+    </>
   );
 };
 

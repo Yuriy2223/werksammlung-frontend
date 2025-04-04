@@ -1,16 +1,35 @@
 import { css } from "styled-components";
 
 export const Reset = css`
-  * {
+  html {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
     padding: 0;
     margin: 0;
   }
 
   body {
     font-family: var(--font-family);
-    /* background-color: var(--dark-gray); */
-    background-color: ${({ theme }) => theme.backgroundBody};
+    font-size: 14px;
+    line-height: 1.4;
+    background-color: ${({ theme }) => theme.bgBody};
+    color: ${({ theme }) => theme.colorText};
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 1280px) {
+      font-size: 16px;
+      line-height: 1.6;
+    }
   }
 
   h1,
@@ -31,6 +50,7 @@ export const Reset = css`
     font-family: inherit;
     text-decoration: none;
     transition: all 300ms ease;
+    cursor: pointer;
   }
 
   img {
@@ -52,4 +72,3 @@ export const Reset = css`
     transition: all 300ms ease;
   }
 `;
-/* background-color: ${({ theme }) => {theme.backgroundBody}    */
