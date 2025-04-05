@@ -49,9 +49,9 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     user: userReducer,
     notices: noticesReducer,
-    language: persistedLanguageReducer,
     modal: modalReducer,
     theme: persistedThemeReducer,
+    language: persistedLanguageReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

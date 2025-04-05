@@ -1,27 +1,33 @@
-// src/store/slices/languageSlice.ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import i18n from "i18next";
+import { Language } from "../../App.type";
 
-interface LanguageState {
-  currentLanguage: string;
+export interface LanguageState {
+  currentLanguage: Language;
 }
 
+const savedLang = (localStorage.getItem("lang") as Language) || "EN";
+
 const initialState: LanguageState = {
-  currentLanguage: localStorage.getItem("language") || "en",
+  currentLanguage: savedLang,
 };
 
 const languageSlice = createSlice({
   name: "language",
   initialState,
   reducers: {
-    setLanguage: (state, action: PayloadAction<string>) => {
+    setLanguage: (state, action: PayloadAction<Language>) => {
+      localStorage.setItem("lang", action.payload);
       state.currentLanguage = action.payload;
-      i18n.changeLanguage(action.payload);
-      localStorage.setItem("language", action.payload);
+    },
+    switchLanguage: (state) => {
+      const languages: Language[] = ["EN", "UA", "DE"];
+      const currentIndex = languages.indexOf(state.currentLanguage);
+      const nextLang = languages[(currentIndex + 1) % languages.length];
+      localStorage.setItem("lang", nextLang);
+      state.currentLanguage = nextLang;
     },
   },
 });
 
-export const { setLanguage } = languageSlice.actions;
-
+export const { setLanguage, switchLanguage } = languageSlice.actions;
 export const languageReducer = languageSlice.reducer;

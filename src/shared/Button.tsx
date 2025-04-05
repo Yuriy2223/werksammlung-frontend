@@ -12,6 +12,13 @@ const BtnWrapper = styled.button`
   background-color: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.colorText};
   border: 1px solid ${({ theme }) => theme.colorText};
+
+  &:hover,
+  &:active {
+    background-color: ${({ theme }) => theme.primary};
+    color: ${({ theme }) => theme.colorText};
+    border: 1px solid ${({ theme }) => theme.hover};
+  }
 `;
 
 interface ButtonProps {

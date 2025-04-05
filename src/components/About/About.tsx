@@ -1,3 +1,5 @@
+import { AboutContainer } from "./About.styled";
+
 export const About = () => {
-  return <div className="">About</div>;
+  return <AboutContainer id="about">About</AboutContainer>;
 };
