@@ -1,7 +1,7 @@
 import { ToastContainer } from "react-toastify";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout.tsx";
-import HomePage from "./pages/UserPage/UserPage.tsx";
+import HomePage from "./pages/HomePage/HomePage.tsx";
 import UserPage from "./pages/UserPage/UserPage.tsx";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 

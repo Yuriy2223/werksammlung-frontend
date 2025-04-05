@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Container } from "../../components/shared/Container";
+import { Container } from "../../shared/Container";
 
 export const UserPageContainer = styled(Container)``;
 
-const HomePage: React.FC = () => {
+const UserPage: React.FC = () => {
   return (
     <UserPageContainer>
       <h1>UserPage</h1>
@@ -12,4 +12,4 @@ const HomePage: React.FC = () => {
   );
 };
 
-export default HomePage;
+export default UserPage;

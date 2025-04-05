@@ -9,41 +9,40 @@ declare module "styled-components" {
     secondary: string;
     accent: string;
     tertiary: string;
+    hover: string;
   }
 }
 
 export type ThemeType = "light" | "dark" | "grey";
 
-// primary -- основний колір
-// secondary -- допоміжний колір (другий за важливістю, доповнює primary)
-// accent -- акцентний колір (для ховера)
-// tertiary -- колір для тіней (запасний)
-
 export const lightTheme: DefaultTheme = {
-  bgBody: "var(--backBody)",
+  bgBody: "var(--bgBody)",
   colorText: "var(--colorText)",
   primary: "var(--primary)",
   secondary: "var(--secondary)",
   accent: "var(--accent)",
-  tertiary: "var(--focus)",
+  tertiary: "var(--tertiary)",
+  hover: "var(--hover)",
 };
 
 export const darkTheme: DefaultTheme = {
-  bgBody: "var(--backBody)",
-  colorText: "var(--colorText)",
-  primary: "var(--primary)",
-  secondary: "var(--secondary)",
-  accent: "var(--accent)",
-  tertiary: "var(--tertiary)",
+  bgBody: "var(--bgBody2)",
+  colorText: "var(--colorText2)",
+  primary: "var(--primary2)",
+  secondary: "var(--secondary2)",
+  accent: "var(--accent2)",
+  tertiary: "var(--tertiary2)",
+  hover: "var(--hover2)",
 };
 
 export const greyTheme: DefaultTheme = {
-  bgBody: "var(--backBody)",
-  colorText: "var(--colorText)",
-  primary: "var(--primary)",
-  secondary: "var(--secondary)",
-  accent: "var(--accent)",
-  tertiary: "var(--tertiary)",
+  bgBody: "var(--bgBody3)",
+  colorText: "var(--colorText3)",
+  primary: "var(--primary3)",
+  secondary: "var(--secondary3)",
+  accent: "var(--accent3)",
+  tertiary: "var(--tertiary3)",
+  hover: "var(--hover3)",
 };
 
 export const themes = {

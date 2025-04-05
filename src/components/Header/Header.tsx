@@ -1,64 +1,100 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { LogIn } from "lucide-react";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { Logo } from "../Logo/Logo";
-import { Container } from "../shared/Container";
+import { Container } from "../../shared/Container";
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
-import { BtnLogin, HeaderContainer, NavList } from "./Header.styled";
+import {
+  BtnLogin,
+  HeaderContainer,
+  NavList,
+  UserActions,
+} from "./Header.styled";
 
 export const Header: React.FC = () => {
+  const { t } = useTranslation();
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    id: string
+  ) => {
+    e.preventDefault();
+    const target = document.getElementById(id);
+    if (target) {
+      const offsetTop = target.offsetTop - 90;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <Container>
       <HeaderContainer>
         <Logo />
-        <ThemeSwitcher />
-        <LanguageSwitcher />
         <NavList>
-          <a href="#home">Home</a>
-          <a href="#about">About</a>
-          <a href="#projects">Project</a>
-          <a href="#contact">Contact</a>
+          <a
+            href="#about"
+            onClick={(e) => handleNavClick(e, "about")}
+            className={activeSection === "about" ? "active" : ""}
+          >
+            {t("nav.about")}
+          </a>
+          <a
+            href="#skils"
+            onClick={(e) => handleNavClick(e, "skils")}
+            className={activeSection === "skils" ? "active" : ""}
+          >
+            {t("nav.skils")}
+          </a>
+          <a
+            href="#projects"
+            onClick={(e) => handleNavClick(e, "projects")}
+            className={activeSection === "projects" ? "active" : ""}
+          >
+            {t("nav.projects")}
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => handleNavClick(e, "contact")}
+            className={activeSection === "contact" ? "active" : ""}
+          >
+            {t("nav.contact")}
+          </a>
         </NavList>
-        <BtnLogin>login</BtnLogin>
+        <UserActions>
+          <ThemeSwitcher />
+          <LanguageSwitcher />
+          <BtnLogin>
+            {t("buttons.login")}{" "}
+            <span>
+              <LogIn />
+            </span>
+          </BtnLogin>
+        </UserActions>
       </HeaderContainer>
     </Container>
   );
 };
-
-/***************************** */
-
-// import { useState } from "react";
-// import { ThemeType } from "../../styles/Theme";
-// import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
-// import { Logo } from "../Logo/Logo";
-// import { Container } from "../shared/Container";
-// import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
-// import { BtnLogin, HeaderContainer, NavList } from "./Header";
-// import { translations } from "../shared/locales";
-
-// interface HeaderProps {
-//   toggleTheme: (theme: ThemeType) => void;
-//   currentTheme: ThemeType;
-// }
-
-// export const Header: React.FC<HeaderProps> = ({
-//   toggleTheme,
-//   currentTheme,
-// }) => {
-//   const [lang, setLang] = useState(localStorage.getItem("lang") || "EN");
-//   return (
-//     <Container>
-//       <HeaderContainer>
-//         <Logo />
-//         <ThemeSwitcher toggleTheme={toggleTheme} currentTheme={currentTheme} />
-//         <LanguageSwitcher onLanguageChange={setLang} />
-//         <NavList>
-//           <a href="#home">{translations[lang].home}</a>
-//           <a href="#about">{translations[lang].about}</a>
-//           <a href="#projects">{translations[lang].projects}</a>
-//           <a href="#contact">{translations[lang].contact}</a>
-//         </NavList>
-//         <BtnLogin>login</BtnLogin>
-//       </HeaderContainer>
-//     </Container>
-//   );
-// };

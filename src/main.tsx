@@ -7,6 +7,7 @@ import { persistor, store } from "./redux/store.ts";
 import { ThemeWrapper } from "./components/Theme/ThemeWrapper.tsx";
 import { GlobalStyles } from "./styles/GlobalStyles.ts";
 import App from "./App.tsx";
+import "./i18n/i18n.ts";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

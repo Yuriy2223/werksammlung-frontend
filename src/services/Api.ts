@@ -2,8 +2,8 @@ import axios from 'axios';
 import { store } from '../redux/store';
 import { logoutUser } from '../redux/auth/operations';
 
-export const API_URL = 'https://petlove.b.goit.study';
-export const TOKEN_KEY = 'token-love-pet';
+export const API_URL = '';
+export const TOKEN_KEY = 'token';
 
 // Публічний інстанс
 export const publicInstance = axios.create({
