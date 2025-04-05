@@ -1,7 +1,7 @@
 export const en = {
   translation: {
     nav: {
-      skils: "Skils",
+      skills: "Skills",
       about: "About",
       projects: "Projects",
       contact: "Contact",

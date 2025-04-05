@@ -1,7 +1,7 @@
 export const de = {
   translation: {
     nav: {
-      skils: "Fähigkeiten",
+      skills: "Fähigkeiten",
       about: "Über mich",
       projects: "Projekte",
       contact: "Kontakt",

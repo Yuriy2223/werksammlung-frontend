@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SkilsContainer = styled.div`
+export const SkillsContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
