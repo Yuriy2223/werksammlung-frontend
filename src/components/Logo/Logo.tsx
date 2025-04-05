@@ -1,49 +1,38 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-
-const LogoContainer = styled(NavLink)`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  P {
-    padding-bottom: 4px;
-    font-weight: 500;
-    font-size: 20px;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: ${({ theme }) => theme.colorText};
-    word-spacing: 8px;
-    position: relative;
-    transition: all 300ms ease;
-
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: ${({ theme }) => theme.colorText};
-      transition: width 300ms ease;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
-  }
-`;
+import React, { useEffect, useState } from "react";
+import { LogoContainer } from "./Logo.styled";
 
 export const Logo: React.FC = () => {
-  const fullName = "Yuriy Shukan";
+  const fullText = "Yuriy Shukan";
+  const [displayedText, setDisplayedText] = useState("");
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    let typingTimeout: ReturnType<typeof setTimeout>;
+
+    if (index <= fullText.length) {
+      typingTimeout = setTimeout(() => {
+        setDisplayedText(fullText.slice(0, index));
+        setIndex((prev) => prev + 1);
+      }, 150);
+    } else {
+      typingTimeout = setTimeout(() => {
+        setDisplayedText("");
+        setIndex(0);
+      }, 4000);
+    }
+
+    return () => clearTimeout(typingTimeout);
+  }, [index, fullText]);
 
   return (
     <LogoContainer
       to="/"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
-      <p>{fullName}</p>
+      <p>
+        {displayedText}
+        <span className="cursor">|</span>
+      </p>
     </LogoContainer>
   );
 };

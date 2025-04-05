@@ -1,53 +1,18 @@
 import styled from "styled-components";
 import { Button } from "../../shared/Button";
+import { Container } from "../../shared/Container";
 
-export const HeaderContainer = styled.header`
+export const HeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.secondary};
 `;
-// export const NavList = styled.nav`
-//   display: flex;
-//   align-items: center;
-//   gap: 40px;
-
-//   a {
-//     padding: 4px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
-//     color: ${({ theme }) => theme.colorText};
-//     position: relative;
-//     transition: color 0.3s ease, transform 0.3s ease;
-
-//     &:hover {
-//       color: ${({ theme }) => theme.hover};
-//       transform: scale(1.1);
-//     }
-
-//     &::after {
-//       content: "";
-//       position: absolute;
-//       bottom: 0;
-//       left: 0;
-//       width: 0;
-//       height: 2px;
-//       background-color: ${({ theme }) => theme.hover};
-//       transition: width 0.3s ease;
-//     }
-
-//     &:hover::after {
-//       width: 100%;
-//     }
-//   }
-// `;
-
 export const NavList = styled.nav`
   display: flex;
   align-items: center;
-  gap: 40px;
+  justify-content: space-between;
+  width: 420px;
 
   a {
     padding: 4px;
@@ -57,7 +22,6 @@ export const NavList = styled.nav`
     text-align: center;
     color: ${({ theme }) => theme.colorText};
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
 
     &:hover {
       color: ${({ theme }) => theme.hover};
@@ -70,9 +34,9 @@ export const NavList = styled.nav`
       bottom: 0;
       left: 0;
       width: 0;
-      height: 2px;
+      height: 3px;
       background-color: ${({ theme }) => theme.hover};
-      transition: width 0.3s ease, height 0.3s ease;
+      transition: all 300ms ease;
     }
 
     &:hover::after {
@@ -82,8 +46,8 @@ export const NavList = styled.nav`
     &.active {
       color: ${({ theme }) => theme.hover};
       font-weight: bold;
-      border-bottom: 2px solid ${({ theme }) => theme.hover};
-      animation: activeLink 0.6s ease-in-out forwards;
+      border-bottom: 3px solid ${({ theme }) => theme.hover};
+      animation: activeLink 0.8s ease-in-out forwards;
     }
   }
 

@@ -1,7 +1,7 @@
 export const ua = {
   translation: {
     nav: {
-      skils: "Навички",
+      skills: "Навички",
       about: "Про мене",
       projects: "Проєкти",
       contact: "Контакти",

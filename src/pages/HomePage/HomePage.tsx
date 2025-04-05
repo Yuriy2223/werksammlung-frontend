@@ -3,15 +3,14 @@ import { HomePageContainer } from "./HomePage.styled";
 import { About } from "../../components/About/About";
 import { Contact } from "../../components/Contact/Contact";
 import { Projects } from "../../components/Projects/Projects";
-import { Skils } from "../../components/Skils/Skils";
+import { Skills } from "../../components/Skills/Skills";
 
 const HomePage: React.FC = () => {
   return (
     <HomePageContainer>
-      <h1>HomePage</h1>
       <About />
+      <Skills />
       <Projects />
-      <Skils />
       <Contact />
     </HomePageContainer>
   );

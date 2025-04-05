@@ -5,14 +5,13 @@ export const LayoutWrapper = styled.div`
   color: ${({ theme }) => theme.colorText};
   min-height: 100vh;
 `;
-export const HeaderWrapper = styled.div`
+export const HeaderWrapper = styled.header`
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 9;
   background-color: ${({ theme }) => theme.secondary};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
 export const MainWrapper = styled.main`
   padding-top: 80px;
