@@ -1,5 +1,5 @@
-import { ContactContainer } from "./Contact.styled";
+import { ContactSection } from "./Contact.styled";
 
 export const Contact = () => {
-  return <ContactContainer id="contact">Contact</ContactContainer>;
+  return <ContactSection id="contact">Contact</ContactSection>;
 };

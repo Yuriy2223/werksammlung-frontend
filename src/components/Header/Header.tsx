@@ -40,14 +40,16 @@ export const Header: React.FC = () => {
         current = "contact";
       }
 
-      setActiveSection(current);
+      if (current !== activeSection) {
+        setActiveSection(current);
+      }
     };
 
     handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [activeSection]);
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
@@ -68,7 +70,7 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo />
-      <NavList>
+      <NavList role="navigation" aria-label="Main navigation">
         <a
           href="#about"
           onClick={(e) => handleNavClick(e, "about")}
@@ -102,7 +104,7 @@ export const Header: React.FC = () => {
         <ThemeSwitcher />
         <LanguageSwitcher />
         <BtnLogin>
-          {t("buttons.login")}{" "}
+          {t("buttons.login")}
           <span>
             <LogIn />
           </span>

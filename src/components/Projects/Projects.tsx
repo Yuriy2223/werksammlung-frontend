@@ -1,5 +1,5 @@
-import { ProjectsContainer } from "./Projects.styled";
+import { ProjectsSection } from "./Projects.styled";
 
 export const Projects = () => {
-  return <ProjectsContainer id="projects">Projects</ProjectsContainer>;
+  return <ProjectsSection id="projects">Projects</ProjectsSection>;
 };

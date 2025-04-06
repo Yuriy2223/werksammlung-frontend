@@ -35,8 +35,8 @@ export const Variables = css`
 `;
 // бордер 242E39
 
-//   --accent-color:rgb(80, 177, 0);
-//   --gray-color: #96ba74c7;
+//   --accent:rgb(80, 177, 0);
+//   --gray: #96ba74c7;
 //   --hover-color: #5bc305;
 //   --text-color: #2e2e36;
 //   --second-text-color: #c5e1a6;
