@@ -7,27 +7,13 @@ import { ThemeType } from "../../styles/Theme.ts";
 import { selectTheme } from "../../redux/theme/selectors.ts";
 import { useAppDispatch } from "../../redux/store.ts";
 import { setTheme } from "../../redux/theme/slice.ts";
+import { Button } from "../../shared/Button.tsx";
 
 const themeOrder: ThemeType[] = ["light", "dark", "grey"];
 
-const SwitcherContainer = styled.button`
-  width: 100px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: ${({ theme }) => theme.secondary};
-  color: ${({ theme }) => theme.colorText};
-  border: 1px solid ${({ theme }) => theme.colorText};
-
-  &:hover {
-    background-color: ${({ theme }) => theme.primary};
-    border: 1px solid ${({ theme }) => theme.hover};
-  }
-
+const SwitcherContainer = styled(Button)`
   span {
-    margin-left: 8px;
+    font-size: 18px;
     color: ${({ theme }) => theme.hover};
   }
 `;

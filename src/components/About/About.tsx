@@ -4,9 +4,7 @@ import imgUrl1 from "../../assets/порт1111.webp";
 import {
   AboutBtn,
   AboutContainer,
-  AboutSlogan,
-  // AboutSubTitle,
-  // AboutTitle,
+  Context,
   WrapperContext,
   WrapperImg,
 } from "./About.styled";
@@ -14,8 +12,7 @@ import {
 export const About = () => {
   const imgUrl = imgUrl1;
   const fullName = "Yuriy Shukan";
-  //  const slogan = "I specialize in building high-performance web applications using
-  //                 the latest technologies like";
+
   const handleOpenCV = () => {
     const fileId = "660f123456abc7890abcde12";
     const url = `http://localhost:3000/pdf/${fileId}`;
@@ -51,18 +48,15 @@ export const About = () => {
           style={{ flex: 1 }}
         >
           <WrapperContext>
-            <AboutSlogan>
+            <Context>
               <p>Hi, I’m</p>
               <h1>{fullName}.</h1>
-              <p>I’m a Full-Stack JavaScript Developer</p>
-              {/* <p>
-                I specialize in building high-performance web applications using
-                the latest technologies like React, Node.js, and MongoDB.
-              </p> */}
-            </AboutSlogan>
-            <AboutBtn onClick={handleOpenCV}>
-              <FileText size={20} /> VIEW CV
-            </AboutBtn>
+              <p>I’m a Full-Stack</p>
+              <p>JavaScript Developer</p>
+              <AboutBtn onClick={handleOpenCV}>
+                <FileText size={20} /> VIEW CV
+              </AboutBtn>
+            </Context>
           </WrapperContext>
         </motion.div>
       </AboutContainer>

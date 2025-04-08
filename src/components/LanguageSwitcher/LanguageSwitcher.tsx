@@ -11,7 +11,6 @@ import styled from "styled-components";
 export const BtnLang = styled(Button)`
   span {
     font-size: 18px;
-    margin-left: 8px;
     color: ${({ theme }) => theme.hover};
   }
 `;
