@@ -15,14 +15,18 @@ export const Variables = css`
     --accent: #222831; // акцентний колір (для ховера)
     --tertiary: #fdfdfe; // колір для тіней (запасний)
     --hover: #5bc305;
+
     /*  Theme dark */
     --bgBody2: #171b22;
-    --colorText2: #fdfdfe;
+    /* --colorText2: #fdfdfe; */
+    --colorText2: #00bcd4;
     --primary2: #11171e;
     --secondary2: #1b222a;
     --accent2: #141a22;
     --tertiary2: #181f26;
-    --hover2: #1951c5;
+    /* --hover2: #1951c5; */
+    --hover2: #007c91;
+
     /*  Theme grey */
     --bgBody3: #1f2836;
     --colorText3: #fafafa;
@@ -34,7 +38,10 @@ export const Variables = css`
   }
 `;
 // бордер 242E39
-
+// &:hover {
+//   color: #008c9e;
+//   transform: translateY(-5px);
+// }
 //   --accent:rgb(80, 177, 0);
 //   --gray: #96ba74c7;
 //   --hover-color: #5bc305;
