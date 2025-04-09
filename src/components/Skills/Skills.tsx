@@ -13,11 +13,12 @@ import {
   SkillsCard,
   Categories,
   CategoryTitle,
-  Skill,
   SkillList,
   SkillsContainer,
   SkillsSections,
   WrapperTitle,
+  SkillLi,
+  SkillLink,
 } from "./Skills.styled";
 
 export const Skills = () => {
@@ -60,12 +61,14 @@ export const Skills = () => {
                 initial="hidden"
                 animate={listControls}
               >
-                {skills.map((skill) => {
-                  const Icon = iconMap[skill] ?? CheckCircle;
+                {skills.map(({ name, link }) => {
+                  const Icon = iconMap[name] ?? CheckCircle;
                   return (
-                    <Skill key={skill} variants={itemVariants}>
-                      <Icon /> {skill}
-                    </Skill>
+                    <SkillLi key={name} variants={itemVariants}>
+                      <SkillLink to={link}>
+                        <Icon /> {name}
+                      </SkillLink>
+                    </SkillLi>
                   );
                 })}
               </SkillList>

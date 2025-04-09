@@ -10,6 +10,7 @@ declare module "styled-components" {
     accent: string;
     tertiary: string;
     hover: string;
+    svg: string;
   }
 }
 
@@ -23,6 +24,7 @@ export const lightTheme: DefaultTheme = {
   accent: "var(--accent)",
   tertiary: "var(--tertiary)",
   hover: "var(--hover)",
+  svg: "var(--svg)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -33,6 +35,7 @@ export const darkTheme: DefaultTheme = {
   accent: "var(--accent2)",
   tertiary: "var(--tertiary2)",
   hover: "var(--hover2)",
+  svg: "var(--svg2)",
 };
 
 export const greyTheme: DefaultTheme = {
@@ -43,6 +46,7 @@ export const greyTheme: DefaultTheme = {
   accent: "var(--accent3)",
   tertiary: "var(--tertiary3)",
   hover: "var(--hover3)",
+  svg: "var(--svg3)",
 };
 
 export const themes = {
