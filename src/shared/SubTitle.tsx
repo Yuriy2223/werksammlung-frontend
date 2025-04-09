@@ -7,6 +7,7 @@ const WrapperSubTitle = styled.p`
   font-weight: 500;
   line-height: 1.4;
   font-size: 24px;
+  margin-bottom: 40px;
   text-shadow: -2px 2px 10px ${({ theme }) => theme.colorText};
 `;
 

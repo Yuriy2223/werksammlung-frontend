@@ -6,6 +6,7 @@ const WrapperTitle = styled.h2`
   font-weight: 700;
   line-height: 1.4;
   font-size: 36px;
+  margin-bottom: 24px;
   color: ${({ theme }) => theme.colorText};
   text-shadow: -3px 3px 20px ${({ theme }) => theme.colorText};
 `;

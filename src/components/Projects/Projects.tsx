@@ -1,58 +1,26 @@
-// import { ProjectsSection } from "./Projects.styled";
-
-// export const Projects = () => {
-//   return <ProjectsSection id="projects">Projects</ProjectsSection>;
-// };
+import { useState } from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { categories, projects } from "./Projects.const";
+import { Container } from "../../shared/Container";
+import { Title } from "../../shared/Title";
+import { SubTitle } from "../../shared/SubTitle";
 
-// === Стилі ===
-const ProjectsSection = styled.section`
-  padding: 6rem 2rem;
-  background: linear-gradient(120deg, #e3f2fd 0%, #ffffff 100%);
-  text-align: center;
+export const ProjectsSection = styled.section`
+  background-color: ${({ theme }) => theme.bgBody};
 `;
-
-const TitleWrapper = styled.div`
-  margin-bottom: 4rem;
+export const ProjectsContainer = styled(Container)`
+  padding: 40px 20px;
 `;
-
-const Title = styled.h2`
-  font-size: 3rem;
-  font-weight: 800;
-  color: #1e2a38;
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    width: 0%;
-    height: 4px;
-    background: #00bcd4;
-    border-radius: 2px;
-    transform: translateX(-50%);
-    animation: underline 1.2s ease forwards 0.5s;
-  }
-
-  @keyframes underline {
-    to {
-      width: 80px;
-    }
-  }
-`;
-
-const ProjectFilters = styled.div`
+export const TitleWrapper = styled(motion.div)``;
+export const ProjectFilters = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 3rem;
+  flex-wrap: wrap;
 `;
-
-const FilterButton = styled.button`
+export const FilterButton = styled.button`
   background-color: #00bcd4;
   color: white;
   border: none;
@@ -61,52 +29,62 @@ const FilterButton = styled.button`
   cursor: pointer;
   transition: background-color 0.3s ease;
 
-  &:hover {
+  &:hover,
+  &.active {
     background-color: #008c9e;
   }
 `;
 
-const ProjectsGrid = styled.div`
+export const ProjectsGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 `;
 
-const ProjectCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 12px 35px rgba(0, 188, 212, 0.15);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.4);
-`;
+export const ProjectCard = styled(motion.div)`
+  border-radius: 12px;
+  padding: 20px;
+  background-color: ${({ theme }) => theme.secondary};
+  border: 1px solid ${({ theme }) => theme.colorText};
+  box-shadow: 0 0 8px ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.colorText};
+  transition: all 300ms ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 
-const ProjectTitle = styled.h3`
-  font-size: 1.75rem;
+  &:hover {
+    /* transform: translateY(-200px) scale(1.2); */
+    box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
+  }
+`;
+export const ProjectImg = styled.img`
+  width: 100%;
+  height: 300px;
+  border-radius: 12px;
+`;
+export const ProjectTitle = styled.h3`
+  text-align: center;
+  font-size: 24px;
   font-weight: 700;
-  color: #0097a7;
-  margin-bottom: 1rem;
 `;
 
-const ProjectDescription = styled.p`
-  font-size: 1.1rem;
+export const ProjectDescription = styled.p`
   color: #444;
-  margin-bottom: 1.5rem;
 `;
 
-const ProjectRole = styled.p`
+export const ProjectRole = styled.p`
   font-size: 1.1rem;
   color: #2c3e50;
 `;
 
-const ProjectTechnologies = styled.div`
+export const ProjectTechnologies = styled.div`
   display: flex;
   gap: 0.5rem;
-  margin-top: 1rem;
   flex-wrap: wrap;
 `;
 
-const TechTag = styled.span`
+export const TechTag = styled.span`
   background-color: #00bcd4;
   color: white;
   padding: 0.5rem 1rem;
@@ -114,91 +92,74 @@ const TechTag = styled.span`
   font-size: 1rem;
 `;
 
-// === Анімація ===
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+const cardVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  exit: { opacity: 0, y: -20, transition: { duration: 0.4 } },
 };
 
-// === Компонент Projects ===
 export const Projects = () => {
-  const projects = [
-    {
-      title: "Ukrainian House",
-      description:
-        "This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel.",
-      role: "Front-end developer",
-      technologies: ["React", "JavaScript", "SCSS"],
-      category: "React",
-    },
-    {
-      title: "HYPE TATTOO",
-      description:
-        "Responsive landing page for a tattoo studio, including a 'Not Found' (404) page and 'Thank You' page.",
-      role: "Individual project",
-      technologies: ["JavaScript", "HTML", "CSS"],
-      category: "JavaScript",
-    },
-    {
-      title: "E-Pharmacy",
-      description:
-        "An accessible web app for searching and ordering medicines, featuring user authentication and dynamic search.",
-      role: "Individual project",
-      technologies: ["React", "Node.js", "MongoDB"],
-      category: "React + Node.js",
-    },
-    {
-      title: "petLove",
-      description:
-        "Platform for pet owners to post pet listings, find partners, and connect with users in a community.",
-      role: "Individual project",
-      technologies: ["React", "JavaScript"],
-      category: "React",
-    },
-    {
-      title: "Nanny.Services",
-      description:
-        "Web app that connects users with available nannies, allowing users to browse, filter, and save favorites.",
-      role: "Individual project",
-      technologies: ["React", "JavaScript"],
-      category: "React",
-    },
-  ];
+  const [filter, setFilter] = useState("All");
+
+  const filteredProjects =
+    filter === "All"
+      ? projects
+      : projects.filter((project) => project.category === filter);
 
   return (
     <ProjectsSection id="projects">
-      <TitleWrapper>
-        <Title>My Projects</Title>
-      </TitleWrapper>
+      <ProjectsContainer>
+        <TitleWrapper
+          initial={{ opacity: 0, y: -40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: false, amount: 0.5 }}
+        >
+          <Title>Projects</Title>
+          <SubTitle>
+            Drop a message for collaboration, freelancing or just to say hi! ✌️
+          </SubTitle>
+        </TitleWrapper>
 
-      <ProjectFilters>
-        <FilterButton>All</FilterButton>
-        <FilterButton>JavaScript</FilterButton>
-        <FilterButton>React</FilterButton>
-        <FilterButton>React + Node.js</FilterButton>
-      </ProjectFilters>
+        <ProjectFilters>
+          {categories.map((cat) => (
+            <FilterButton
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={filter === cat ? "active" : ""}
+            >
+              {cat}
+            </FilterButton>
+          ))}
+        </ProjectFilters>
 
-      <ProjectsGrid>
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={index}
-            variants={fadeInVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <ProjectTitle>{project.title}</ProjectTitle>
-            <ProjectDescription>{project.description}</ProjectDescription>
-            <ProjectRole>
-              <strong>Role:</strong> {project.role}
-            </ProjectRole>
-            <ProjectTechnologies>
-              {project.technologies.map((tech, idx) => (
-                <TechTag key={idx}>{tech}</TechTag>
-              ))}
-            </ProjectTechnologies>
-          </ProjectCard>
-        ))}
-      </ProjectsGrid>
+        <ProjectsGrid>
+          <AnimatePresence>
+            {filteredProjects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+                layout
+              >
+                <ProjectImg src={project.img} alt={project.title}></ProjectImg>
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectDescription>{project.description}</ProjectDescription>
+                <ProjectRole>
+                  <strong>Role:</strong> {project.role}
+                </ProjectRole>
+                <ProjectTechnologies>
+                  {project.technologies.map((tech, i) => (
+                    <TechTag key={i}>{tech}</TechTag>
+                  ))}
+                </ProjectTechnologies>
+              </ProjectCard>
+            ))}
+          </AnimatePresence>
+        </ProjectsGrid>
+      </ProjectsContainer>
     </ProjectsSection>
   );
 };
