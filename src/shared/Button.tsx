@@ -13,13 +13,12 @@ const BtnWrapper = styled.button`
   background-color: ${({ theme }) => theme.secondary};
   color: ${({ theme }) => theme.colorText};
   border: 1px solid ${({ theme }) => theme.colorText};
-  /* box-shadow: 0 0 10px transparent; */
 
   &:hover,
   &:active {
     background-color: ${({ theme }) => theme.primary};
     color: ${({ theme }) => theme.colorText};
-    box-shadow: 0 0 10px #00bcd4;
+    box-shadow: 0 0 26px ${({ theme }) => theme.colorText};
   }
 `;
 

@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import imgUrl1 from "../../assets/порт1111.webp";
 import {
   AboutBtn,
   AboutContainer,
+  AboutSection,
   Context,
   WrapperContext,
   WrapperImg,
 } from "./About.styled";
 
 export const About = () => {
+  const { t } = useTranslation();
   const imgUrl = imgUrl1;
   const fullName = "Yuriy Shukan";
 
@@ -21,7 +24,7 @@ export const About = () => {
   };
 
   return (
-    <section id="about">
+    <AboutSection id="about">
       <AboutContainer>
         <motion.div
           initial={{ opacity: 0, x: -300 }}
@@ -49,17 +52,17 @@ export const About = () => {
         >
           <WrapperContext>
             <Context>
-              <p>Hi, I’m</p>
+              <p>{t("about.hi")}</p>
               <h1>{fullName}.</h1>
-              <p>I’m a Full-Stack</p>
-              <p>JavaScript Developer</p>
+              <p>{t("about.full")}</p>
+              <p>{t("about.dev")}</p>
               <AboutBtn onClick={handleOpenCV}>
-                <FileText size={20} /> VIEW CV
+                <FileText size={20} /> {t("buttons.wiewcv")}
               </AboutBtn>
             </Context>
           </WrapperContext>
         </motion.div>
       </AboutContainer>
-    </section>
+    </AboutSection>
   );
 };

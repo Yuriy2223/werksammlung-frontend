@@ -2,13 +2,17 @@ import styled from "styled-components";
 import { Container } from "../../shared/Container";
 import { Button } from "../../shared/Button";
 
+export const AboutSection = styled.section`
+  background-color: ${({ theme }) => theme.tertiary};
+  /* border: 1px solid red; */
+`;
 export const AboutContainer = styled(Container)`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
 
-  border: 1px solid red; /*********** */
+  /* border: 1px solid red; */
 `;
 
 export const WrapperImg = styled.div`
@@ -34,16 +38,17 @@ export const Context = styled.div`
   font-size: 36px;
   p {
     font-weight: 600;
-    text-shadow: -3px 3px 6px ${({ theme }) => theme.colorText};
+    text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
   }
   h1 {
     font-weight: 700;
-    text-shadow: -3px 3px 8px ${({ theme }) => theme.colorText};
+    text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
   }
 `;
 export const AboutBtn = styled(Button)`
   margin-top: 40px;
-  margin: 40px 30px;
-  width: 120px;
+  margin: 50px 0;
+  width: 140px;
   height: 46px;
+  box-shadow: 0 0 10px ${({ theme }) => theme.colorText};
 `;

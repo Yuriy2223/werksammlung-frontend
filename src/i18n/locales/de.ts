@@ -6,11 +6,17 @@ export const de = {
       projects: "Projekte",
       contact: "Kontakt",
     },
+    about: {
+      hi: "Hallo, ich bin",
+      full: "Ich bin ein Full-Stack",
+      dev: "JavaScript Entwickler",
+    },
     buttons: {
       // login: "Einloggen",
       login: "Login",
       lang: "Sprache",
       theme: "Thema",
+      wiewcv: "CV ansehen",
     },
     footer: {
       copyright: " Alle Rechte vorbehalten.",
