@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone, MapPin, Globe } from "lucide-react";
 
-// === Анімації ===
 const float = keyframes`
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -20,7 +19,6 @@ const ContactSection = styled.section`
   align-items: center;
 `;
 
-// === Декор фону ===
 const FloatingBlob = styled.div<{ top: string; left: string }>`
   position: absolute;
   width: 200px;
@@ -188,7 +186,6 @@ const InfoBox = styled(motion.div)`
   }
 `;
 
-// === Компонент ===
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
