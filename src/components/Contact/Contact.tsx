@@ -186,7 +186,7 @@ const InfoBox = styled(motion.div)`
   }
 `;
 
-export const Contact = () => {
+export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",

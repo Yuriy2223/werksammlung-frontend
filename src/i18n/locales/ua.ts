@@ -11,14 +11,18 @@ export const ua = {
       full: "Я Full-Stack",
       dev: "JavaScript розробник",
     },
+    projects: {
+      title: "Проєкти",
+      subtitle: "Ідеї, перетворені на код — створімо щось неймовірне разом",
+    },
+    footer: {
+      copyright: " Всі права захищені.",
+    },
     buttons: {
       login: "Увійти",
       lang: "Мова",
       theme: "Тема",
       wiewcv: "Резюме",
-    },
-    footer: {
-      copyright: " Всі права захищені.",
     },
   },
 };

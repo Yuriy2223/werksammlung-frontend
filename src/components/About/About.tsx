@@ -11,7 +11,7 @@ import {
   WrapperImg,
 } from "./About.styled";
 
-export const About = () => {
+export const About: React.FC = () => {
   const { t } = useTranslation();
   const imgUrl = imgUrl1;
   const fullName = "Yuriy Shukan";
