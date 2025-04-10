@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   BackFace,
   CardWrapper,
@@ -10,6 +10,7 @@ import {
   ProjectTechnologies,
   ProjectTitle,
   TechTag,
+  ProjectDte,
 } from "./ProjectCard.styled";
 
 import { Project } from "./Projects";
@@ -29,30 +30,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
 
   return (
     <CardWrapper onClick={handleClick}>
-      <CardInner isFlipped={isFlipped}>
+      <CardInner $isFlipped={isFlipped}>
         <FrontFace>
-          <ProjectImg src={project.img} alt={project.title} />
+          <ProjectImg src={project.imgUrl} alt={project.title} />
           <ProjectTitle>{project.title}</ProjectTitle>
           <ProjectTechnologies>
-            {project.technologies.map((tech, i: number) => (
-              <TechTag key={i}>{tech}</TechTag>
+            {project.technologies.map((tech: string, i: number) => (
+              <React.Fragment key={i}>
+                <TechTag>{tech}</TechTag>
+                {i < project.technologies.length - 1 && <span>,&nbsp;</span>}
+              </React.Fragment>
             ))}
           </ProjectTechnologies>
         </FrontFace>
         <BackFace>
           <div>
-            <ProjectTitle>{project.title}</ProjectTitle>
             <ProjectDescription>{project.description}</ProjectDescription>
           </div>
           <div>
             <ProjectRole>
-              <strong>Role:</strong> {project.role}
+              Role:<span>{project.role}</span>
             </ProjectRole>
-            <ProjectTechnologies>
-              {project.technologies.map((tech: string, i: number) => (
-                <TechTag key={i}>{tech}</TechTag>
-              ))}
-            </ProjectTechnologies>
+            <ProjectDte>{project.date}</ProjectDte>
           </div>
         </BackFace>
       </CardInner>

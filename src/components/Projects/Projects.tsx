@@ -13,11 +13,13 @@ import { projects } from "./Projects.const";
 
 export interface Project {
   title: string;
-  description: string;
   role: string;
-  category: string;
-  img: string;
+  imgUrl: string;
+  repUrl: string;
+  demoUrl: string;
+  description: string;
   technologies: string[];
+  date: string;
 }
 
 export const Projects: React.FC = () => {
