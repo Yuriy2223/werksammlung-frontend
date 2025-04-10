@@ -1,54 +1,10 @@
 import { useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Phone, MapPin, Globe } from "lucide-react";
-
-const float = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-`;
-
-const ContactSection = styled.section`
-  position: relative;
-  padding: 6rem 2rem;
-  background: linear-gradient(135deg, #e0f7fa, #ffffff);
-  overflow: hidden;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const FloatingBlob = styled.div<{ top: string; left: string }>`
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(0, 188, 212, 0.4), transparent 70%);
-  filter: blur(80px);
-  animation: ${float} 6s ease-in-out infinite;
-  top: ${(props) => props.top};
-  left: ${(props) => props.left};
-  z-index: 0;
-`;
-
-const TitleWrapper = styled(motion.div)`
-  margin-bottom: 3rem;
-  text-align: center;
-  z-index: 2;
-`;
-
-const Title = styled.h2`
-  font-size: 3rem;
-  font-weight: 800;
-  color: #212529;
-`;
-
-const Subtitle = styled.p`
-  font-size: 1.2rem;
-  color: #5c636a;
-  max-width: 600px;
-  margin: 0 auto;
-`;
+import { Title } from "../../shared/Title";
+import { SubTitle } from "../../shared/SubTitle";
+import { ContactSection } from "./Contact.styled";
 
 const ContactForm = styled(motion.form)`
   background: white;
@@ -186,7 +142,7 @@ const InfoBox = styled(motion.div)`
   }
 `;
 
-export const Contact = () => {
+export const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -210,20 +166,17 @@ export const Contact = () => {
 
   return (
     <ContactSection id="contact">
-      <FloatingBlob top="10%" left="5%" />
-      <FloatingBlob top="60%" left="80%" />
-
-      <TitleWrapper
+      <motion.div
         initial={{ opacity: 0, y: -40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: false, amount: 0.5 }}
       >
         <Title>Contact Me</Title>
-        <Subtitle>
-          Drop a message for collaboration, freelancing or just to say hi! ✌️
-        </Subtitle>
-      </TitleWrapper>
+        <SubTitle>
+          Drop a message for collaboration, freelancing or just to say hi!
+        </SubTitle>
+      </motion.div>
 
       <ContactForm
         onSubmit={handleSubmit}

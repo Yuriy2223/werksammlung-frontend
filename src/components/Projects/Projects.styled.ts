@@ -1,9 +1,15 @@
 import styled from "styled-components";
+import { Container } from "../../shared/Container";
+import { motion } from "framer-motion";
 
 export const ProjectsSection = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 800px;
-  border: 2px solid white;
+  background-color: ${({ theme }) => theme.bgBody};
+`;
+export const ProjectsContainer = styled(Container)`
+  padding: 40px 20px;
+`;
+export const ProjectsGrid = styled(motion.ul)`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 `;

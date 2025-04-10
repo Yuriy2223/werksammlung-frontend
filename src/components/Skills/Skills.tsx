@@ -1,4 +1,5 @@
 import { useAnimationControls } from "framer-motion";
+import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 import { SubTitle } from "../../shared/SubTitle";
 import { Title } from "../../shared/Title";
@@ -17,11 +18,11 @@ import {
   SkillsContainer,
   SkillsSections,
   WrapperTitle,
-  SkillLi,
+  // SkillLi,
   SkillLink,
 } from "./Skills.styled";
 
-export const Skills = () => {
+export const Skills: React.FC = () => {
   const cardControls = useAnimationControls();
   const listControls = useAnimationControls();
 
@@ -64,11 +65,11 @@ export const Skills = () => {
                 {skills.map(({ name, link }) => {
                   const Icon = iconMap[name] ?? CheckCircle;
                   return (
-                    <SkillLi key={name} variants={itemVariants}>
+                    <motion.li key={name} variants={itemVariants}>
                       <SkillLink to={link}>
                         <Icon /> {name}
                       </SkillLink>
-                    </SkillLi>
+                    </motion.li>
                   );
                 })}
               </SkillList>
