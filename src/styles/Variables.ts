@@ -12,19 +12,21 @@ export const Variables = css`
     --colorText: #2e2e36;
     --primary: #0f171f; // основний колір
     --secondary: #141c22; //допоміжний колір (другий за важливістю, доповнює primary)
-    --accent: #222831; // акцентний колір (для ховера)
+    --accent: #222831; // акцентний колір
     --tertiary: #fdfdfe; // колір для тіней (запасний)
-    --hover: #5bc305;
+    --hover: #5bc305; // (для ховера)
 
     /*  Theme dark */
-    --bgBody2: #171b22;
-    /* --colorText2: #fdfdfe; */
+    /* --bgBody2: #171b22; */
+    --bgBody2: #10161e;
     --colorText2: #00bcd4;
     --primary2: #11171e;
     --secondary2: #1b222a;
-    --accent2: #141a22;
-    --tertiary2: #181f26;
-    /* --hover2: #1951c5; */
+    /* --accent2: #141a22; */
+    --accent2: #1951c5;
+    --tertiary2: #141a22;
+    --tertiary2: #141a22;
+    --svg2: #00bfa5;
     --hover2: #007c91;
 
     /*  Theme grey */

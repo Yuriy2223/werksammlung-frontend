@@ -1,65 +1,94 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
+import { Container } from "../../shared/Container";
+import { Link } from "react-router-dom";
 
-export const SkillsSection = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 800px;
-  border: 2px solid white;
+export const SkillsSections = styled.section`
+  background-color: ${({ theme }) => theme.bgBody};
 `;
-
-export const Section = styled.section`
-  padding: 4rem 2rem;
-  background-color: #f9f9f9;
+export const SkillsContainer = styled(Container)`
+  padding: 40px 20px;
 `;
-
-export const Title = styled.h2`
-  font-size: 2.5rem;
+export const WrapperTitle = styled(motion.div)`
+  margin-bottom: 40px;
   text-align: center;
-  margin-bottom: 3rem;
-  color: #333;
 `;
-
 export const Categories = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 390px));
+  justify-content: space-between;
 `;
-
-export const Category = styled.div`
-  background: white;
-  border-radius: 1rem;
-  padding: 2rem;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+export const SkillsCard = styled(motion.div)`
+  border-radius: 12px;
+  padding: 20px 40px;
+  background-color: ${({ theme }) => theme.secondary};
+  border: 1px solid ${({ theme }) => theme.colorText};
+  box-shadow: 0 0 8px ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.colorText};
+  transition: all 300ms ease;
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-200px) scale(1.1);
+    box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
   }
 `;
-
 export const CategoryTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #007acc;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  border-bottom: 2px solid ${({ theme }) => theme.colorText};
+  padding-bottom: 8px;
+`;
+export const SkillList = styled(motion.ul)`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+export const SkillLi = styled(motion.li)`
+  /* display: flex;
+  align-items: center;
+ */
 `;
 
-export const Skill = styled.li`
-  list-style: none;
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
+export const SkillLink = styled(Link)`
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: ${({ theme }) => theme.colorText};
   position: relative;
-  padding-left: 1.2rem;
+  transition: all 300ms ease;
+
+  svg {
+    color: ${({ theme }) => theme.svg};
+    font-size: 16px;
+    transition: all 300ms ease;
+  }
 
   &::before {
-    content: "✔";
+    content: "";
     position: absolute;
+    bottom: -4px;
     left: 0;
-    color: #00b894;
+    width: 100%;
+    height: 2px;
+    background-color: ${({ theme }) => theme.colorText};
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 300ms ease, background-color 300ms ease;
   }
-`;
 
-export const SkillList = styled.ul`
-  padding: 0;
-  margin: 0;
+  &:hover,
+  &:active {
+    color: ${({ theme }) => theme.hover};
+
+    &::before {
+      transform: scaleX(1);
+      background-color: ${({ theme }) => theme.hover};
+    }
+
+    svg {
+      color: ${({ theme }) => theme.hover};
+    }
+  }
 `;

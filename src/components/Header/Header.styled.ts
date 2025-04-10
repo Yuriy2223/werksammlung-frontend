@@ -24,7 +24,7 @@ export const NavList = styled.nav`
     position: relative;
 
     &:hover {
-      color: ${({ theme }) => theme.hover};
+      /* color: ${({ theme }) => theme.hover}; */
       transform: scale(1.1);
     }
 
@@ -44,7 +44,7 @@ export const NavList = styled.nav`
     }
 
     &.active {
-      color: ${({ theme }) => theme.hover};
+      /* color: ${({ theme }) => theme.hover}; */
       font-weight: bold;
       border-bottom: 3px solid ${({ theme }) => theme.hover};
       animation: activeLink 0.8s ease-in-out forwards;
@@ -72,9 +72,8 @@ export const BtnLogin = styled(Button)`
   text-transform: uppercase;
 
   span {
-    margin-left: 4px;
-    color: ${({ theme }) => theme.hover};
-    font-size: 4px;
+    color: ${({ theme }) => theme.accent};
+    font-size: 1px;
   }
 `;
 export const UserActions = styled.div`
