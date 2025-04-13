@@ -23,9 +23,10 @@ const BtnWrapper = styled.button`
 `;
 
 interface ButtonProps {
+  type?: string;
+  className?: string;
   children: React.ReactNode;
   onClick?: () => void;
-  className?: string;
 }
 
 export const Button: React.FC<ButtonProps> = ({
