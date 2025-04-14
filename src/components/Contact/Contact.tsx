@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -29,7 +29,7 @@ export interface FormData {
 
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const {
     register,
@@ -39,10 +39,15 @@ export const Contact: React.FC = () => {
     clearErrors,
     trigger,
   } = useForm<FormData>({
-    // resolver: yupResolver(contactSchema),
     resolver: yupResolver(contactSchema(t)),
-    // mode: "onBlur",
   });
+
+  useEffect(() => {
+    const errorFields = Object.keys(errors) as (keyof FormData)[];
+    if (errorFields.length > 0) {
+      trigger(errorFields);
+    }
+  }, [i18n.language, errors, trigger]);
 
   const onSubmit = (data: FormData) => {
     console.log(data);
