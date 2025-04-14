@@ -37,7 +37,8 @@ export const CategoryTitle = styled.h3`
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 24px;
-  border-bottom: 2px solid ${({ theme }) => theme.colorText};
+  /* border-bottom: 2px solid ${({ theme }) => theme.colorText}; */
+  border-bottom: 2px solid ${({ theme }) => theme.svg};
   padding-bottom: 8px;
 `;
 export const SkillList = styled(motion.ul)`
