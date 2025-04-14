@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Send } from "lucide-react";
 import { Input } from "../../shared/Input";
 import { Textarea } from "../../shared/Textarea";
 import { Title } from "../../shared/Title";
@@ -100,7 +101,9 @@ export const Contact: React.FC = () => {
                 onValidate={() => trigger("message")}
                 error={errors.message?.message}
               />
-              <SubmitButton type="submit">Send Message</SubmitButton>
+              <SubmitButton type="submit">
+                {t("contact.form.button")} <Send size={18} />
+              </SubmitButton>
             </TextareaWrap>
           </InputWrapper>
 
@@ -112,7 +115,7 @@ export const Contact: React.FC = () => {
                 exit={{ opacity: 0, y: 100 }}
                 transition={{ duration: 0.5 }}
               >
-                ✅ Your message has been sent!
+                {t("contact.form.success")}
               </SuccessMessage>
             )}
           </AnimatePresence>

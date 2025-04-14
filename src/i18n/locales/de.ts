@@ -28,6 +28,8 @@ export const de = {
         name: "Name*",
         email: "E-Mail*",
         message: "Nachricht*",
+        button: "Nachricht senden",
+        success: "✅ Ihre Nachricht wurde gesendet!",
       },
     },
     footer: {

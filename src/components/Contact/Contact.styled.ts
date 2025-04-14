@@ -44,6 +44,11 @@ export const SubmitButton = styled(Button)`
   /* margin-top: 40px; */
   flex-shrink: 0; /** */
   margin: 40px auto 0;
+  gap: 14px;
+
+  svg {
+    color: ${({ theme }) => theme.svg};
+  }
 `;
 export const SuccessMessage = styled(motion.div)`
   width: 300px;
