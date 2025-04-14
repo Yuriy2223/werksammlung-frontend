@@ -22,7 +22,6 @@ export const UserActions = styled.div`
   align-items: center;
   gap: 14px;
 `;
-
 export const NavList = styled.nav`
   display: flex;
   align-items: center;
@@ -40,6 +39,7 @@ export const NavList = styled.nav`
       ${({ theme }) => theme.colorText},
       ${({ theme }) => theme.colorText}
     );
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: transform 0.3s ease, background 0.4s ease;
@@ -49,6 +49,7 @@ export const NavList = styled.nav`
       background: linear-gradient(90deg, #ff8a00, #e52e71, #9b00ff);
       background-size: 200%;
       animation: textFlow 2s linear infinite;
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -61,17 +62,18 @@ export const NavList = styled.nav`
       transform: translateX(-50%);
       width: 0;
       height: 2px;
-      background: transparent;
+      background-color: transparent;
       border-radius: 1px;
-      transition: width 0.4s ease, background 0.4s ease;
+      transition: width 0.4s ease, background-color 0.4s ease;
     }
 
     &.active {
       background: linear-gradient(90deg, #ff8a00, #e52e71, #9b00ff);
       background-size: 300%;
-      animation: textFlow 3s ease-in-out infinite;
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      animation: textFlow 3s ease-in-out infinite;
 
       &::after {
         width: 50%;
@@ -104,62 +106,3 @@ export const NavList = styled.nav`
     }
   }
 `;
-/*************************************** */
-// export const NavList = styled.nav`
-//   display: flex;
-//   align-items: center;
-//   justify-content: space-between;
-//   width: 420px;
-
-//   a {
-//     padding: 4px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-//     text-align: center;
-//     color: ${({ theme }) => theme.colorText};
-//     position: relative;
-
-//     &:hover {
-//       transform: scale(1.1);
-//     }
-
-//     &::after {
-//       content: "";
-//       position: absolute;
-//       bottom: 0;
-//       left: 0;
-//       width: 0;
-//       height: 3px;
-//       background-color: ${({ theme }) => theme.hover};
-//       transition: all 300ms ease;
-//     }
-
-//     &:hover::after {
-//       width: 100%;
-//     }
-
-//     &.active {
-//       color: ${({ theme }) => theme.colorText};
-//       font-weight: bold;
-//       border-bottom: 3px solid ${({ theme }) => theme.colorText};
-//       animation: activeLink 0.8s ease-in-out forwards;
-//     }
-//   }
-
-//   @keyframes activeLink {
-//     0% {
-//       transform: scale(1);
-//       color: ${({ theme }) => theme.colorText};
-//       border-bottom-width: 2px;
-//     }
-//     50% {
-//       transform: scale(1.2);
-//       border-bottom-width: 4px;
-//     }
-//     100% {
-//       transform: scale(1);
-//       border-bottom-width: 2px;
-//     }
-//   }
-// `;
