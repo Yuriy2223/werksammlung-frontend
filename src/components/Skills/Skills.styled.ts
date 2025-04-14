@@ -45,12 +45,6 @@ export const SkillList = styled(motion.ul)`
   flex-direction: column;
   gap: 10px;
 `;
-export const SkillLi = styled(motion.li)`
-  /* display: flex;
-  align-items: center;
- */
-`;
-
 export const SkillLink = styled(Link)`
   display: inline-flex;
   align-items: center;

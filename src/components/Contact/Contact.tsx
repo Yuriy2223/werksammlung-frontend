@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "../../shared/Input";
 import { Textarea } from "../../shared/Textarea";
@@ -28,6 +29,7 @@ export interface FormData {
 
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const { t } = useTranslation();
 
   const {
     register,
@@ -57,10 +59,8 @@ export const Contact: React.FC = () => {
           transition={{ duration: 0.7 }}
           viewport={{ once: false, amount: 0.5 }}
         >
-          <Title>Contact Me</Title>
-          <SubTitle>
-            Drop a message for collaboration, freelancing or just to say hi!
-          </SubTitle>
+          <Title>{t("contact.title")}</Title>
+          <SubTitle>{t("contact.subtitle")}</SubTitle>
         </motion.div>
 
         <ContactForm

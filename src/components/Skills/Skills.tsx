@@ -1,6 +1,7 @@
 import { useAnimationControls } from "framer-motion";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { SubTitle } from "../../shared/SubTitle";
 import { Title } from "../../shared/Title";
 import {
@@ -18,11 +19,11 @@ import {
   SkillsContainer,
   SkillsSections,
   WrapperTitle,
-  // SkillLi,
   SkillLink,
 } from "./Skills.styled";
 
 export const Skills: React.FC = () => {
+  const { t } = useTranslation();
   const cardControls = useAnimationControls();
   const listControls = useAnimationControls();
 
@@ -35,8 +36,8 @@ export const Skills: React.FC = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <Title>My Skills</Title>
-          <SubTitle>What I confidently work with on a daily basis</SubTitle>
+          <Title> {t("skills.title")}</Title>
+          <SubTitle>{t("skills.subtitle")}</SubTitle>
         </WrapperTitle>
 
         <Categories>
