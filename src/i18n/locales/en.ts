@@ -28,6 +28,8 @@ export const en = {
         name: "Name*",
         email: "Email*",
         message: "Message*",
+        button: "Send Message",
+        success: "✅ Your message has been sent!",
       },
     },
     footer: {
