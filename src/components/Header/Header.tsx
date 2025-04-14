@@ -106,7 +106,7 @@ export const Header: React.FC = () => {
         <BtnLogin>
           {t("buttons.login")}
           <span>
-            <LogIn />
+            <LogIn size={22} />
           </span>
         </BtnLogin>
       </UserActions>

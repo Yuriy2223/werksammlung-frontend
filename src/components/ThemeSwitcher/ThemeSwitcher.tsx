@@ -14,7 +14,9 @@ const themeOrder: ThemeType[] = ["light", "dark", "grey"];
 const SwitcherContainer = styled(Button)`
   span {
     font-size: 18px;
-    color: ${({ theme }) => theme.accent};
+    /* color: ${({ theme }) => theme.accent}; */
+    color: ${({ theme }) => theme.svg};
+    transform: translateY(2px);
   }
 `;
 
