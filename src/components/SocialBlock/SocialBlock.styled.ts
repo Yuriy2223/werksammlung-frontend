@@ -19,18 +19,15 @@ export const SocialLink = styled(motion.a)`
   border: 2px solid ${({ theme }) => theme.colorText};
   background-color: ${({ theme }) => theme.secondary};
 
-  /* svg {
+  svg {
     transition: all 0.3s ease;
-  } */
+    color: ${({ theme }) => theme.svg};
+  }
 
   &:hover,
   &:active {
     box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
     background-color: ${({ theme }) => theme.primary};
-
-    /* svg {
-      stroke: #ffffff;
-    } */
   }
 `;
 

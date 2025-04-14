@@ -52,4 +52,8 @@ export const AboutBtn = styled(Button)`
   width: 140px;
   height: 46px;
   box-shadow: 0 0 10px ${({ theme }) => theme.colorText};
+
+  svg {
+    color: ${({ theme }) => theme.svg};
+  }
 `;

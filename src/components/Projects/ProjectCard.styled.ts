@@ -55,7 +55,8 @@ export const ProjectTitle = styled.h3`
   text-align: center;
   margin: 20px 0;
   padding-bottom: 6px;
-  border-bottom: 2px solid ${({ theme }) => theme.colorText};
+  /* border-bottom: 2px solid ${({ theme }) => theme.colorText}; */
+  border-bottom: 2px solid ${({ theme }) => theme.svg};
 `;
 export const ProjectTechnologies = styled.div`
   display: flex;

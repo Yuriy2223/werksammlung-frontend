@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 import styled, { css } from "styled-components";
 
 const sharedStyles = css<{
@@ -48,6 +48,7 @@ const StyledLabel = styled.label<{
   transition: all 0.2s ease;
   pointer-events: none;
 `;
+
 const ErrorText = styled.div`
   position: absolute;
   bottom: -22px;
@@ -65,51 +66,72 @@ interface TextareaProps
   onValidate?: () => void;
 }
 
-export const Textarea: React.FC<TextareaProps> = ({
-  width = "100%",
-  label,
-  error,
-  value,
-  onChange,
-  onFocus,
-  onBlur,
-  onClearError,
-  onValidate,
-  ...rest
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [internalValue, setInternalValue] = useState("");
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
+  (
+    {
+      width = "100%",
+      label,
+      error,
+      onFocus,
+      onBlur,
+      onClearError,
+      onValidate,
+      onChange,
+      value,
+      defaultValue,
+      ...rest
+    },
+    ref
+  ) => {
+    const [isFocused, setIsFocused] = useState(false);
+    const [text, setText] = useState(
+      typeof value === "string"
+        ? value
+        : typeof defaultValue === "string"
+        ? defaultValue
+        : ""
+    );
+    const hasError = !!error;
 
-  const currentValue = value ?? internalValue;
-  const hasError = !!error;
-  const isFloating = isFocused || !!currentValue;
+    const isFloating = isFocused || text.length > 0;
 
-  return (
-    <InputWrapper width={width}>
-      <StyledTextarea
-        {...rest}
-        value={currentValue}
-        onChange={(e) => {
-          setInternalValue(e.target.value);
-          onChange?.(e);
-        }}
-        onFocus={(e) => {
-          setIsFocused(true);
-          onFocus?.(e);
-          onClearError?.();
-        }}
-        onBlur={(e) => {
-          setIsFocused(false);
-          onBlur?.(e);
-          onValidate?.();
-        }}
-        $isFocused={isFocused}
-        $hasError={hasError}
-      />
-      <StyledLabel $isFloating={isFloating} $hasError={hasError}>
-        {label}
-      </StyledLabel>
-      {hasError && <ErrorText>{error}</ErrorText>}
-    </InputWrapper>
-  );
-};
+    const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+      setIsFocused(true);
+      onFocus?.(e);
+      onClearError?.();
+    };
+
+    const handleBlur = (e: React.FocusEvent<HTMLTextAreaElement>) => {
+      setIsFocused(false);
+      onBlur?.(e);
+      onValidate?.();
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+      setText(e.target.value);
+      onChange?.(e);
+    };
+
+    return (
+      <InputWrapper width={width}>
+        <StyledTextarea
+          {...rest}
+          ref={ref}
+          value={value}
+          defaultValue={defaultValue}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          onChange={handleChange}
+          $isFocused={isFocused}
+          $hasError={hasError}
+        />
+        <StyledLabel $isFloating={isFloating} $hasError={hasError}>
+          {label}
+        </StyledLabel>
+        {hasError && <ErrorText>{error}</ErrorText>}
+      </InputWrapper>
+    );
+  }
+);
+
+// Textarea.displayName = "Textarea";

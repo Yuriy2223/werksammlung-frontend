@@ -46,8 +46,17 @@ export const SubmitButton = styled(Button)`
   margin: 40px auto 0;
 `;
 export const SuccessMessage = styled(motion.div)`
+  width: 300px;
+  height: 60px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 16px;
   color: #4caf50;
-  font-weight: 600;
-  font-size: 1.1rem;
+  background-color: ${({ theme }) => theme.secondary};
+  border: 1px solid ${({ theme }) => theme.svg};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  margin: 0 auto;
 `;

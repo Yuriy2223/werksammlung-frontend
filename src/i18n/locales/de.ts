@@ -35,5 +35,25 @@ export const de = {
       theme: "Thema",
       wiewcv: "CV ansehen",
     },
+    validation: {
+      name: {
+        tooShort: "Der Name ist zu kurz.",
+        invalid: "Der Name darf nur Buchstaben und Leerzeichen enthalten.",
+        required: "Der Name ist erforderlich.",
+      },
+      email: {
+        invalid: "Ungültige E-Mail-Adresse.",
+        tooLong: "E-Mail-Adresse ist zu lang.",
+        required: "E-Mail ist erforderlich.",
+      },
+      tel: {
+        invalid: "Telefonnummer darf nur Zahlen, +, - und () enthalten.",
+        length: "Telefonnummer muss zwischen 7 und 15 Ziffern enthalten.",
+      },
+      message: {
+        tooShort: "Die Nachricht muss mindestens 10 Zeichen lang sein.",
+        required: "Nachricht ist erforderlich.",
+      },
+    },
   },
 };
