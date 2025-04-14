@@ -23,6 +23,11 @@ const sharedStyles = css<{
     css`
       height: ${height};
     `}
+
+  &:hover {
+    border-color: ${({ $hasError, theme }) =>
+      $hasError ? "#ec1e1e" : theme.colorText};
+  }
 `;
 
 const InputWrapper = styled.div<{ width: string }>`

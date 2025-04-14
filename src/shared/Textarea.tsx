@@ -31,6 +31,11 @@ const StyledTextarea = styled.textarea<{
 }>`
   ${sharedStyles}
   resize: none;
+
+  &:hover {
+    border-color: ${({ $hasError, theme }) =>
+      $hasError ? "#ec1e1e" : theme.colorText};
+  }
 `;
 
 const StyledLabel = styled.label<{
