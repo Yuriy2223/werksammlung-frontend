@@ -76,28 +76,28 @@ export const Header: React.FC = () => {
           onClick={(e) => handleNavClick(e, "about")}
           className={activeSection === "about" ? "active" : ""}
         >
-          {t("nav.about")}
+          {t("header.about")}
         </a>
         <a
           href="#skills"
           onClick={(e) => handleNavClick(e, "skills")}
           className={activeSection === "skills" ? "active" : ""}
         >
-          {t("nav.skills")}
+          {t("header.skills")}
         </a>
         <a
           href="#projects"
           onClick={(e) => handleNavClick(e, "projects")}
           className={activeSection === "projects" ? "active" : ""}
         >
-          {t("nav.projects")}
+          {t("header.projects")}
         </a>
         <a
           href="#contact"
           onClick={(e) => handleNavClick(e, "contact")}
           className={activeSection === "contact" ? "active" : ""}
         >
-          {t("nav.contact")}
+          {t("header.contact")}
         </a>
       </NavList>
       <UserActions>
