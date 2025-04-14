@@ -24,6 +24,11 @@ export const de = {
       title: "Kontaktiere mich",
       subtitle:
         "Schreib mir für eine Zusammenarbeit, freiberufliche Projekte oder einfach nur, um Hallo zu sagen!",
+      form: {
+        name: "Name*",
+        email: "E-Mail*",
+        message: "Nachricht*",
+      },
     },
     footer: {
       copyright: " Alle Rechte vorbehalten.",
@@ -46,10 +51,10 @@ export const de = {
         tooLong: "E-Mail-Adresse ist zu lang.",
         required: "E-Mail ist erforderlich.",
       },
-      tel: {
-        invalid: "Telefonnummer darf nur Zahlen, +, - und () enthalten.",
-        length: "Telefonnummer muss zwischen 7 und 15 Ziffern enthalten.",
-      },
+      // tel: {
+      //   invalid: "Telefonnummer darf nur Zahlen, +, - und () enthalten.",
+      //   length: "Telefonnummer muss zwischen 7 und 15 Ziffern enthalten.",
+      // },
       message: {
         tooShort: "Die Nachricht muss mindestens 10 Zeichen lang sein.",
         required: "Nachricht ist erforderlich.",

@@ -7,7 +7,6 @@ import { Input } from "../../shared/Input";
 import { Textarea } from "../../shared/Textarea";
 import { Title } from "../../shared/Title";
 import { SubTitle } from "../../shared/SubTitle";
-// import { contactSchema } from "../../validation/validation";
 import {
   ContactContainer,
   ContactForm,
@@ -76,7 +75,8 @@ export const Contact: React.FC = () => {
             <InputGroup>
               <Input
                 {...register("name")}
-                label="Name*"
+                // label="Name*"
+                label={t("contact.form.name")}
                 width="100%"
                 onClearError={() => clearErrors("name")}
                 onValidate={() => trigger("name")}
@@ -84,7 +84,8 @@ export const Contact: React.FC = () => {
               />
               <Input
                 {...register("email")}
-                label="Email*"
+                // label="Email*"
+                label={t("contact.form.email")}
                 type="email"
                 width="100%"
                 onClearError={() => clearErrors("email")}
@@ -96,7 +97,8 @@ export const Contact: React.FC = () => {
             <TextareaWrap>
               <Textarea
                 {...register("message")}
-                label="Message*"
+                // label="Message*"
+                label={t("contact.form.message")}
                 onClearError={() => clearErrors("message")}
                 onValidate={() => trigger("message")}
                 error={errors.message?.message}
