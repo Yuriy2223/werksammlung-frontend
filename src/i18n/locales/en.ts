@@ -24,6 +24,11 @@ export const en = {
       title: "Contact Me",
       subtitle:
         "Drop a message for collaboration, freelancing or just to say hi!",
+      form: {
+        name: "Name*",
+        email: "Email*",
+        message: "Message*",
+      },
     },
     footer: {
       copyright: " All rights reserved.",
@@ -45,10 +50,10 @@ export const en = {
         tooLong: "Email is too long.",
         required: "Email is required.",
       },
-      tel: {
-        invalid: "Phone can only contain numbers, +, -, and ().",
-        length: "Phone number must contain between 7 and 15 digits.",
-      },
+      // tel: {
+      //   invalid: "Phone can only contain numbers, +, -, and ().",
+      //   length: "Phone number must contain between 7 and 15 digits.",
+      // },
       message: {
         tooShort: "Message should be at least 10 characters.",
         required: "Message is required.",

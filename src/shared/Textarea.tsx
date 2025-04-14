@@ -30,7 +30,7 @@ const StyledTextarea = styled.textarea<{
   $isFocused: boolean;
 }>`
   ${sharedStyles}
-  resize: vertical;
+  resize: none;
 `;
 
 const StyledLabel = styled.label<{
