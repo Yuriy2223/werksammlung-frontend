@@ -14,11 +14,9 @@ export const ContactForm = styled(motion.form)`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* border: 2px solid ${({ theme }) => theme.colorText}; */
 `;
 export const InputWrapper = styled.div`
   display: flex;
-  /* align-items: center; */
   height: 220px;
   gap: 30px;
 `;
@@ -31,18 +29,14 @@ export const InputGroup = styled.div`
 `;
 export const TextareaWrap = styled.div`
   flex: 1;
-  /* height: 220px; */
-  height: 224px; /** */
-  display: flex; /** */
-  flex-direction: column; /** */
-  /* justify-content: space-between; */
+  height: 224px;
+  display: flex;
+  flex-direction: column;
 `;
 export const SubmitButton = styled(Button)`
   width: 300px;
   height: 48px;
-  /* margin: 30px auto; */
-  /* margin-top: 40px; */
-  flex-shrink: 0; /** */
+  flex-shrink: 0;
   margin: 40px auto 0;
   gap: 14px;
 
