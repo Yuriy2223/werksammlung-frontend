@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState, forwardRef, useRef } from "react";
 import styled, { css } from "styled-components";
 
 const sharedStyles = css<{
@@ -72,28 +72,20 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       width = "100%",
       label,
       error,
+      onChange,
       onFocus,
       onBlur,
       onClearError,
       onValidate,
-      onChange,
-      value,
-      defaultValue,
       ...rest
     },
     ref
   ) => {
     const [isFocused, setIsFocused] = useState(false);
-    const [text, setText] = useState(
-      typeof value === "string"
-        ? value
-        : typeof defaultValue === "string"
-        ? defaultValue
-        : ""
-    );
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
     const hasError = !!error;
-
-    const isFloating = isFocused || text.length > 0;
+    const isFloating: boolean =
+      isFocused || !!textareaRef.current?.value.trim();
 
     const handleFocus = (e: React.FocusEvent<HTMLTextAreaElement>) => {
       setIsFocused(true);
@@ -107,23 +99,21 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       onValidate?.();
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      setText(e.target.value);
-      onChange?.(e);
-    };
-
     return (
       <InputWrapper width={width}>
         <StyledTextarea
           {...rest}
-          ref={ref}
-          value={value}
-          defaultValue={defaultValue}
+          ref={(node) => {
+            if (typeof ref === "function") ref(node);
+            else if (ref) ref.current = node;
+            textareaRef.current = node;
+          }}
+          onChange={onChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onChange={handleChange}
           $isFocused={isFocused}
           $hasError={hasError}
+          aria-invalid={hasError}
         />
         <StyledLabel $isFloating={isFloating} $hasError={hasError}>
           {label}
@@ -133,5 +123,3 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     );
   }
 );
-
-// Textarea.displayName = "Textarea";
