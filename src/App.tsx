@@ -1,17 +1,16 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
-// import { Navigate, Route, Routes } from "react-router-dom";
-// import { Layout } from "./components/Layout/Layout.tsx";
-// import HomePage from "./pages/HomePage/HomePage.tsx";
-// import UserPage from "./pages/UserPage/UserPage.tsx";
-// import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
-
-// import { Suspense } from "react";
+import { Layout } from "./components/Layout/Layout.tsx";
 import { Loader } from "./loader/Loader.tsx";
+import HomePage from "./pages/HomePage/HomePage.tsx";
+import UserPage from "./pages/UserPage/UserPage.tsx";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
 
 export const App = () => {
   return (
     <>
-      {/* <Suspense fallback={<Loader />}>
+      <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
@@ -20,8 +19,8 @@ export const App = () => {
             <Route path="*" element={<NotFoundPage />} />
           </Route>
         </Routes>
-      </Suspense> */}
-      <Loader />
+      </Suspense>
+
       <ToastContainer
         position="top-center"
         autoClose={2000}

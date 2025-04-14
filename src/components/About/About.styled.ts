@@ -3,7 +3,8 @@ import { Container } from "../../shared/Container";
 import { Button } from "../../shared/Button";
 
 export const AboutSection = styled.section`
-  background-color: ${({ theme }) => theme.tertiary};
+  /* background-color: ${({ theme }) => theme.tertiary}; */
+  background-color: ${({ theme }) => theme.bgBody};
   /* border: 1px solid red; */
 `;
 export const AboutContainer = styled(Container)`
