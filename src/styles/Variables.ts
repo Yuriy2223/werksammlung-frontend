@@ -28,6 +28,7 @@ export const Variables = css`
     --tertiary2: #141a22;
     --svg2: #00bfa5;
     --hover2: #007c91;
+    --gradient: conic-gradient(from 0deg, #ff007a, #1951c5, #00bcd4, #ff007a);
 
     /*  Theme grey */
     --bgBody3: #1f2836;
@@ -39,31 +40,3 @@ export const Variables = css`
     --hover3: #5ba221;
   }
 `;
-// бордер 242E39
-// &:hover {
-//   color: #008c9e;
-//   transform: translateY(-5px);
-// }
-//   --accent:rgb(80, 177, 0);
-//   --gray: #96ba74c7;
-//   --hover-color: #5bc305;
-//   --text-color: #2e2e36;
-//   --second-text-color: #c5e1a6;
-//   --border-color: #96be7e;
-//   --bg-first-color: #fbfbfb;
-//   --bg-second-color: #b2ef8079;
-//   --bg-body-color: #fbfbfb;
-//   --shadow-color: #535b50;
-//   --shadow-color-light: #0000000d;
-
-//   --accent-color: #72b63b;
-//   --gray-color: #677a9ec6;
-//   --hover-color: #5ba221;
-//   --text-color: #fafafa;
-//   --second-text-color: #4d5e79;
-//   --border-color: #476565;
-//   --bg-first-color: #3f4c61;
-//   --bg-second-color: #0b131b9c;
-//   --bg-body-color: #1f2836;
-//   --shadow-color: #eff1ef;
-//   --shadow-color-light: #ffffff0d;

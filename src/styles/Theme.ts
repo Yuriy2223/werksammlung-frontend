@@ -11,6 +11,7 @@ declare module "styled-components" {
     tertiary: string;
     hover: string;
     svg: string;
+    gradient: string;
   }
 }
 
@@ -25,6 +26,7 @@ export const lightTheme: DefaultTheme = {
   tertiary: "var(--tertiary)",
   hover: "var(--hover)",
   svg: "var(--svg)",
+  gradient: "var(--gradient)",
 };
 
 export const darkTheme: DefaultTheme = {
@@ -36,6 +38,7 @@ export const darkTheme: DefaultTheme = {
   tertiary: "var(--tertiary2)",
   hover: "var(--hover2)",
   svg: "var(--svg2)",
+  gradient: "var(--gradient)",
 };
 
 export const greyTheme: DefaultTheme = {
@@ -47,6 +50,7 @@ export const greyTheme: DefaultTheme = {
   tertiary: "var(--tertiary3)",
   hover: "var(--hover3)",
   svg: "var(--svg3)",
+  gradient: "var(--gradient)",
 };
 
 export const themes = {

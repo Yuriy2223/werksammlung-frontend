@@ -1,4 +1,3 @@
-// import styled from "styled-components";
 import styled, { keyframes } from "styled-components";
 
 export const OverlayModal = styled.div`
@@ -38,7 +37,7 @@ export const ModalContent = styled.div`
     left: -50%;
     width: 200%;
     height: 200%;
-    background: conic-gradient(from 0deg, #ff007a, #1951c5, #00bcd4, #ff007a);
+    background: ${({ theme }) => theme.gradient};
     animation: ${rotate} 4s linear infinite;
     z-index: -2;
   }
