@@ -12,7 +12,6 @@ export const OverlayModal = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 10;
 `;
-
 export const ModalContent = styled.div`
   position: relative;
   border-radius: 12px;
@@ -31,7 +30,6 @@ export const ModalContent = styled.div`
     width: 500px;
   }
 `;
-
 export const CloseButton = styled.button`
   position: absolute;
   top: 14px;
