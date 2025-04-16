@@ -15,6 +15,7 @@ export const Variables = css`
     --accent: #222831; // акцентний колір
     --tertiary: #fdfdfe; // колір для тіней (запасний)
     --hover: #5bc305; // (для ховера)
+    --gradient: conic-gradient(from 0deg, #ff007a, #1951c5, #00bcd4, #ff007a);
 
     /*  Theme dark */
     /* --bgBody2: #171b22; */
@@ -38,5 +39,6 @@ export const Variables = css`
     --accent3: #677a9ec6;
     --tertiary3: #fdfdfe;
     --hover3: #5ba221;
+    --gradient: conic-gradient(from 0deg, #ff007a, #1951c5, #00bcd4, #ff007a);
   }
 `;

@@ -4,16 +4,8 @@ import { Title } from "../../shared/Title";
 import { motion } from "framer-motion";
 
 export const ModalWrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  /* width: 100%;
-  height: 100%; */
   background-color: ${({ theme }) => theme.bgBody};
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
-  /* text-align: center; */
+  position: relative;
 `;
 export const ModalForm = styled.form`
   display: flex;
@@ -46,23 +38,22 @@ export const PasswordToggleButton = styled.button`
   color: ${({ theme }) => theme.svg};
 `;
 export const ModalMessage = styled(motion.div)`
-  /* position: absolute; */
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: #ff5f5f;
-  /* padding: 15px 25px; */
-  width: 280px;
-  height: 60px;
+  padding: 10px;
   border-radius: 12px;
   color: #fff;
-  font-weight: bold;
-  font-size: 16px;
-  z-index: 12;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background-color: #ff5f5f;
   text-align: center;
-  /* white-space: nowrap; */
+  width: calc(100vw - 40px);
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    max-width: 400px;
+  }
 `;

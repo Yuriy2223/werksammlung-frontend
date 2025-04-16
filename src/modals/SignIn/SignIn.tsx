@@ -73,7 +73,7 @@ export const ModalSignIn: React.FC = () => {
 
     setTimeout(() => {
       dispatch(closeModal());
-    }, 5000);
+    }, 3500);
   };
   // const onSubmit = async (data: FormData) => {
   //   try {
@@ -93,17 +93,6 @@ export const ModalSignIn: React.FC = () => {
   return (
     <ModalWrap onSubmit={handleSubmit(onSubmit)}>
       <ModalTitle>{t("modal.login.title")}</ModalTitle>
-
-      {showAdminMessage && (
-        <ModalMessage
-          initial={{ opacity: 0, y: -100 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 100 }}
-          transition={{ duration: 0.5 }}
-        >
-          {t("modal.login.message.no")}
-        </ModalMessage>
-      )}
 
       <ModalForm>
         <Input
@@ -134,6 +123,17 @@ export const ModalSignIn: React.FC = () => {
           <LogBtn type="submit">{t("modal.login.login")}</LogBtn>
         </BtnWrap>
       </ModalForm>
+
+      {showAdminMessage && (
+        <ModalMessage
+          initial={{ opacity: 0, transform: "translate(-50%, -150%)" }}
+          animate={{ opacity: 1, transform: "translate(-50%, -50%)" }}
+          exit={{ opacity: 0, transform: "translate(-50%, 50%)" }}
+          transition={{ duration: 0.6 }}
+        >
+          {t("modal.login.message.no")}
+        </ModalMessage>
+      )}
     </ModalWrap>
   );
 };
