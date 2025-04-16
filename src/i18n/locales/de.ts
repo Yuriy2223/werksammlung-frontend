@@ -64,5 +64,21 @@ export const de = {
         required: "Nachricht ist erforderlich.",
       },
     },
+    modal: {
+      login: {
+        title: "Adminbereich",
+        login: "Anmelden",
+        cancel: "Abbrechen",
+        message: {
+          no: "Zugang eingeschränkt: nur für Administratoren",
+          yes: "Hallo Admin",
+        },
+      },
+      form: {
+        name: "Name*",
+        email: "E-Mail*",
+        password: "Passwort*",
+      },
+    },
   },
 };
