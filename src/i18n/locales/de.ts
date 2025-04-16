@@ -53,10 +53,12 @@ export const de = {
         tooLong: "E-Mail-Adresse ist zu lang.",
         required: "E-Mail ist erforderlich.",
       },
-      // tel: {
-      //   invalid: "Telefonnummer darf nur Zahlen, +, - und () enthalten.",
-      //   length: "Telefonnummer muss zwischen 7 und 15 Ziffern enthalten.",
-      // },
+      password: {
+        invalid: "Ungültiges Passwort.",
+        tooShort: "Zu kurz.",
+        tooLong: "Zu lang.",
+        required: "Passwort erforderlich.",
+      },
       message: {
         tooShort: "Die Nachricht muss mindestens 10 Zeichen lang sein.",
         required: "Nachricht ist erforderlich.",

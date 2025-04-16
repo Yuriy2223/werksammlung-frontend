@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { LogIn } from "lucide-react";
+import { useAppDispatch } from "../../redux/store";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { Logo } from "../Logo/Logo";
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
@@ -10,8 +11,10 @@ import {
   NavList,
   UserActions,
 } from "./Header.styled";
+import { openModal } from "../../redux/modal/slice";
 
 export const Header: React.FC = () => {
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<string>("");
 
@@ -103,7 +106,10 @@ export const Header: React.FC = () => {
       <UserActions>
         <ThemeSwitcher />
         <LanguageSwitcher />
-        <BtnLogin>
+        <BtnLogin
+          type="button"
+          onClick={() => dispatch(openModal({ type: "ModalSignIn" }))}
+        >
           {t("buttons.login")}
           <span>
             <LogIn size={22} />

@@ -52,6 +52,3 @@ export default tseslint.config({
   },
 });
 ```
-
-    /* box-shadow: 0 0 20px #00bcd4; */
-    /* text-shadow: 2px 2px 6px rgba(0, 188, 212, 0.7); */

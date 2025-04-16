@@ -19,7 +19,7 @@ import {
   TextareaWrap,
 } from "./Contact.styled";
 import { SocialBlock } from "../SocialBlock/SocialBlock";
-import { contactSchema } from "../../i18n/contactSchema";
+import { contactSchema } from "../../validation/contactSchema";
 
 export interface FormData {
   name: string;

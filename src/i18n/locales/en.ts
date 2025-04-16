@@ -52,13 +52,24 @@ export const en = {
         tooLong: "Email is too long.",
         required: "Email is required.",
       },
-      // tel: {
-      //   invalid: "Phone can only contain numbers, +, -, and ().",
-      //   length: "Phone number must contain between 7 and 15 digits.",
-      // },
+      password: {
+        invalid: "Invalid password",
+        tooShort: "Password is too short.",
+        tooLong: "Password is too long.",
+        required: "Password is required.",
+      },
       message: {
         tooShort: "Message should be at least 10 characters.",
         required: "Message is required.",
+      },
+    },
+    modal: {
+      login: "Log In",
+      cancel: "Cancel",
+      form: {
+        name: "Name*",
+        email: "Email*",
+        password: "Password*",
       },
     },
   },
