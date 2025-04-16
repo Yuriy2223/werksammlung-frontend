@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import {
   containerVariants,
   itemVariants,
@@ -17,17 +17,23 @@ export const SocialBlock = () => {
       <SocialLink
         href="https://github.com"
         target="_blank"
-        // hovercolor="#181717"
         variants={itemVariants}
         whileHover="whileHover"
       >
         <Github size={20} />
       </SocialLink>
+      <SocialLink
+        href="https://github.com"
+        target="_blank"
+        variants={itemVariants}
+        whileHover="whileHover"
+      >
+        <Send size={20} />
+      </SocialLink>
 
       <SocialLink
         href="https://linkedin.com"
         target="_blank"
-        // hovercolor="#0077B5"
         variants={itemVariants}
         whileHover="whileHover"
       >
@@ -36,7 +42,6 @@ export const SocialBlock = () => {
 
       <SocialLink
         href="mailto:you@example.com"
-        // hovercolor="#EA4335"
         variants={itemVariants}
         whileHover="whileHover"
       >
@@ -46,7 +51,6 @@ export const SocialBlock = () => {
       <SocialLink
         href="https://www.google.com/maps/place/Запоріжжя"
         target="_blank"
-        // hovercolor="#34A853"
         variants={itemVariants}
         whileHover="whileHover"
       >
