@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
+import { ModalUniversal } from "../../modals/UniversalModal/UniversalModal";
 import {
   FooterWrapper,
   HeaderWrapper,
@@ -20,6 +21,7 @@ export const Layout = () => {
       <FooterWrapper>
         <Footer />
       </FooterWrapper>
+      <ModalUniversal />
     </LayoutWrapper>
   );
 };

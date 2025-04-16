@@ -15,7 +15,6 @@ const sharedStyles = css<{
   border-radius: 8px;
   outline: none;
   color: ${({ theme }) => theme.colorText};
-  background: ${({ theme }) => theme.bgBody};
   transition: border-color 0.3s;
 
   ${({ height }) =>
@@ -29,21 +28,26 @@ const sharedStyles = css<{
       $hasError ? "#ec1e1e" : theme.colorText};
   }
 `;
-
 const InputWrapper = styled.div<{ width: string }>`
   position: relative;
   width: ${({ width }) => width};
   margin-bottom: 36px;
 `;
-
 const StyledInput = styled.input<{
   height?: string;
   $hasError: boolean;
   $isFocused: boolean;
 }>`
   ${sharedStyles}
-`;
+  background: ${({ theme }) => theme.bgBody};
 
+  &:-webkit-autofill {
+    background-color: ${({ theme }) => theme.bgBody} !important;
+    box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
+    -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+`;
 const StyledLabel = styled.label<{
   $isFloating: boolean;
   $hasError: boolean;
@@ -59,7 +63,6 @@ const StyledLabel = styled.label<{
   transition: all 0.2s ease;
   pointer-events: none;
 `;
-
 const ErrorText = styled.div`
   position: absolute;
   bottom: -22px;
@@ -76,6 +79,7 @@ interface TextInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: string;
   onClearError?: () => void;
   onValidate?: () => void;
+  button?: React.ReactNode;
 }
 
 export const Input = forwardRef<HTMLInputElement, TextInputProps>(
@@ -86,6 +90,7 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
       height = "48px",
       label,
       error,
+      button,
       onChange,
       onFocus,
       onBlur,
@@ -112,15 +117,30 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
       onValidate?.();
     };
 
+    // const setRef = (node) => {
+    //   if (typeof ref === "function") ref(node);
+    //   else if (ref) ref.current = node;
+    //   inputRef.current = node;
+    // };
+    const setRef = (node: HTMLInputElement | null) => {
+      if (typeof ref === "function") {
+        ref(node);
+      } else if (ref) {
+        ref.current = node;
+      }
+      inputRef.current = node;
+    };
+
     return (
       <InputWrapper width={width}>
         <StyledInput
           {...rest}
-          ref={(node) => {
-            if (typeof ref === "function") ref(node);
-            else if (ref) ref.current = node;
-            inputRef.current = node;
-          }}
+          // ref={(node) => {
+          //   if (typeof ref === "function") ref(node);
+          //   else if (ref) ref.current = node;
+          //   inputRef.current = node;
+          // }}
+          ref={setRef}
           name={name}
           onChange={onChange}
           onFocus={handleFocus}
@@ -132,8 +152,35 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
         <StyledLabel $isFloating={isFloating} $hasError={hasError}>
           {label}
         </StyledLabel>
+        {button}
         {hasError && <ErrorText>{error}</ErrorText>}
       </InputWrapper>
     );
   }
 );
+/*************************************************************************** */
+/* ${autofillFix}; */
+/* &:-webkit-autofill {
+    background-color: ${({ theme }) => theme.bgBody} !important;
+    box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
+    -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
+    transition: background-color 5000s ease-in-out 0s;
+  } */
+
+// const autofillFix = css`
+//   &:-webkit-autofill {
+//     box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
+//     -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
+//     transition: background-color 5000s ease-in-out 0s;
+//   }
+
+//   &:-webkit-autofill:focus {
+//     box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
+//   }
+
+//   &:-internal-autofill-selected {
+//     /* для Safari */
+//     appearance: none !important;
+//     background-color: ${({ theme }) => theme.bgBody} !important;
+//   }
+// `;
