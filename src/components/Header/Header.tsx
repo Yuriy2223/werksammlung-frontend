@@ -1,21 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { LogIn } from "lucide-react";
-import { useAppDispatch } from "../../redux/store";
-import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+// import { useTranslation } from "react-i18next";
+// import { LogIn } from "lucide-react";
+// import { useAppDispatch } from "../../redux/store";
+// import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { Logo } from "../Logo/Logo";
-import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+// import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+// import { openModal } from "../../redux/modal/slice";
+import { Navigation } from "../Navigation/Navigation";
+import { UserActions } from "../UserActions/UserActions";
 import {
-  BtnLogin,
+  // BtnLogin,
   HeaderContainer,
-  NavList,
-  UserActions,
+  // NavList,
+  // UserActions,
 } from "./Header.styled";
-import { openModal } from "../../redux/modal/slice";
 
 export const Header: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const { t } = useTranslation();
+  // const dispatch = useAppDispatch();
+  // const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
@@ -73,7 +75,13 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo />
-      <NavList role="navigation" aria-label="Main navigation">
+      <Navigation activeSection={activeSection} onNavClick={handleNavClick} />
+      <UserActions />
+    </HeaderContainer>
+  );
+};
+{
+  /* <NavList role="navigation" aria-label="Main navigation">
         <a
           href="#about"
           onClick={(e) => handleNavClick(e, "about")}
@@ -102,20 +110,18 @@ export const Header: React.FC = () => {
         >
           {t("header.contact")}
         </a>
-      </NavList>
-      <UserActions>
-        <ThemeSwitcher />
-        <LanguageSwitcher />
-        <BtnLogin
-          type="button"
-          onClick={() => dispatch(openModal({ type: "ModalSignIn" }))}
-        >
-          {t("buttons.login")}
-          <span>
-            <LogIn size={22} />
-          </span>
-        </BtnLogin>
-      </UserActions>
-    </HeaderContainer>
-  );
-};
+      </NavList> */
+}
+// {/* <UserActions>
+//   <ThemeSwitcher />
+//   <LanguageSwitcher />
+//   <BtnLogin
+//     type="button"
+//     onClick={() => dispatch(openModal({ type: "ModalSignIn" }))}
+//   >
+//     {t("buttons.login")}
+//     <span>
+//       <LogIn size={22} />
+//     </span>
+//   </BtnLogin>
+// </UserActions>}
