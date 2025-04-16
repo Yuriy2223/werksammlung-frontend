@@ -64,8 +64,15 @@ export const en = {
       },
     },
     modal: {
-      login: "Log In",
-      cancel: "Cancel",
+      login: {
+        title: "Admin",
+        login: "Log In",
+        cancel: "Cancel",
+        message: {
+          no: "Access restricted: admin only",
+          yes: "Hello Admin",
+        },
+      },
       form: {
         name: "Name*",
         email: "Email*",
