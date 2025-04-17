@@ -1,22 +1,21 @@
 import React, { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import { LogIn } from "lucide-react";
-import { useAppDispatch } from "../../redux/store";
-import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
+import { Menu } from "lucide-react";
 import { Logo } from "../Logo/Logo";
-import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
+import { Navigation } from "../Navigation/Navigation";
+import { UserActions } from "../UserActions/UserActions";
+import { BurgerMenu } from "../BurgerMenu/BurgerMenu";
 import {
-  BtnLogin,
+  BurgerBtn,
+  DesktopActions,
+  DesktopNavigayion,
   HeaderContainer,
-  NavList,
-  UserActions,
 } from "./Header.styled";
-import { openModal } from "../../redux/modal/slice";
 
 export const Header: React.FC = () => {
-  const dispatch = useAppDispatch();
-  const { t } = useTranslation();
   const [activeSection, setActiveSection] = useState<string>("");
+  const [menuBurger, setMenuBurger] = useState(false);
+  const toggleMenu = () => setMenuBurger((prev) => !prev);
+  const closeMenu = () => setMenuBurger(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -73,49 +72,24 @@ export const Header: React.FC = () => {
   return (
     <HeaderContainer>
       <Logo />
-      <NavList role="navigation" aria-label="Main navigation">
-        <a
-          href="#about"
-          onClick={(e) => handleNavClick(e, "about")}
-          className={activeSection === "about" ? "active" : ""}
-        >
-          {t("header.about")}
-        </a>
-        <a
-          href="#skills"
-          onClick={(e) => handleNavClick(e, "skills")}
-          className={activeSection === "skills" ? "active" : ""}
-        >
-          {t("header.skills")}
-        </a>
-        <a
-          href="#projects"
-          onClick={(e) => handleNavClick(e, "projects")}
-          className={activeSection === "projects" ? "active" : ""}
-        >
-          {t("header.projects")}
-        </a>
-        <a
-          href="#contact"
-          onClick={(e) => handleNavClick(e, "contact")}
-          className={activeSection === "contact" ? "active" : ""}
-        >
-          {t("header.contact")}
-        </a>
-      </NavList>
-      <UserActions>
-        <ThemeSwitcher />
-        <LanguageSwitcher />
-        <BtnLogin
-          type="button"
-          onClick={() => dispatch(openModal({ type: "ModalSignIn" }))}
-        >
-          {t("buttons.login")}
-          <span>
-            <LogIn size={22} />
-          </span>
-        </BtnLogin>
-      </UserActions>
+      <DesktopNavigayion>
+        <Navigation activeSection={activeSection} onNavClick={handleNavClick} />
+      </DesktopNavigayion>
+      <DesktopActions>
+        <UserActions />
+      </DesktopActions>
+      <BurgerBtn onClick={toggleMenu} aria-label="Open menu">
+        <Menu size={30} />
+      </BurgerBtn>
+      <BurgerMenu
+        isOpen={menuBurger}
+        activeSection={activeSection}
+        onNavClick={(e, id) => {
+          handleNavClick(e, id);
+          setMenuBurger(false);
+        }}
+        closeMenu={closeMenu}
+      />
     </HeaderContainer>
   );
 };
