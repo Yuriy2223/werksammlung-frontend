@@ -102,7 +102,7 @@ export const categories = [
     ],
   },
   {
-    title: "Technologies & Utilities",
+    title: "Utilities",
     skills: [
       { name: "Git", link: "https://git-scm.com/doc" },
       { name: "Figma", link: "https://help.figma.com/hc/en-us" },
