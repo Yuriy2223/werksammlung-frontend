@@ -1,51 +1,12 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import { NotFoundContainer } from "./NotFoundPage.styled";
+import React, { useEffect, useRef } from "react";
+import {
+  Canvas,
+  NotFoundContainer,
+  Text,
+  ToNavLink,
+} from "./NotFoundPage.styled";
 
 const NotFoundPage: React.FC = () => {
-  return (
-    <NotFoundContainer>
-      <p>Ooops! This page not found :(</p>
-
-      <NavLink to="/">To home page</NavLink>
-    </NotFoundContainer>
-  );
-};
-
-export default NotFoundPage;
-
-/**************матриця************** */
-import { useEffect, useRef } from "react";
-import styled from "styled-components";
-
-const LoaderWrapper = styled.div`
-  background: black;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  /* color: #00ff41; */
-  color: #00f0ffcc;
-  font-family: monospace;
-  overflow: hidden;
-  position: relative;
-`;
-
-const Canvas = styled.canvas`
-  position: absolute;
-  top: 0;
-  left: 0;
-`;
-
-const Text = styled.div`
-  z-index: 1;
-  font-size: 1.5rem;
-  margin-top: 20px;
-`;
-
-export const Loader = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -78,9 +39,13 @@ export const Loader = () => {
   }, []);
 
   return (
-    <LoaderWrapper>
+    <NotFoundContainer>
       <Canvas ref={canvasRef} />
-      <Text>Ups... 404</Text>
-    </LoaderWrapper>
+      <Text>Ooops! This page not found :(</Text>
+
+      <ToNavLink to="/">To home page</ToNavLink>
+    </NotFoundContainer>
   );
 };
+
+export default NotFoundPage;
