@@ -15,7 +15,7 @@ export const LogoContainer = styled(NavLink)`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 162px;
+    width: 164px;
     transition: all 300ms ease;
 
     &:hover {
