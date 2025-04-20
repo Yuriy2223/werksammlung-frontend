@@ -11,18 +11,18 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import { authReducer, AuthState } from "./auth/slice";
+// import { authReducer, AuthState } from "./auth/slice";
 // import { userReducer } from "./user/slice";
 // import { noticesReducer } from "./notices/slice";
 import { themeReducer } from "./theme/slice";
 import { modalReducer } from "./modal/slice";
 import { languageReducer } from "./language/slice";
 
-const authPersistConfig = {
-  key: "auth",
-  storage,
-  whitelist: ["token"],
-};
+// const authPersistConfig = {
+//   key: "auth",
+//   storage,
+//   whitelist: ["token"],
+// };
 
 const themePersistConfig = {
   key: "theme",
@@ -34,10 +34,10 @@ const languagePersistConfig = {
   storage,
 };
 
-const persistedAuthReducer = persistReducer<AuthState>(
-  authPersistConfig,
-  authReducer
-);
+// const persistedAuthReducer = persistReducer<AuthState>(
+//   authPersistConfig,
+//   authReducer
+// );
 const persistedThemeReducer = persistReducer(themePersistConfig, themeReducer);
 const persistedLanguageReducer = persistReducer(
   languagePersistConfig,
@@ -46,7 +46,7 @@ const persistedLanguageReducer = persistReducer(
 
 export const store = configureStore({
   reducer: {
-    auth: persistedAuthReducer,
+    // auth: persistedAuthReducer,
     // user: userReducer,
     // notices: noticesReducer,
     modal: modalReducer,
