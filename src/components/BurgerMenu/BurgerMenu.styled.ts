@@ -28,6 +28,12 @@ export const BurgerMenuContainer = styled.div<{ $isOpen: boolean }>`
   box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
   transition: right 700ms ease;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 40px 40px;
+
   @media (min-width: 1280px) {
     display: none;
   }

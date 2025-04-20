@@ -4,7 +4,13 @@ import { Button } from "../../shared/Button";
 export const UserActionsWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    gap: 14px;
+  }
 `;
 export const BtnLogin = styled(Button)`
   text-transform: uppercase;

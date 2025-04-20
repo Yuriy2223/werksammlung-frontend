@@ -6,6 +6,7 @@ export const HeaderContainer = styled(Container)`
   align-items: center;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.secondary};
+  /* box-shadow: 0 0 20px ${({ theme }) => theme.colorText}; */
 `;
 export const DesktopNavigayion = styled.div`
   display: none;

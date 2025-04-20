@@ -3,28 +3,42 @@ import { Container } from "../../shared/Container";
 import { Button } from "../../shared/Button";
 
 export const AboutSection = styled.section`
-  /* background-color: ${({ theme }) => theme.tertiary}; */
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.tertiary};
+  /* background-color: ${({ theme }) => theme.bgBody}; */
   /* border: 1px solid red; */
 `;
 export const AboutContainer = styled(Container)`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px;
 
-  /* border: 1px solid red; */
-`;
+  gap: 40px;
 
+  border: 1px solid red; /** */
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+    padding: 40px;
+  }
+`;
 export const WrapperImg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
 
+  border: 1px solid red; /** */
+
   img {
     flex-shrink: 0;
-    width: 400px;
-    height: 400px;
+    width: 290px;
+    height: 290px;
+
+    @media (min-width: 768px) {
+      width: 400px;
+      height: 400px;
+    }
   }
 `;
 export const WrapperContext = styled.div`
@@ -32,8 +46,8 @@ export const WrapperContext = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border: 1px solid red; /** */
 `;
-
 export const Context = styled.div`
   line-height: 1.4;
   font-size: 36px;

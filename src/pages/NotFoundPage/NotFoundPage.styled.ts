@@ -32,5 +32,6 @@ export const ToNavLink = styled(NavLink)`
   &:hover,
   &:active {
     box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
+    background-color: ${({ theme }) => theme.bgBody};
   }
 `;
