@@ -16,7 +16,7 @@ export const AboutContainer = styled(Container)`
 
   gap: 40px;
 
-  border: 1px solid red; /** */
+  /* border: 1px solid red; */
 
   @media (min-width: 1280px) {
     flex-direction: row;
@@ -28,7 +28,7 @@ export const WrapperImg = styled.div`
   align-items: center;
   justify-content: center;
 
-  border: 1px solid red; /** */
+  /* border: 1px solid red;  */
 
   img {
     flex-shrink: 0;
@@ -46,7 +46,8 @@ export const WrapperContext = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 1px solid red; /** */
+
+  /* border: 1px solid red;  */
 `;
 export const Context = styled.div`
   line-height: 1.4;

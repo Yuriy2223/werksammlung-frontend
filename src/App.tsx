@@ -1,11 +1,15 @@
+import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { Suspense } from "react";
 import { ToastContainer } from "react-toastify";
 import { Layout } from "./components/Layout/Layout.tsx";
 import { Loader } from "./loader/Loader.tsx";
 import HomePage from "./pages/HomePage/HomePage.tsx";
-import UserPage from "./pages/UserPage/UserPage.tsx";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
+// import UserPage from "./pages/UserPage/UserPage.tsx";
+// import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
+const UserPage = lazy(() => import("./pages/UserPage/UserPage.tsx"));
+const NotFoundPage = lazy(
+  () => import("./pages/NotFoundPage/NotFoundPage.tsx")
+);
 
 export const App = () => {
   return (
