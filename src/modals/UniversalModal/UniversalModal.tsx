@@ -4,9 +4,9 @@ import { closeModal } from "../../redux/modal/slice";
 import { useAppDispatch } from "../../redux/store";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ModalSingUp } from "../SignUp/SignUp";
+// import { ModalSingUp } from "../SignUp/SignUp";
 import { ModalSignIn } from "../SignIn/SignIn";
-import { ModalSignOut } from "../SignOut/SignOut";
+// import { ModalSignOut } from "../SignOut/SignOut";
 import {
   selectIsModalOpen,
   selectModalProps,
@@ -45,12 +45,12 @@ export const ModalUniversal: React.FC = () => {
 
   const renderModalContent = () => {
     switch (modalType) {
-      case "ModalSingUp":
-        return <ModalSingUp {...modalProps} />;
+      // case "ModalSingUp":
+      //   return <ModalSingUp {...modalProps} />;
       case "ModalSignIn":
         return <ModalSignIn {...modalProps} />;
-      case "ModalSignOut":
-        return <ModalSignOut {...modalProps} />;
+      // case "ModalSignOut":
+      //   return <ModalSignOut {...modalProps} />;
       default:
         return null;
     }
