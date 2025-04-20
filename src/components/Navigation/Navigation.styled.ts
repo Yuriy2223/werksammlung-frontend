@@ -2,9 +2,21 @@ import styled from "styled-components";
 
 export const NavList = styled.nav`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 420px;
+
+  width: 200px;
+  height: 260px;
+
+  @media (min-width: 1280px) {
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+    flex-direction: row;
+    width: 420px;
+    height: auto;
+  }
 
   a {
     position: relative;
@@ -82,5 +94,8 @@ export const NavList = styled.nav`
     100% {
       width: 100%;
     }
+  }
+
+  @media (min-width: 1280px) {
   }
 `;
