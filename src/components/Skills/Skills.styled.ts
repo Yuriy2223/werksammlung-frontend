@@ -17,11 +17,7 @@ export const Categories = styled.div`
   display: grid;
   /* grid-template-columns: repeat(auto-fit, minmax(250px, 390px)); */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* justify-content: space-between; */
   gap: 24px;
-  /* align-items: center;
-  justify-content: center;
-  place-content: center; */
 `;
 export const SkillsCard = styled(motion.div)`
   border-radius: 12px;
