@@ -73,6 +73,15 @@ export const en = {
           yes: "Hello Admin",
         },
       },
+      logout: {
+        title: "Admin, are you leaving already?",
+        logbtn: "Yes",
+        cancel: "Cancel",
+        message: {
+          error: "Logout error occurred",
+          success: "Logged out successfully",
+        },
+      },
       form: {
         name: "Name*",
         email: "Email*",

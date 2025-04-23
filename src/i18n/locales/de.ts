@@ -74,6 +74,15 @@ export const de = {
           yes: "Hallo Admin",
         },
       },
+      logout: {
+        title: "Admin, gehst du schon?",
+        logbtn: "Ja",
+        cancel: "Abbrechen",
+        message: {
+          error: "Abmeldefehler aufgetreten",
+          success: "Erfolgreich abgemeldet",
+        },
+      },
       form: {
         name: "Name*",
         email: "E-Mail*",

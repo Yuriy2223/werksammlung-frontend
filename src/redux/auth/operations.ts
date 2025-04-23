@@ -84,7 +84,7 @@
 
 // // Logout
 // export const logoutUser = createAsyncThunk<void, void, { rejectValue: string }>(
-//   'auth/logOut',
+//   "auth/logOut",
 //   async (_, { dispatch, rejectWithValue }) => {
 //     try {
 //       await logoutApi();
@@ -94,7 +94,7 @@
 //       const message =
 //         error instanceof Error
 //           ? error.message
-//           : 'Logout failed. Please try again.';
+//           : "Logout failed. Please try again.";
 //       return rejectWithValue(message);
 //     }
 //   }
