@@ -66,9 +66,7 @@ export const ModalSignOut: React.FC = () => {
           animate={{ opacity: 1, transform: "translate(-50%, -50%)" }}
           exit={{ opacity: 0, transform: "translate(-50%, 50%)" }}
           transition={{ duration: 0.6 }}
-        >
-          {/* {t("modal.logout.message.no")} */}
-        </ModalMessage>
+        ></ModalMessage>
       )}
     </ModalWrap>
   );
