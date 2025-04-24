@@ -5,8 +5,12 @@ export const HeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.secondary};
-  /* box-shadow: 0 0 20px ${({ theme }) => theme.colorText}; */
+  padding: 20px;
+
+  border: 1px solid red; /** */
+
+  @media (min-width: 1280px) {
+  }
 `;
 export const DesktopNavigayion = styled.div`
   display: none;
@@ -31,7 +35,6 @@ export const BurgerBtn = styled.button`
   color: ${({ theme }) => theme.colorText};
 
   svg {
-    /* color: ${({ theme }) => theme.colorText}; */
     transition: all 300ms ease;
   }
 

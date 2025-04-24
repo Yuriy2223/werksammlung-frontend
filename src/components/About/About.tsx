@@ -6,10 +6,14 @@ import {
   AboutBtn,
   AboutContainer,
   AboutSection,
-  Context,
+  ContextInner,
+  AboutWrapBottom,
   WrapperContext,
   WrapperImg,
+  AboutWrapTop,
+  ToContact,
 } from "./About.styled";
+import { SocialContact } from "../SocialBlock/SocialBlock";
 
 export const About: React.FC = () => {
   const { t } = useTranslation();
@@ -26,42 +30,56 @@ export const About: React.FC = () => {
   return (
     <AboutSection id="about">
       <AboutContainer>
-        <motion.div
-          initial={{ opacity: 0, x: -300 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: false }}
-          style={{ flex: 1 }}
-        >
-          <WrapperImg>
-            <img
-              width="400px"
-              height="400px"
-              src={imgUrl}
-              alt={`${fullName} portrait`}
-            />
-          </WrapperImg>
-        </motion.div>
+        <AboutWrapTop>
+          <motion.div
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false }}
+            style={{ flex: 1 }}
+          >
+            <WrapperImg>
+              <img
+                width="400px"
+                height="400px"
+                src={imgUrl}
+                alt={`${fullName} portrait`}
+              />
+            </WrapperImg>
+          </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 300 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: false }}
-          style={{ flex: 1 }}
-        >
-          <WrapperContext>
-            <Context>
-              <p>{t("about.hi")}</p>
-              <h1>{fullName}.</h1>
-              <p>{t("about.full")}</p>
-              <p>{t("about.dev")}</p>
-              <AboutBtn onClick={handleOpenCV}>
-                <FileText size={20} /> {t("buttons.wiewcv")}
-              </AboutBtn>
-            </Context>
-          </WrapperContext>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false }}
+            style={{ flex: 1 }}
+          >
+            <WrapperContext>
+              <ContextInner>
+                <p>{t("about.hi")}</p>
+                <h1>{fullName}.</h1>
+                <p>{t("about.full")}</p>
+                <p>{t("about.dev")}</p>
+                <ToContact>
+                  <AboutBtn onClick={handleOpenCV}>
+                    <FileText size={20} /> {t("buttons.wiewcv")}
+                  </AboutBtn>
+                  <SocialContact />
+                </ToContact>
+              </ContextInner>
+            </WrapperContext>
+          </motion.div>
+        </AboutWrapTop>
+        <AboutWrapBottom>
+          <p>
+            <span>With</span> a passion for continuous learning and growth, I am
+            committed to taking on new challenges with enthusiasm. I take a
+            responsible approach to time management and understand the
+            importance of deadlines. I approach challenges with curiosity and
+            see every experience as an opportunity for self-improvement.
+          </p>
+        </AboutWrapBottom>
       </AboutContainer>
     </AboutSection>
   );

@@ -19,6 +19,10 @@ const StyledContainer = styled.div`
   @media (min-width: 768px) and (max-width: 1279px) {
     max-width: 768px;
   }
+
+  @media (min-width: 1280px) {
+    padding: 40px 20px;
+  }
 `;
 
 interface ContainerProps {
