@@ -10,6 +10,9 @@ export const en = {
       hi: "Hi, I’m",
       full: "I’m a Full-Stack",
       dev: "JavaScript Developer",
+      span: "I",
+      message:
+        "like to build things that work well and look good. I care about clean code, clear logic, and staying curious. Deadlines matter, but so does doing things right. I find joy in connecting the dots — turning both front-end flair and back-end logic into something meaningful and seamless. So, pour the coffee — and let the magic begin.",
     },
     skills: {
       title: "My Skills",

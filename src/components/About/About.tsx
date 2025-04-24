@@ -73,11 +73,7 @@ export const About: React.FC = () => {
         </AboutWrapTop>
         <AboutWrapBottom>
           <p>
-            <span>With</span> a passion for continuous learning and growth, I am
-            committed to taking on new challenges with enthusiasm. I take a
-            responsible approach to time management and understand the
-            importance of deadlines. I approach challenges with curiosity and
-            see every experience as an opportunity for self-improvement.
+            <span>{t("about.span")}</span> {t("about.message")}
           </p>
         </AboutWrapBottom>
       </AboutContainer>
