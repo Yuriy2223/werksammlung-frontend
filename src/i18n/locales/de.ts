@@ -10,6 +10,9 @@ export const de = {
       hi: "Hallo, ich bin",
       full: "Ich bin ein Full-Stack",
       dev: "JavaScript Entwickler",
+      span: "Ich",
+      message:
+        "baue gerne Dinge, die gut funktionieren und gut aussehen. Ich lege Wert auf sauberen Code, klare Logik und bleibe stets neugierig. Deadlines sind wichtig, aber es geht auch darum, die Dinge richtig zu machen. Ich finde Freude daran, die Puzzleteile zusammenzusetzen — sowohl im Front-End als auch im Back-End, um etwas Bedeutungsvolles und Nahtloses zu schaffen. Also, gieße den Kaffee ein — und lass die Magie beginnen.",
     },
     skills: {
       title: "Meine Fähigkeiten",

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, Send, Sparkles } from "lucide-react";
 import {
   containerVariants,
   itemVariants,
@@ -78,6 +78,14 @@ export const SocialContact = () => {
       </SocialLink>
 
       <SocialLink
+        href="mailto:you@example.com"
+        variants={itemVariants}
+        whileHover="whileHover"
+      >
+        <Mail size={20} />
+      </SocialLink>
+
+      <SocialLink
         href="https://linkedin.com"
         target="_blank"
         variants={itemVariants}
@@ -87,11 +95,12 @@ export const SocialContact = () => {
       </SocialLink>
 
       <SocialLink
-        href="mailto:you@example.com"
+        href="https://djinni.co/your-profile-url"
+        target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
       >
-        <Mail size={20} />
+        <Sparkles size={20} />
       </SocialLink>
     </SocialLinks>
   );

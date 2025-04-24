@@ -4,7 +4,6 @@ import { Button } from "../../shared/Button";
 
 export const AboutSection = styled.section`
   background-color: ${({ theme }) => theme.tertiary};
-  /* background-color: ${({ theme }) => theme.bgBody}; */
 `;
 export const AboutContainer = styled(Container)`
   display: flex;
