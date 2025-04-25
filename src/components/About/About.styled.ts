@@ -10,6 +10,12 @@ export const AboutContainer = styled(Container)`
   flex-direction: column;
 
   border: 1px solid red; /** */
+
+  padding: 50px 20px 40px;
+
+  @media (min-width: 1280px) {
+    padding: 40px 20px;
+  }
 `;
 export const AboutWrapTop = styled.div`
   display: flex;
@@ -79,8 +85,13 @@ export const ContextInner = styled.div`
 export const ToContact = styled.div`
   display: flex;
   align-items: center;
+  flex-direction: column;
   padding: 40px 0;
   gap: 40px;
+
+  @media (min-width: 1280px) {
+    flex-direction: row;
+  }
 `;
 export const AboutBtn = styled(Button)`
   width: 140px;
