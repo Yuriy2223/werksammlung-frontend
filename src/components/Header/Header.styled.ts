@@ -5,10 +5,19 @@ export const HeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   padding: 20px;
 
   border: 1px solid red; /** */
 
+  @media (max-width: 374px) {
+    max-width: 374px;
+    margin: 0;
+  }
+  @media (min-width: 375px) and (max-width: 767px) {
+  }
+  @media (min-width: 768px) {
+  }
   @media (min-width: 1280px) {
   }
 `;
