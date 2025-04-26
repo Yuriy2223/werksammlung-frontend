@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -26,7 +26,7 @@ export interface FormData {
   password: string;
 }
 
-export const ModalSignIn: React.FC = () => {
+export const ModalSignIn = () => {
   const dispatch = useAppDispatch();
   const modalType = useSelector(selectModalType);
   const { t, i18n } = useTranslation();

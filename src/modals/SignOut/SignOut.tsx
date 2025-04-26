@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "../../redux/store";
@@ -18,7 +18,7 @@ import {
 // import { logoutUser } from "../../redux/auth/operations";
 /************************* */
 
-export const ModalSignOut: React.FC = () => {
+export const ModalSignOut = () => {
   const dispatch = useAppDispatch();
   const modalType = useSelector(selectModalType);
   const { t } = useTranslation();

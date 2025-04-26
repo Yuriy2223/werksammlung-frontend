@@ -8,9 +8,6 @@ export const AboutSection = styled.section`
 export const AboutContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-
-  border: 1px solid red; /** */
-
   padding: 50px 20px 40px;
 
   @media (min-width: 1280px) {
@@ -24,8 +21,6 @@ export const AboutWrapTop = styled.div`
   align-items: center;
   gap: 40px;
 
-  border: 1px solid red; /** */
-
   @media (min-width: 1280px) {
     flex-direction: row;
   }
@@ -36,8 +31,6 @@ export const AboutWrapBottom = styled.div`
   padding: 40px 40px 0;
   gap: 40px;
 
-  border: 1px solid red; /** */
-
   span {
     margin-left: 30px;
   }
@@ -46,8 +39,6 @@ export const WrapperImg = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border: 1px solid red; /** */
 
   img {
     flex-shrink: 0;
@@ -65,21 +56,33 @@ export const WrapperContext = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  border: 1px solid red; /** */
 `;
 export const ContextInner = styled.div`
   line-height: 1.4;
   font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   p {
+    text-align: center;
     font-weight: 600;
     text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
   }
 
   h1 {
+    text-align: center;
     font-weight: 700;
     text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
+  }
+
+  @media (min-width: 768px) {
+    align-items: start;
+
+    h1,
+    p {
+      text-align: start;
+    }
   }
 `;
 export const ToContact = styled.div`

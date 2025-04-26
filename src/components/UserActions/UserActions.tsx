@@ -1,4 +1,3 @@
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { LogIn } from "lucide-react";
 import { useAppDispatch } from "../../redux/store";
@@ -7,7 +6,7 @@ import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { BtnLogin, UserActionsWrapper } from "./UserActions.styled";
 
-export const UserActions: React.FC = () => {
+export const UserActions = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 

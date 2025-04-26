@@ -1,7 +1,6 @@
-import React from "react";
 import { Dot, LoaderWrapper, Ring, Title } from "./Loader.styled";
 
-export const Loader: React.FC = () => (
+export const Loader = () => (
   <LoaderWrapper>
     <Ring size={105} color="#00f0ff" duration={2.6} />
 

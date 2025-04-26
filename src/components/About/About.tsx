@@ -58,7 +58,7 @@ export const About: React.FC = () => {
             <WrapperContext>
               <ContextInner>
                 <p>{t("about.hi")}</p>
-                <h1>{fullName}.</h1>
+                <h1>{fullName}</h1>
                 <p>{t("about.full")}</p>
                 <p>{t("about.dev")}</p>
                 <ToContact>

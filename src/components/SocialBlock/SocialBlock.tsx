@@ -48,14 +48,14 @@ export const SocialBlock = () => {
         <Mail size={20} />
       </SocialLink>
 
-      <SocialLink
+      {/* <SocialLink
         href="https://www.google.com/maps/place/Запоріжжя"
         target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
       >
         <MapPin size={20} />
-      </SocialLink>
+      </SocialLink> */}
     </SocialLinks>
   );
 };

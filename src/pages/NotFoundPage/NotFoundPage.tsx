@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import {
   Canvas,
   NotFoundContainer,
@@ -6,7 +6,7 @@ import {
   ToNavLink,
 } from "./NotFoundPage.styled";
 
-const NotFoundPage: React.FC = () => {
+const NotFoundPage = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {

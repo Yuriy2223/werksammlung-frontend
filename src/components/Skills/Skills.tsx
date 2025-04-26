@@ -22,7 +22,7 @@ import {
   SkillLink,
 } from "./Skills.styled";
 
-export const Skills: React.FC = () => {
+export const Skills = () => {
   const { t } = useTranslation();
   const cardControls = useAnimationControls();
   const listControls = useAnimationControls();
