@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { Sun, Moon, CloudFog } from "lucide-react";
@@ -19,7 +18,7 @@ const SwitcherContainer = styled(Button)`
   }
 `;
 
-export const ThemeSwitcher: React.FC = () => {
+export const ThemeSwitcher = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const theme = useSelector(selectTheme);

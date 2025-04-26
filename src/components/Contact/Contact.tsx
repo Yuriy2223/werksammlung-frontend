@@ -27,7 +27,7 @@ export interface FormData {
   message: string;
 }
 
-export const Contact: React.FC = () => {
+export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
 

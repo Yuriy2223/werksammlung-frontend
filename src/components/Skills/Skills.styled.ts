@@ -15,9 +15,12 @@ export const WrapperTitle = styled(motion.div)`
 `;
 export const Categories = styled.div`
   display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(250px, 390px)); */
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+
+  @media (max-width: 374px) {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
 `;
 export const SkillsCard = styled(motion.div)`
   border-radius: 12px;
@@ -38,7 +41,6 @@ export const CategoryTitle = styled.h3`
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 24px;
-  /* border-bottom: 2px solid ${({ theme }) => theme.colorText}; */
   border-bottom: 2px solid ${({ theme }) => theme.svg};
   padding-bottom: 8px;
 `;

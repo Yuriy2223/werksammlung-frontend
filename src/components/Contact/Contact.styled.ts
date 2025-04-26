@@ -17,8 +17,13 @@ export const ContactForm = styled(motion.form)`
 `;
 export const InputWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   height: 220px;
   gap: 30px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 export const InputGroup = styled.div`
   flex: 1;

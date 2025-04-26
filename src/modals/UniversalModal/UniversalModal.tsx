@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { closeModal } from "../../redux/modal/slice";
 import { useAppDispatch } from "../../redux/store";
@@ -18,7 +18,7 @@ import {
   OverlayModal,
 } from "./UniversalModal.steled";
 
-export const ModalUniversal: React.FC = () => {
+export const ModalUniversal = () => {
   const dispatch = useAppDispatch();
   const isOpen = useSelector(selectIsModalOpen);
   const modalType = useSelector(selectModalType);
