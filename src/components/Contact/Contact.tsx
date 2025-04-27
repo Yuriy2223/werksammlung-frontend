@@ -57,6 +57,15 @@ export const Contact = () => {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
+  /******************************** */
+  console.time("loopTimer");
+
+  for (let i = 0; i <= 100; i += 1) {
+    console.log(i);
+  }
+
+  console.timeEnd("loopTimer");
+  /********************************** */
   return (
     <ContactSection id="contact">
       <ContactContainer>
