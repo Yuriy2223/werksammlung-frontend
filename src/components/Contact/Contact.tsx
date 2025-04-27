@@ -3,7 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { yupResolver } from "@hookform/resolvers/yup";
-// import { MessageCircleHeart } from "lucide-react";
+import { SocialBlock, SocialBlockMob } from "../SocialBlock/SocialBlock";
+import { contactSchema } from "../../validation/contactSchema";
 import { Input } from "../../shared/Input";
 import { Textarea } from "../../shared/Textarea";
 import { Title } from "../../shared/Title";
@@ -14,12 +15,12 @@ import {
   ContactSection,
   InputGroup,
   InputWrapper,
+  SocialWrapDTab,
+  SocialWrapMob,
   SubmitButton,
   SuccessMessage,
   TextareaWrap,
 } from "./Contact.styled";
-import { SocialBlock } from "../SocialBlock/SocialBlock";
-import { contactSchema } from "../../validation/contactSchema";
 
 export interface FormData {
   name: string;
@@ -57,15 +58,6 @@ export const Contact = () => {
     setTimeout(() => setSubmitted(false), 3000);
   };
 
-  /******************************** */
-  console.time("loopTimer");
-
-  for (let i = 0; i <= 100; i += 1) {
-    console.log(i);
-  }
-
-  console.timeEnd("loopTimer");
-  /********************************** */
   return (
     <ContactSection id="contact">
       <ContactContainer>
@@ -105,7 +97,9 @@ export const Contact = () => {
                 onValidate={() => trigger("email")}
                 error={errors.email?.message}
               />
-              <SocialBlock />
+              <SocialWrapDTab>
+                <SocialBlock />
+              </SocialWrapDTab>
             </InputGroup>
             <TextareaWrap>
               <Textarea
@@ -117,7 +111,6 @@ export const Contact = () => {
               />
               <SubmitButton type="submit">
                 {t("contact.form.button")}
-                {/* <MessageCircleHeart size={18} /> */}
               </SubmitButton>
             </TextareaWrap>
           </InputWrapper>
@@ -135,6 +128,9 @@ export const Contact = () => {
             )}
           </AnimatePresence>
         </ContactForm>
+        <SocialWrapMob>
+          <SocialBlockMob />
+        </SocialWrapMob>
       </ContactContainer>
     </ContactSection>
   );

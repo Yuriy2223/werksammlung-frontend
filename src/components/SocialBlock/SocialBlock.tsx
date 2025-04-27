@@ -4,7 +4,54 @@ import {
   itemVariants,
   SocialLink,
   SocialLinks,
+  SocialLinksContact,
 } from "./SocialBlock.styled";
+
+export const SocialContact = () => {
+  return (
+    <SocialLinksContact
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.6 }}
+    >
+      <SocialLink
+        href="https://github.com"
+        target="_blank"
+        variants={itemVariants}
+        whileHover="whileHover"
+      >
+        <Send size={20} />
+      </SocialLink>
+
+      <SocialLink
+        href="mailto:you@example.com"
+        variants={itemVariants}
+        whileHover="whileHover"
+      >
+        <Mail size={20} />
+      </SocialLink>
+
+      <SocialLink
+        href="https://linkedin.com"
+        target="_blank"
+        variants={itemVariants}
+        whileHover="whileHover"
+      >
+        <Linkedin size={20} />
+      </SocialLink>
+
+      <SocialLink
+        href="https://djinni.co/your-profile-url"
+        target="_blank"
+        variants={itemVariants}
+        whileHover="whileHover"
+      >
+        <Sparkles size={20} />
+      </SocialLink>
+    </SocialLinksContact>
+  );
+};
 
 export const SocialBlock = () => {
   return (
@@ -48,19 +95,19 @@ export const SocialBlock = () => {
         <Mail size={20} />
       </SocialLink>
 
-      {/* <SocialLink
+      <SocialLink
         href="https://www.google.com/maps/place/Запоріжжя"
         target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
       >
         <MapPin size={20} />
-      </SocialLink> */}
+      </SocialLink>
     </SocialLinks>
   );
 };
 
-export const SocialContact = () => {
+export const SocialBlockMob = () => {
   return (
     <SocialLinks
       variants={containerVariants}
@@ -74,15 +121,15 @@ export const SocialContact = () => {
         variants={itemVariants}
         whileHover="whileHover"
       >
-        <Send size={20} />
+        <Github size={20} />
       </SocialLink>
-
       <SocialLink
-        href="mailto:you@example.com"
+        href="https://github.com"
+        target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
       >
-        <Mail size={20} />
+        <Send size={20} />
       </SocialLink>
 
       <SocialLink
@@ -95,12 +142,11 @@ export const SocialContact = () => {
       </SocialLink>
 
       <SocialLink
-        href="https://djinni.co/your-profile-url"
-        target="_blank"
+        href="mailto:you@example.com"
         variants={itemVariants}
         whileHover="whileHover"
       >
-        <Sparkles size={20} />
+        <Mail size={20} />
       </SocialLink>
     </SocialLinks>
   );

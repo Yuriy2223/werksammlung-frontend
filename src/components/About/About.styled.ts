@@ -10,6 +10,8 @@ export const AboutContainer = styled(Container)`
   flex-direction: column;
   padding: 50px 20px 40px;
 
+  border: 1px solid red; /** */
+
   @media (min-width: 1280px) {
     padding: 40px 20px;
   }

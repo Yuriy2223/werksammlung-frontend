@@ -8,21 +8,27 @@ export const ContactSection = styled.section`
 `;
 export const ContactContainer = styled(Container)`
   padding: 40px 20px 60px;
-`;
-export const ContactForm = styled(motion.form)`
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  border: 1px solid red; /** */
+`;
+export const ContactForm = styled(motion.form)`
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+    padding: 20px;
+  }
 `;
 export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 220px;
-  gap: 30px;
 
   @media (min-width: 768px) {
     flex-direction: row;
+    height: 220px;
+    gap: 30px;
   }
 `;
 export const InputGroup = styled.div`
@@ -33,10 +39,28 @@ export const InputGroup = styled.div`
   justify-content: space-between;
 `;
 export const TextareaWrap = styled.div`
-  flex: 1;
-  height: 224px;
   display: flex;
   flex-direction: column;
+  height: 300px;
+
+  @media (min-width: 768px) {
+    flex: 1;
+    height: 224px;
+  }
+`;
+export const SocialWrapMob = styled.div`
+  margin-top: 50px;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+export const SocialWrapDTab = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `;
 export const SubmitButton = styled(Button)`
   width: 300px;
@@ -47,6 +71,10 @@ export const SubmitButton = styled(Button)`
 
   svg {
     color: ${({ theme }) => theme.svg};
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
   }
 `;
 export const SuccessMessage = styled(motion.div)`
