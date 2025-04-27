@@ -58,13 +58,13 @@ export const Contact = () => {
   };
 
   /******************************** */
-  console.time("loopTimer");
+  // console.time("loopTimer");
 
-  for (let i = 0; i <= 100; i += 1) {
-    console.log(i);
-  }
+  // for (let i = 0; i <= 100; i += 1) {
+  //   console.log(i);
+  // }
 
-  console.timeEnd("loopTimer");
+  // console.timeEnd("loopTimer");
   /********************************** */
   return (
     <ContactSection id="contact">
