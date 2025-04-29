@@ -10,8 +10,6 @@ export const AboutContainer = styled(Container)`
   flex-direction: column;
   padding: 50px 20px 40px;
 
-  border: 1px solid red; /** */
-
   @media (min-width: 1280px) {
     padding: 40px 20px;
   }
@@ -30,11 +28,29 @@ export const AboutWrapTop = styled.div`
 export const AboutWrapBottom = styled.div`
   display: flex;
   align-items: center;
-  padding: 40px 40px 0;
-  gap: 40px;
 
   span {
-    margin-left: 30px;
+    margin-left: 16px;
+  }
+
+  @media (min-width: 768px) {
+    padding: 0 40px;
+    gap: 40px;
+    font-size: 20px;
+
+    span {
+      margin-left: 30px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    padding: 40px 40px 0;
+
+    font-size: 20px;
+
+    span {
+      margin-left: 30px;
+    }
   }
 `;
 export const WrapperImg = styled.div`
@@ -48,8 +64,13 @@ export const WrapperImg = styled.div`
     height: 290px;
 
     @media (min-width: 768px) {
-      width: 400px;
-      height: 400px;
+      width: 440px;
+      height: 440px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 500px;
+      height: 500px;
     }
   }
 `;
@@ -60,31 +81,45 @@ export const WrapperContext = styled.div`
   justify-content: center;
 `;
 export const ContextInner = styled.div`
-  line-height: 1.4;
-  font-size: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
 
   p {
-    text-align: center;
+    font-size: 26px;
+    line-height: 1.4;
     font-weight: 600;
     text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
   }
 
   h1 {
-    text-align: center;
+    font-size: 34px;
+    line-height: 1.4;
     font-weight: 700;
     text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
   }
 
   @media (min-width: 768px) {
-    /* align-items: start; */
-    line-height: 1.4;
-    font-size: 36px;
-    h1,
     p {
-      text-align: start;
+      font-size: 36px;
+    }
+
+    h1 {
+      font-size: 50px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    align-items: start;
+
+    p {
+      font-size: 40px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 54px;
+      line-height: 1.6;
     }
   }
 `;
