@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import imgUrl1 from "../../assets/порт1111.webp";
+import { SocialContact } from "../SocialBlock/SocialBlock";
 import {
   AboutBtn,
   AboutContainer,
@@ -13,7 +13,7 @@ import {
   AboutWrapTop,
   ToContact,
 } from "./About.styled";
-import { SocialContact } from "../SocialBlock/SocialBlock";
+import imgUrl1 from "../../assets/photo.jpeg";
 
 export const About: React.FC = () => {
   const { t } = useTranslation();
