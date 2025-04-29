@@ -16,12 +16,6 @@ export const SocialLinksContact = styled(motion.div)`
   align-items: center;
   justify-content: center;
   gap: 30px;
-  /* justify-content: space-between; */
-
-  @media (min-width: 1280px) {
-    /* justify-content: center;
-    gap: 30px; */
-  }
 `;
 export const SocialLink = styled(motion.a)`
   width: 46px;

@@ -61,7 +61,7 @@ export const WrapperContext = styled.div`
 `;
 export const ContextInner = styled.div`
   line-height: 1.4;
-  font-size: 36px;
+  font-size: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -79,8 +79,9 @@ export const ContextInner = styled.div`
   }
 
   @media (min-width: 768px) {
-    align-items: start;
-
+    /* align-items: start; */
+    line-height: 1.4;
+    font-size: 36px;
     h1,
     p {
       text-align: start;
