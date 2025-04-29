@@ -11,9 +11,15 @@ export const CardInner = styled.div<{ $isFlipped: boolean }>`
   height: 100%;
   transition: transform 1.3s ease;
   transform-style: preserve-3d;
-  transform: ${({ $isFlipped }) => ($isFlipped ? "rotateY(180deg)" : "none")};
+  transform: ${({ $isFlipped }) =>
+    $isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"};
 
-  @media (hover: hover) {
+  /* @media (hover: hover) {
+    ${CardWrapper}:hover & {
+      transform: rotateY(180deg);
+    }
+  } */
+  @media (hover: hover) and (pointer: fine) {
     ${CardWrapper}:hover & {
       transform: rotateY(180deg);
     }
@@ -29,6 +35,9 @@ export const CardFace = styled.div`
   display: flex;
   flex-direction: column;
   padding: 20px;
+
+  @media (min-width: 768px) {
+  }
 `;
 export const FrontFace = styled(CardFace)`
   color: ${({ theme }) => theme.colorText};
@@ -55,19 +64,20 @@ export const ProjectTitle = styled.h3`
   text-align: center;
   margin: 20px 0;
   padding-bottom: 6px;
-  /* border-bottom: 2px solid ${({ theme }) => theme.colorText}; */
   border-bottom: 2px solid ${({ theme }) => theme.svg};
+`;
+export const TechTag = styled.span`
+  color: ${({ theme }) => theme.colorText};
 `;
 export const ProjectTechnologies = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
 `;
 export const ProjectDescription = styled.p`
   font-size: 16px;
 `;
 export const ProjectRole = styled.p`
-  font-size: 16px;
   margin-bottom: 8px;
   margin-left: 8px;
 
@@ -75,10 +85,7 @@ export const ProjectRole = styled.p`
     margin-left: 8px;
   }
 `;
-export const TechTag = styled.span`
-  color: ${({ theme }) => theme.colorText};
-`;
-export const ProjectDte = styled.p`
+export const ProjectDate = styled.p`
   text-align: center;
   font-size: 14px;
 `;
