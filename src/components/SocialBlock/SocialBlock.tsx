@@ -69,6 +69,7 @@ export const SocialBlock = () => {
       >
         <Github size={20} />
       </SocialLink>
+
       <SocialLink
         href="https://github.com"
         target="_blank"
@@ -123,6 +124,7 @@ export const SocialBlockMob = () => {
       >
         <Github size={20} />
       </SocialLink>
+
       <SocialLink
         href="https://github.com"
         target="_blank"

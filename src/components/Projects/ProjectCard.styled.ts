@@ -11,9 +11,10 @@ export const CardInner = styled.div<{ $isFlipped: boolean }>`
   height: 100%;
   transition: transform 1.3s ease;
   transform-style: preserve-3d;
-  transform: ${({ $isFlipped }) => ($isFlipped ? "rotateY(180deg)" : "none")};
+  transform: ${({ $isFlipped }) =>
+    $isFlipped ? "rotateY(180deg)" : "rotateY(0deg)"};
 
-  @media (hover: hover) {
+  @media (hover: hover) and (pointer: fine) {
     ${CardWrapper}:hover & {
       transform: rotateY(180deg);
     }
@@ -28,18 +29,19 @@ export const CardFace = styled.div`
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  padding: 20px;
-`;
-export const FrontFace = styled(CardFace)`
+  padding: 16px;
   color: ${({ theme }) => theme.colorText};
   background-color: ${({ theme }) => theme.secondary};
   border: 1px solid ${({ theme }) => theme.colorText};
+
+  @media (min-width: 768px) {
+    padding: 20px;
+  }
+`;
+export const FrontFace = styled(CardFace)`
   box-shadow: 0 0 8px ${({ theme }) => theme.colorText};
 `;
 export const BackFace = styled(CardFace)`
-  color: ${({ theme }) => theme.colorText};
-  background-color: ${({ theme }) => theme.secondary};
-  border: 1px solid ${({ theme }) => theme.colorText};
   box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
   transform: rotateY(180deg);
   justify-content: space-between;
@@ -55,19 +57,34 @@ export const ProjectTitle = styled.h3`
   text-align: center;
   margin: 20px 0;
   padding-bottom: 6px;
-  /* border-bottom: 2px solid ${({ theme }) => theme.colorText}; */
   border-bottom: 2px solid ${({ theme }) => theme.svg};
+`;
+export const TechTag = styled.span`
+  color: ${({ theme }) => theme.colorText};
 `;
 export const ProjectTechnologies = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  flex-wrap: wrap;
 `;
 export const ProjectDescription = styled.p`
-  font-size: 16px;
+  width: 100%;
+  height: 238px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 12;
+  -webkit-box-orient: vertical;
+
+  @media (min-width: 768px) {
+    -webkit-line-clamp: 10;
+  }
+
+  @media (min-width: 1280px) {
+    -webkit-line-clamp: 8;
+  }
 `;
 export const ProjectRole = styled.p`
-  font-size: 16px;
   margin-bottom: 8px;
   margin-left: 8px;
 
@@ -75,10 +92,35 @@ export const ProjectRole = styled.p`
     margin-left: 8px;
   }
 `;
-export const TechTag = styled.span`
-  color: ${({ theme }) => theme.colorText};
-`;
-export const ProjectDte = styled.p`
+export const ProjectDate = styled.p`
   text-align: center;
   font-size: 14px;
+`;
+export const WrapLinkProject = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+export const LinkProject = styled.a`
+  width: 140px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 8px;
+  color: ${({ theme }) => theme.colorText};
+  border: 2px solid ${({ theme }) => theme.colorText};
+  background-color: ${({ theme }) => theme.secondary};
+
+  svg {
+    transition: all 0.3s ease;
+    color: ${({ theme }) => theme.svg};
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
+    background-color: ${({ theme }) => theme.primary};
+  }
 `;

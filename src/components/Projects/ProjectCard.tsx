@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Github, Globe } from "lucide-react";
+import { Project } from "./Projects";
 import {
   BackFace,
   CardWrapper,
@@ -10,10 +12,10 @@ import {
   ProjectTechnologies,
   ProjectTitle,
   TechTag,
-  ProjectDte,
+  ProjectDate,
+  LinkProject,
+  WrapLinkProject,
 } from "./ProjectCard.styled";
-
-import { Project } from "./Projects";
 
 interface ProjectCardProps {
   project: Project;
@@ -23,7 +25,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleClick = () => {
-    if (window.innerWidth <= 768) {
+    if (window.matchMedia("(hover: none)").matches) {
       setIsFlipped((prev) => !prev);
     }
   };
@@ -47,11 +49,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           <div>
             <ProjectDescription>{project.description}</ProjectDescription>
           </div>
+          <WrapLinkProject>
+            <LinkProject
+              // href={project.githubUrl}
+              href="#"
+              target="_blank"
+            >
+              GitHub
+              <Github size={20} />
+            </LinkProject>
+            <LinkProject
+              // href={project.demoUrl}
+              href="#"
+              target="_blank"
+            >
+              View project
+              <Globe size={20} />
+            </LinkProject>
+          </WrapLinkProject>
           <div>
             <ProjectRole>
               Role:<span>{project.role}</span>
             </ProjectRole>
-            <ProjectDte>{project.date}</ProjectDte>
+            <ProjectDate>{project.date}</ProjectDate>
           </div>
         </BackFace>
       </CardInner>

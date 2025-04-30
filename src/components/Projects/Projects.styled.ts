@@ -12,4 +12,8 @@ export const ProjectsGrid = styled(motion.ul)`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+
+  @media (max-width: 374px) {
+    grid-template-columns: 1fr;
+  }
 `;
