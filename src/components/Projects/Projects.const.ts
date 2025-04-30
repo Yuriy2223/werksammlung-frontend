@@ -3,7 +3,7 @@ export const projects = [
     imgUrl: "https://ftp.goit.study/img/pets/3.webp",
     title: "Ukrainian House",
     description:
-      "This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel.",
+      "This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel.This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel,This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel,This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel. This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel.This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel,This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel,This website promotes Ukrainian literature with a library, news pages, contact form, and an admin panel.",
     role: "Team project",
     technologies: ["HTML", "S-components", "React", "Node.js"],
     repUrl: "https://github.com",
