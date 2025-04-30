@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Title } from "../../shared/Title";
 import { SubTitle } from "../../shared/SubTitle";
-import { ProjectCard } from "./ProjectCard";
+import { ProjectCard } from "../ProjectCard/ProjectCard";
 import {
   ProjectsContainer,
   ProjectsGrid,
