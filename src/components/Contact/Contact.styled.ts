@@ -10,7 +10,6 @@ export const ContactContainer = styled(Container)`
   padding: 40px 20px 60px;
   display: flex;
   flex-direction: column;
-  border: 1px solid red; /** */
 `;
 export const ContactForm = styled(motion.form)`
   display: flex;

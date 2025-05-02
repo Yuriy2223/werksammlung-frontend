@@ -1,15 +1,15 @@
-// import axios from 'axios';
+import axios from "axios";
 // import { store } from '../redux/store';
-// // import { logoutUser } from '../redux/auth/operations';
+// import { logoutUser } from '../redux/auth/operations';
 
-// export const API_URL = '';
-// export const TOKEN_KEY = 'token';
+export const API_URL = "http://localhost:3000/";
+export const TOKEN_KEY = "token";
 
-// // Публічний інстанс
-// export const publicInstance = axios.create({
-//   baseURL: API_URL,
-//   headers: { 'Content-Type': 'application/json' },
-// });
+// Публічний інстанс
+export const publicInstance = axios.create({
+  baseURL: API_URL,
+  headers: { "Content-Type": "application/json" },
+});
 
 // // Приватний інстанс
 // export const instance = axios.create({
