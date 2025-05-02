@@ -76,7 +76,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               <Github size={20} />
             </LinkProject>
             <LinkProject href={project.demoUrl} target="_blank">
-              View project
+              {/* View project */}
+              Website
               <Globe size={20} />
             </LinkProject>
           </WrapLinkProject>
