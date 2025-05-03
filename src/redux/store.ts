@@ -12,7 +12,7 @@ import {
   REGISTER,
 } from "redux-persist";
 // import { authReducer, AuthState } from "./auth/slice";
-// import { userReducer } from "./user/slice";
+import { userReducer } from "./user/slice";
 // import { noticesReducer } from "./notices/slice";
 import { themeReducer } from "./theme/slice";
 import { modalReducer } from "./modal/slice";
@@ -47,7 +47,7 @@ const persistedLanguageReducer = persistReducer(
 export const store = configureStore({
   reducer: {
     // auth: persistedAuthReducer,
-    // user: userReducer,
+    user: userReducer,
     // notices: noticesReducer,
     modal: modalReducer,
     theme: persistedThemeReducer,

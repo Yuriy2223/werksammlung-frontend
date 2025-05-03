@@ -1,4 +1,11 @@
-import { Github, Linkedin, Mail, MapPin, Send, Sparkles } from "lucide-react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MapPin,
+  Send,
+  // Sparkles
+} from "lucide-react";
 import {
   containerVariants,
   itemVariants,
@@ -6,8 +13,12 @@ import {
   SocialLinks,
   SocialLinksContact,
 } from "./SocialBlock.styled";
+import { selectProfile } from "../../redux/user/selectors";
+import { useSelector } from "react-redux";
 
 export const SocialContact = () => {
+  const profile = useSelector(selectProfile);
+
   return (
     <SocialLinksContact
       variants={containerVariants}
@@ -16,7 +27,8 @@ export const SocialContact = () => {
       viewport={{ once: true, amount: 0.6 }}
     >
       <SocialLink
-        href="https://github.com"
+        // href="https://github.com"
+        href={profile?.telegram}
         target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
@@ -25,7 +37,7 @@ export const SocialContact = () => {
       </SocialLink>
 
       <SocialLink
-        href="mailto:you@example.com"
+        href="mailto:{profile?.email}"
         variants={itemVariants}
         whileHover="whileHover"
       >
@@ -33,7 +45,8 @@ export const SocialContact = () => {
       </SocialLink>
 
       <SocialLink
-        href="https://linkedin.com"
+        // href="https://linkedin.com"
+        href={profile?.linkedin}
         target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
@@ -42,12 +55,14 @@ export const SocialContact = () => {
       </SocialLink>
 
       <SocialLink
-        href="https://djinni.co/your-profile-url"
+        // href="https://djinni.co/your-profile-url"
+        href={profile?.gitHub}
         target="_blank"
         variants={itemVariants}
         whileHover="whileHover"
       >
-        <Sparkles size={20} />
+        {/* <Sparkles size={20} /> */}
+        <Github size={20} />
       </SocialLink>
     </SocialLinksContact>
   );

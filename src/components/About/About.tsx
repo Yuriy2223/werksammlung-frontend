@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { FileText } from "lucide-react";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { SocialContact } from "../SocialBlock/SocialBlock";
+import { selectProfile } from "../../redux/user/selectors";
+import { API_URL } from "../../services/Api";
 import {
   AboutBtn,
   AboutContainer,
@@ -13,18 +16,18 @@ import {
   AboutWrapTop,
   ToContact,
 } from "./About.styled";
-import imgUrl1 from "../../assets/photo.jpeg";
 
 export const About: React.FC = () => {
-  const { t } = useTranslation();
-  const imgUrl = imgUrl1;
-  const fullName = "Yuriy Shukan";
+  const { t, i18n } = useTranslation();
+  const profile = useSelector(selectProfile);
+  const lang = i18n.language.toLowerCase() as "en" | "ua" | "de";
+  const fullName = `${profile?.firstName?.[lang] || ""} ${
+    profile?.lastName?.[lang] || ""
+  }`;
 
   const handleOpenCV = () => {
-    const fileId = "660f123456abc7890abcde12";
-    const url = `http://localhost:3000/pdf/${fileId}`;
-
-    window.open(url, "_blank");
+    if (!profile?._id) return;
+    window.open(`${API_URL}${profile.viewCV}`, "_blank");
   };
 
   return (
@@ -42,7 +45,7 @@ export const About: React.FC = () => {
               <img
                 width="400px"
                 height="400px"
-                src={imgUrl}
+                src={profile?.avatarUrl}
                 alt={`${fullName} portrait`}
               />
             </WrapperImg>
@@ -72,9 +75,7 @@ export const About: React.FC = () => {
           </motion.div>
         </AboutWrapTop>
         <AboutWrapBottom>
-          <p>
-            <span>{t("about.span")}</span> {t("about.message")}
-          </p>
+          <p>{profile?.about[lang]}</p>
         </AboutWrapBottom>
       </AboutContainer>
     </AboutSection>

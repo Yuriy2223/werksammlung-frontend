@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { LogoContainer } from "./Logo.styled";
+import { selectProfile } from "../../redux/user/selectors";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
-export const Logo: React.FC = () => {
-  const fullText = "Yuriy Shukan";
+export const Logo = () => {
   const [displayedText, setDisplayedText] = useState("");
   const [index, setIndex] = useState(0);
+  const { i18n } = useTranslation();
+  const profile = useSelector(selectProfile);
+  const lang = i18n.language.toLowerCase() as "en" | "ua" | "de";
+  const fullName = `${profile?.firstName?.[lang] || ""} ${
+    profile?.lastName?.[lang] || ""
+  }`;
 
   useEffect(() => {
     let typingTimeout: ReturnType<typeof setTimeout>;
 
-    if (index <= fullText.length) {
+    if (index <= fullName.length) {
       typingTimeout = setTimeout(() => {
-        setDisplayedText(fullText.slice(0, index));
+        setDisplayedText(fullName.slice(0, index));
         setIndex((prev) => prev + 1);
       }, 150);
     } else {
@@ -22,7 +30,7 @@ export const Logo: React.FC = () => {
     }
 
     return () => clearTimeout(typingTimeout);
-  }, [index, fullText]);
+  }, [index, fullName]);
 
   return (
     <LogoContainer

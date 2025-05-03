@@ -2,8 +2,8 @@ import axios from "axios";
 // import { store } from '../redux/store';
 // import { logoutUser } from '../redux/auth/operations';
 
-export const API_URL = "http://localhost:3000/";
-export const TOKEN_KEY = "token";
+export const API_URL = import.meta.env.VITE_API_URL;
+// export const TOKEN_KEY = "token";
 
 // Публічний інстанс
 export const publicInstance = axios.create({
@@ -11,11 +11,11 @@ export const publicInstance = axios.create({
   headers: { "Content-Type": "application/json" },
 });
 
-// // Приватний інстанс
-// export const instance = axios.create({
-//   baseURL: API_URL,
-//   headers: { 'Content-Type': 'application/json' },
-// });
+// Приватний інстанс
+export const privateinstance = axios.create({
+  baseURL: API_URL,
+  headers: { "Content-Type": "application/json" },
+});
 
 // // Функція для встановлення токену
 // export const setToken = (token: string | null) => {
