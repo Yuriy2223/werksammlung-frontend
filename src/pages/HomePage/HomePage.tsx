@@ -1,16 +1,16 @@
 import { HomePageContainer } from "./HomePage.styled";
 import { About } from "../../components/About/About";
-// import { Skills } from "../../components/Skills/Skills";
-// import { Projects } from "../../components/Projects/Projects";
-// import { Contact } from "../../components/Contact/Contact";
+import { Skills } from "../../components/Skills/Skills";
+import { Projects } from "../../components/Projects/Projects";
+import { Contact } from "../../components/Contact/Contact";
 
 const HomePage = () => {
   return (
     <HomePageContainer>
       <About />
-      {/* <Skills />
+      <Skills />
       <Projects />
-      <Contact /> */}
+      <Contact />
     </HomePageContainer>
   );
 };
