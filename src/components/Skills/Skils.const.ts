@@ -23,6 +23,7 @@ export const iconMap: Record<string, React.ComponentType> = {
   Postman: Network,
   Firebase: Cloud,
   Figma: Palette,
+  "Visual Studio Code": FileCode,
   Vite: Package,
   MongoDB: Database,
   "Node.js": Server,
@@ -59,27 +60,7 @@ export const itemVariants = {
     transition: { duration: 0.4, ease: "easeOut" },
   },
 };
-// export const categories = [
-//   {
-//     title: "Development",
-//     skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Node.js"],
-//   },
-//   {
-//     title: "Technologies & Utilities",
-//     skills: ["Git", "Figma", "Vite", "Postman", "Compass"],
-//   },
-//   {
-//     title: "Personal Qualities",
-//     skills: [
-//       "Communicative",
-//       "Conscientious",
-//       "Punctual",
-//       "Time Management",
-//       "Responsibility",
-//       "Problem-solving",
-//     ],
-//   },
-// ];
+
 export const categories = [
   {
     title: "Development",
@@ -104,6 +85,10 @@ export const categories = [
   {
     title: "Utilities",
     skills: [
+      {
+        name: "Visual Studio Code",
+        link: "https://code.visualstudio.com/docs",
+      },
       { name: "Git", link: "https://git-scm.com/doc" },
       { name: "Figma", link: "https://help.figma.com/hc/en-us" },
       { name: "Vite", link: "https://vitejs.dev/guide/" },
