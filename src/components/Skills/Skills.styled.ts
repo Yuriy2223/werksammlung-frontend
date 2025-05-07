@@ -30,11 +30,6 @@ export const SkillsCard = styled(motion.div)`
   box-shadow: 0 0 8px ${({ theme }) => theme.colorText};
   color: ${({ theme }) => theme.colorText};
   transition: all 300ms ease;
-
-  &:hover {
-    transform: translateY(-200px) scale(1.1);
-    box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
-  }
 `;
 export const CategoryTitle = styled.h3`
   text-align: center;

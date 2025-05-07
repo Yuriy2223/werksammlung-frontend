@@ -1,4 +1,5 @@
-export type Language = "EN" | "UA" | "DE";
+export type Language = "EN" | "DE" | "UA";
+export type Languages = "en" | "de" | "ua";
 
 export interface User {
   _id: string;
@@ -14,7 +15,7 @@ export interface User {
   telegram: string;
   gitHub: string;
 
-  skills: Skills[];
+  skills: Category[];
   projects: Project[];
 }
 export interface Project {
@@ -32,14 +33,9 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
 }
-export interface Skills {
-  categories: Category[];
-  utilities: Category[];
-  qualities: Category[];
-}
 export interface Category {
-  title: LangText;
-  skills: Skill[];
+  category: LangText;
+  items: Skill[];
 }
 export interface Skill {
   name: LangText;

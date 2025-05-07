@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { SocialContact } from "../SocialBlock/SocialBlock";
 import { selectProfile } from "../../redux/user/selectors";
 import { API_URL } from "../../services/Api";
+import { Languages } from "../../App.type";
 import {
   AboutBtn,
   AboutContainer,
@@ -20,7 +21,7 @@ import {
 export const About: React.FC = () => {
   const { t, i18n } = useTranslation();
   const profile = useSelector(selectProfile);
-  const lang = i18n.language.toLowerCase() as "en" | "ua" | "de";
+  const lang = i18n.language.toLowerCase() as Languages;
   const fullName = `${profile?.firstName?.[lang] || ""} ${
     profile?.lastName?.[lang] || ""
   }`;
