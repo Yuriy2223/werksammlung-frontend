@@ -8,22 +8,34 @@ import {
   ProjectsGrid,
   ProjectsSection,
 } from "./Projects.styled";
+import { Languages } from "../../App.type";
+import { useSelector } from "react-redux";
+import { selectProfile } from "../../redux/user/selectors";
 
-import { projects } from "./Projects.const";
-
+export interface LangText {
+  en: string;
+  ua: string;
+  de: string;
+}
 export interface Project {
-  title: string;
-  role: string;
+  _id: string;
   imgUrl: string;
-  repUrl: string;
-  demoUrl: string;
-  description: string;
+  title: LangText;
   technologies: string[];
+  description: LangText;
+  codeUrl: string;
+  webUrl: string;
+  role: LangText;
   date: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export const Projects: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language.toLowerCase() as Languages;
+  const profile = useSelector(selectProfile);
+  const projects = profile?.projects || [];
 
   return (
     <ProjectsSection id="projects">
@@ -46,12 +58,13 @@ export const Projects: React.FC = () => {
         >
           {projects.map((project: Project) => (
             <motion.li
-              key={project.title}
+              // key={project.title}
+              key={project._id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
             >
-              <ProjectCard project={project} />
+              <ProjectCard project={project} lang={lang} />
             </motion.li>
           ))}
         </ProjectsGrid>
