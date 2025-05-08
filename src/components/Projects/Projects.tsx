@@ -1,35 +1,16 @@
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { Languages, Project } from "../../App.type";
 import { Title } from "../../shared/Title";
 import { SubTitle } from "../../shared/SubTitle";
 import { ProjectCard } from "../ProjectCard/ProjectCard";
+import { selectProfile } from "../../redux/user/selectors";
 import {
   ProjectsContainer,
   ProjectsGrid,
   ProjectsSection,
 } from "./Projects.styled";
-import { Languages } from "../../App.type";
-import { useSelector } from "react-redux";
-import { selectProfile } from "../../redux/user/selectors";
-
-export interface LangText {
-  en: string;
-  ua: string;
-  de: string;
-}
-export interface Project {
-  _id: string;
-  imgUrl: string;
-  title: LangText;
-  technologies: string[];
-  description: LangText;
-  codeUrl: string;
-  webUrl: string;
-  role: LangText;
-  date: string;
-  createdAt: string;
-  updatedAt: string;
-}
 
 export const Projects: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -58,7 +39,6 @@ export const Projects: React.FC = () => {
         >
           {projects.map((project: Project) => (
             <motion.li
-              // key={project.title}
               key={project._id}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}

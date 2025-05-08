@@ -27,7 +27,7 @@ export interface Project {
   description: LangText;
   codeUrl: string;
   webUrl: string;
-  role: string;
+  role: LangText;
   date: string;
 
   createdAt: string;
