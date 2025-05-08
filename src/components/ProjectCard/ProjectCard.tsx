@@ -16,12 +16,14 @@ import {
   LinkProject,
   WrapLinkProject,
 } from "./ProjectCard.styled";
+import { Languages } from "../../App.type";
 
 interface ProjectCardProps {
   project: Project;
+  lang: Languages;
 }
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
+export const ProjectCard: React.FC<ProjectCardProps> = ({ project, lang }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -55,8 +57,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     <CardWrapper onClick={handleClick} ref={cardRef}>
       <CardInner $isFlipped={isFlipped}>
         <FrontFace>
-          <ProjectImg src={project.imgUrl} alt={project.title} />
-          <ProjectTitle>{project.title}</ProjectTitle>
+          <ProjectImg src={project.imgUrl} alt={project.title[lang]} />
+          <ProjectTitle>{project.title[lang]}</ProjectTitle>
           <ProjectTechnologies>
             {project.technologies.map((tech: string, i: number) => (
               <React.Fragment key={i}>
@@ -68,14 +70,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         </FrontFace>
         <BackFace>
           <div>
-            <ProjectDescription>{project.description}</ProjectDescription>
+            <ProjectDescription>{project.description[lang]}</ProjectDescription>
           </div>
           <WrapLinkProject>
-            <LinkProject href={project.repUrl} target="_blank">
+            <LinkProject href={project.codeUrl} target="_blank">
               GitHub
               <Github size={20} />
             </LinkProject>
-            <LinkProject href={project.demoUrl} target="_blank">
+            <LinkProject href={project.webUrl} target="_blank">
               {/* View project */}
               Website
               <Globe size={20} />
@@ -83,7 +85,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
           </WrapLinkProject>
           <div>
             <ProjectRole>
-              Role:<span>{project.role}</span>
+              Role:<span>{project.role[lang]}</span>
             </ProjectRole>
             <ProjectDate>{project.date}</ProjectDate>
           </div>
