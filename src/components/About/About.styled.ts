@@ -22,7 +22,7 @@ export const AboutWrapTop = styled.div`
   gap: 40px;
 
   @media (min-width: 1280px) {
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
 `;
 export const AboutWrapBottom = styled.div`

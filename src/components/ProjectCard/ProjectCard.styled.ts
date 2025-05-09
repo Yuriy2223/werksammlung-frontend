@@ -58,6 +58,9 @@ export const ProjectTitle = styled.h3`
   margin: 20px 0;
   padding-bottom: 6px;
   border-bottom: 2px solid ${({ theme }) => theme.svg};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const TechTag = styled.span`
   color: ${({ theme }) => theme.colorText};
