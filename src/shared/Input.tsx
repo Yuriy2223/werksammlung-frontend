@@ -117,11 +117,6 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
       onValidate?.();
     };
 
-    // const setRef = (node) => {
-    //   if (typeof ref === "function") ref(node);
-    //   else if (ref) ref.current = node;
-    //   inputRef.current = node;
-    // };
     const setRef = (node: HTMLInputElement | null) => {
       if (typeof ref === "function") {
         ref(node);
@@ -135,11 +130,6 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
       <InputWrapper width={width}>
         <StyledInput
           {...rest}
-          // ref={(node) => {
-          //   if (typeof ref === "function") ref(node);
-          //   else if (ref) ref.current = node;
-          //   inputRef.current = node;
-          // }}
           ref={setRef}
           name={name}
           onChange={onChange}
@@ -158,29 +148,3 @@ export const Input = forwardRef<HTMLInputElement, TextInputProps>(
     );
   }
 );
-/*************************************************************************** */
-/* ${autofillFix}; */
-/* &:-webkit-autofill {
-    background-color: ${({ theme }) => theme.bgBody} !important;
-    box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
-    -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
-    transition: background-color 5000s ease-in-out 0s;
-  } */
-
-// const autofillFix = css`
-//   &:-webkit-autofill {
-//     box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
-//     -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
-//     transition: background-color 5000s ease-in-out 0s;
-//   }
-
-//   &:-webkit-autofill:focus {
-//     box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
-//   }
-
-//   &:-internal-autofill-selected {
-//     /* для Safari */
-//     appearance: none !important;
-//     background-color: ${({ theme }) => theme.bgBody} !important;
-//   }
-// `;
