@@ -6,7 +6,10 @@ export const Variables = css`
   // accent -- акцентний колір (для ховера)
   // tertiary -- колір для тіней (запасний)
   :root {
-    --font-family: "Manrope", sans-serif;
+    /* --font-family: "Manrope", sans-serif; */
+    /* --font-family: "Inter", sans-serif; */
+    --font-family: "MonaSans", sans-serif;
+
     /*  Theme light */
     --bgBody: #dde7f9;
     --colorText: #2e2e36;
