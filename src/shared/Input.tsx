@@ -15,7 +15,7 @@ const sharedStyles = css<{
   border-radius: 8px;
   outline: none;
   color: ${({ theme }) => theme.colorText};
-  transition: border-color 0.3s;
+  transition: border-color 0.3s ease;
 
   ${({ height }) =>
     height &&
@@ -41,12 +41,12 @@ const StyledInput = styled.input<{
   ${sharedStyles}
   background: ${({ theme }) => theme.bgBody};
 
-  &:-webkit-autofill {
+  /* &:-webkit-autofill {
     background-color: ${({ theme }) => theme.bgBody} !important;
     box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
     -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
     transition: background-color 5000s ease-in-out 0s;
-  }
+  } */
 `;
 const StyledLabel = styled.label<{
   $isFloating: boolean;

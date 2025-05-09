@@ -48,7 +48,7 @@ export const Reset = css`
   a {
     font-family: inherit;
     text-decoration: none;
-    transition: all 300ms ease;
+    transition: all 0.3s ease;
     cursor: pointer;
   }
 
@@ -60,7 +60,7 @@ export const Reset = css`
 
   button {
     font-family: inherit;
-    transition: all 300ms ease;
+    transition: all 0.3s ease;
     cursor: pointer;
   }
 
@@ -68,6 +68,6 @@ export const Reset = css`
   textarea {
     font-family: inherit;
     outline: none;
-    transition: all 300ms ease;
+    transition: all 0.3s ease;
   }
 `;
