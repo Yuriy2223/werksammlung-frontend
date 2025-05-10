@@ -21,16 +21,14 @@ import {
   SuccessMessage,
   TextareaWrap,
 } from "./Contact.styled";
-
-export interface FormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import { contactMeFormData } from "../../App.type";
+import { sendMeContact } from "../../redux/contact/operations";
+import { useAppDispatch } from "../../redux/store";
 
 export const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
   const { t, i18n } = useTranslation();
+  const dispatch = useAppDispatch();
 
   const {
     register,
@@ -39,19 +37,20 @@ export const Contact = () => {
     formState: { errors },
     clearErrors,
     trigger,
-  } = useForm<FormData>({
+  } = useForm<contactMeFormData>({
     resolver: yupResolver(contactSchema(t)),
   });
 
   useEffect(() => {
-    const errorFields = Object.keys(errors) as (keyof FormData)[];
+    const errorFields = Object.keys(errors) as (keyof contactMeFormData)[];
     if (errorFields.length > 0) {
       trigger(errorFields);
     }
   }, [i18n.language, errors, trigger]);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: contactMeFormData) => {
     console.log(data);
+    dispatch(sendMeContact(data));
     setSubmitted(true);
     reset();
 
