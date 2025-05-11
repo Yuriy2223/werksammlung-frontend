@@ -17,6 +17,7 @@ import { userReducer } from "./user/slice";
 import { themeReducer } from "./theme/slice";
 import { modalReducer } from "./modal/slice";
 import { languageReducer } from "./language/slice";
+import { contactReduser } from "./contact/slice";
 
 // const authPersistConfig = {
 //   key: "auth",
@@ -52,6 +53,7 @@ export const store = configureStore({
     modal: modalReducer,
     theme: persistedThemeReducer,
     language: persistedLanguageReducer,
+    contact: contactReduser,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

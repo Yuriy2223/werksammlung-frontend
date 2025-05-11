@@ -46,3 +46,8 @@ export interface LangText {
   ua: string;
   de: string;
 }
+export interface contactMeFormData {
+  name: string;
+  email: string;
+  message: string;
+}
