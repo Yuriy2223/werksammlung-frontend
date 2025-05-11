@@ -48,13 +48,16 @@ export const Contact = () => {
     }
   }, [i18n.language, errors, trigger]);
 
-  const onSubmit = (data: contactMeFormData) => {
-    console.log(data);
-    dispatch(sendMeContact(data));
-    setSubmitted(true);
-    reset();
+  const onSubmit = async (data: contactMeFormData) => {
+    try {
+      await dispatch(sendMeContact(data)).unwrap();
+      setSubmitted(true);
+      reset();
 
-    setTimeout(() => setSubmitted(false), 3000);
+      setTimeout(() => setSubmitted(false), 3000);
+    } catch (err) {
+      console.error("Error submitting contact form:", err);
+    }
   };
 
   return (

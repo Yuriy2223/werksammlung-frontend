@@ -22,14 +22,17 @@ const contactSlice = createSlice({
       .addCase(sendMeContact.pending, (state) => {
         state.loading = true;
         state.error = null;
+        state.status = "loading";
       })
       .addCase(sendMeContact.fulfilled, (state) => {
         state.loading = false;
         state.error = null;
+        state.status = "succeeded";
       })
       .addCase(sendMeContact.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload as string;
+        state.error = action.payload || "Failed to send message.";
+        state.status = "failed";
       });
   },
 });
