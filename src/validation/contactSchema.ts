@@ -1,9 +1,9 @@
 import * as yup from "yup";
-import { FormData } from "../components/Contact/Contact";
+import { contactMeFormData } from "../App.type";
 
 export const contactSchema = (
   t: (key: string) => string
-): yup.ObjectSchema<FormData> =>
+): yup.ObjectSchema<contactMeFormData> =>
   yup.object({
     name: yup
       .string()
@@ -17,18 +17,6 @@ export const contactSchema = (
       .email(t("validation.email.invalid"))
       .max(254, t("validation.email.tooLong"))
       .required(t("validation.email.required")),
-
-    tel: yup
-      .string()
-      .trim()
-      .matches(/^[0-9()+\-\s]*$/, t("validation.tel.invalid"))
-      .test("valid-digits-count", t("validation.tel.length"), (value) => {
-        if (!value) return true;
-        const digitsOnly = value.replace(/\D/g, "");
-        return digitsOnly.length >= 7 && digitsOnly.length <= 15;
-      })
-      .notRequired()
-      .nullable(),
 
     message: yup
       .string()
