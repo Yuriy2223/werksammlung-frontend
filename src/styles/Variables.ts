@@ -17,6 +17,7 @@ export const Variables = css`
 
     --svg2: #00bfa5;
     --hover: #5bc305;
+    --err: #ec1e1e;
 
     --gradient: conic-gradient(from 0deg, #ff007a, #1951c5, #00bcd4, #ff007a);
 

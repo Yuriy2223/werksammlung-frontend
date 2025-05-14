@@ -11,7 +11,7 @@ const sharedStyles = css<{
   padding: 12px;
   border: 2px solid
     ${({ $hasError, theme, $isFocused }) =>
-      $hasError ? "#ec1e1e" : $isFocused ? theme.colorText : theme.hover};
+      $hasError ? theme.err : $isFocused ? theme.colorText : theme.hover};
   border-radius: 8px;
   outline: none;
   color: ${({ theme }) => theme.colorText};
@@ -25,7 +25,7 @@ const sharedStyles = css<{
 
   &:hover {
     border-color: ${({ $hasError, theme }) =>
-      $hasError ? "#ec1e1e" : theme.colorText};
+      $hasError ? theme.err : theme.colorText};
   }
 `;
 const InputWrapper = styled.div<{ width: string }>`
@@ -57,7 +57,7 @@ const StyledLabel = styled.label<{
   top: ${({ $isFloating }) => ($isFloating ? "-10px" : "50%")};
   transform: translateY(${({ $isFloating }) => ($isFloating ? "0" : "-50%")});
   font-size: ${({ $isFloating }) => ($isFloating ? "14px" : "16px")};
-  color: ${({ $hasError, theme }) => ($hasError ? "#ec1e1e" : theme.colorText)};
+  color: ${({ $hasError, theme }) => ($hasError ? theme.err : theme.colorText)};
   background: ${({ theme }) => theme.bgBody};
   padding: 0 6px;
   transition: all 0.2s ease;
@@ -67,7 +67,7 @@ const ErrorText = styled.div`
   position: absolute;
   bottom: -22px;
   left: 4px;
-  color: #ec1e1e;
+  color: ${({ theme }) => theme.err};
   font-size: 12px;
 `;
 
