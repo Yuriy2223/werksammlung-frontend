@@ -2,8 +2,6 @@ import { css } from "styled-components";
 
 export const Variables = css`
   :root {
-    /* --font-family: "Manrope", sans-serif; */
-    /* --font-family: "Inter", sans-serif; */
     --font-family: "MonaSans", sans-serif;
 
     /*  Theme light */
