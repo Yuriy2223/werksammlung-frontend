@@ -11,7 +11,6 @@ import styled from "styled-components";
 export const BtnLang = styled(Button)`
   span {
     font-size: 18px;
-    /* color: ${({ theme }) => theme.accent}; */
     color: ${({ theme }) => theme.svg};
   }
 `;
