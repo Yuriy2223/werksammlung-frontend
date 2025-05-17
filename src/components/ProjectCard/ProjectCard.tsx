@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Github, Globe } from "lucide-react";
+import { Languages, Project } from "../../App.type";
 import {
   BackFace,
   CardWrapper,
@@ -15,7 +16,6 @@ import {
   LinkProject,
   WrapLinkProject,
 } from "./ProjectCard.styled";
-import { Languages, Project } from "../../App.type";
 
 interface ProjectCardProps {
   project: Project;
@@ -76,6 +76,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, lang }) => {
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="GitHub"
             >
               GitHub
               <Github size={20} />
@@ -84,6 +85,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, lang }) => {
               href={project.webUrl}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Web Site"
             >
               Website
               <Globe size={20} />
