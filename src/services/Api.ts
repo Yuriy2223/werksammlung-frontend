@@ -5,13 +5,11 @@ import axios from "axios";
 export const API_URL = import.meta.env.VITE_API_URL;
 // export const TOKEN_KEY = "token";
 
-// Публічний інстанс
 export const publicInstance = axios.create({
   baseURL: API_URL,
   headers: { "Content-Type": "application/json" },
 });
 
-// Приватний інстанс
 export const privateInstance = axios.create({
   baseURL: API_URL,
   headers: { "Content-Type": "application/json" },
