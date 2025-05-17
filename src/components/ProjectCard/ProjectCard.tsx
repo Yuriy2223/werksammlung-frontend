@@ -76,7 +76,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, lang }) => {
               href={project.codeUrl}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Github"
+              aria-label="GitHub"
             >
               GitHub
               <Github size={20} />
