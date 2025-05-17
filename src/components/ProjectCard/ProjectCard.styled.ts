@@ -48,8 +48,8 @@ export const BackFace = styled(CardFace)`
 `;
 export const ProjectImg = styled.img`
   height: 240px;
-  object-fit: cover;
   border-radius: 12px;
+  flex-shrink: 0;
 `;
 export const ProjectTitle = styled.h3`
   font-size: 20px;
@@ -68,7 +68,11 @@ export const TechTag = styled.span`
 export const ProjectTechnologies = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 export const ProjectDescription = styled.p`
   width: 100%;
