@@ -56,6 +56,7 @@ export const Reset = css`
     display: block;
     width: 100%;
     height: auto;
+    object-fit: cover;
   }
 
   button {
