@@ -72,11 +72,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, lang }) => {
             <ProjectDescription>{project.description[lang]}</ProjectDescription>
           </div>
           <WrapLinkProject>
-            <LinkProject href={project.codeUrl} target="_blank">
+            <LinkProject
+              href={project.codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               GitHub
               <Github size={20} />
             </LinkProject>
-            <LinkProject href={project.webUrl} target="_blank">
+            <LinkProject
+              href={project.webUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Website
               <Globe size={20} />
             </LinkProject>
