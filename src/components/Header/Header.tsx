@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Menu } from "lucide-react";
 import { Logo } from "../Logo/Logo";
 import { Navigation } from "../Navigation/Navigation";
@@ -11,7 +11,7 @@ import {
   HeaderContainer,
 } from "./Header.styled";
 
-export const Header: React.FC = () => {
+export const Header = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const [menuBurger, setMenuBurger] = useState(false);
   const toggleMenu = () => setMenuBurger((prev) => !prev);
