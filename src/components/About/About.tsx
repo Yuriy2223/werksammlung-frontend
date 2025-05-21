@@ -18,7 +18,7 @@ import {
   ToContact,
 } from "./About.styled";
 
-export const About: React.FC = () => {
+export const About = () => {
   const { t, i18n } = useTranslation();
   const profile = useSelector(selectProfile);
   const lang = i18n.language.toLowerCase() as Languages;
