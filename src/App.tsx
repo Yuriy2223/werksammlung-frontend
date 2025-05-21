@@ -20,9 +20,9 @@ export const App = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />
             <Route path="home" element={<Navigate to="/" replace />} />
-            <Route path="user" element={<UserPage />} />
-            <Route path="*" element={<NotFoundPage />} />
           </Route>
+          <Route path="user" element={<UserPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
 

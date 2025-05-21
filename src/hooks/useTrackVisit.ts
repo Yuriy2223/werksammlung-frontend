@@ -1,24 +1,22 @@
 import { useEffect } from "react";
-import axios from "axios";
+import { publicInstance } from "../services/Api";
 
 export const useTrackVisit = () => {
   useEffect(() => {
     const start = Date.now();
 
-    const sendData = async () => {
+    const handleBeforeUnload = () => {
       const durationInSeconds = Math.floor((Date.now() - start) / 1000);
+      const data = { timeSpent: durationInSeconds };
 
-      try {
-        await axios.post("/api/stats", { duration: durationInSeconds });
-      } catch (err) {
-        console.error("Помилка відправки статистики", err);
-      }
+      publicInstance.post("/api/stats", data).catch((err) => {
+        console.error("Помилка при відправці статистики при unload", err);
+      });
     };
 
-    window.addEventListener("beforeunload", sendData);
+    window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {
-      sendData();
-      window.removeEventListener("beforeunload", sendData);
+      window.removeEventListener("beforeunload", handleBeforeUnload);
     };
   }, []);
 };

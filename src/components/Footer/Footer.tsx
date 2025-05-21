@@ -1,10 +1,17 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import i18n from "../../i18n/i18n";
+import { selectProfile } from "../../redux/user/selectors";
 import { FooterContainer } from "./Footer.steled";
 
 export const Footer: React.FC = () => {
   const { t } = useTranslation();
-  const fullName = "Yuriy Shukan";
+  const profile = useSelector(selectProfile);
+  const lang = i18n.language.toLowerCase() as "en" | "ua" | "de";
+  const fullName = `${profile?.firstName?.[lang] || ""} ${
+    profile?.lastName?.[lang] || ""
+  }`;
   const currentYear = new Date().getFullYear();
 
   return (
