@@ -8,12 +8,10 @@ import { fetchProfile } from "../../redux/user/operations";
 import { useAppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
 import { selectProfile } from "../../redux/user/selectors";
-import { useTrackVisit } from "../../hooks/useTrackVisit";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const profile = useSelector(selectProfile);
-  useTrackVisit();
 
   useEffect(() => {
     if (!profile) {
