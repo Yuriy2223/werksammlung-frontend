@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { publicInstance } from "../../services/Api";
 import { Container } from "../../shared/Container";
@@ -27,7 +27,7 @@ type Stats = {
   visits: Visit[];
 };
 
-const UserPage: React.FC = () => {
+const UserPage = () => {
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
