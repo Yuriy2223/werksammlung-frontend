@@ -12,7 +12,7 @@ import {
   ProjectsSection,
 } from "./Projects.styled";
 
-export const Projects: React.FC = () => {
+export const Projects = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language.toLowerCase() as Languages;
   const profile = useSelector(selectProfile);
