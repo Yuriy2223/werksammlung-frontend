@@ -1,18 +1,36 @@
-import { lazy, Suspense } from "react";
+import {
+  lazy,
+  Suspense,
+  // useEffect, useState
+} from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Layout } from "./components/Layout/Layout.tsx";
 import { Loader } from "./loader/Loader.tsx";
-import HomePage from "./pages/HomePage/HomePage.tsx";
-
+// import HomePage from "./pages/HomePage/HomePage.tsx";
 // import UserPage from "./pages/UserPage/UserPage.tsx";
 // import NotFoundPage from "./pages/NotFoundPage/NotFoundPage.tsx";
+
+const HomePage = lazy(() => import("./pages/HomePage/HomePage.tsx"));
 const UserPage = lazy(() => import("./pages/UserPage/UserPage.tsx"));
 const NotFoundPage = lazy(
   () => import("./pages/NotFoundPage/NotFoundPage.tsx")
 );
 
 export const App = () => {
+  // const [showLoader, setShowLoader] = useState(true);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowLoader(false);
+  //   }, 1000);
+
+  //   return () => clearTimeout(timer);
+  // }, []);
+
+  // if (showLoader) {
+  //   return <Loader />;
+  // }
   return (
     <>
       <Suspense fallback={<Loader />}>
