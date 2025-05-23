@@ -1,104 +1,116 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { registerUser, loginUser, logoutUser, currentUser } from "./operations";
-import { UserAuth } from "../../App.types";
+import { createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
+import { User } from "../../App.type";
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  refreshToken,
+  requestPasswordReset,
+  resetPassword,
+} from "./operations";
 
-export interface AuthState {
-  user: UserAuth | null;
-  isSignedIn: boolean;
-  isChecking: boolean;
-  loading: boolean;
+interface AuthState {
+  user: User | null;
+  isLoading: boolean;
+  isLoggedIn: boolean;
   error: string | null;
+  successMessage: string | null;
 }
 
 const initialState: AuthState = {
   user: null,
-  isSignedIn: false,
-  isChecking: true,
-  loading: false,
+  isLoading: false,
+  isLoggedIn: false,
   error: null,
+  successMessage: null,
+};
+
+const handlePending = (state: AuthState) => {
+  state.isLoading = true;
+  state.error = null;
+  state.successMessage = null;
+};
+
+const handleRejected = (state: AuthState, action: PayloadAction<unknown>) => {
+  state.isLoading = false;
+  if (typeof action.payload === "string") {
+    state.error = action.payload;
+  } else {
+    state.error = "Something went wrong";
+  }
 };
 
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    resetAuthError(state) {
+      state.error = null;
+      state.successMessage = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
-      // Current User
-      .addCase(currentUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isLoading = false;
       })
-      .addCase(
-        currentUser.fulfilled,
-        (state, action: PayloadAction<{ user: UserAuth | null }>) => {
-          state.user = action.payload.user;
-          state.isSignedIn = !!action.payload.user;
-          state.loading = false;
-          state.isChecking = false;
-          state.error = null;
-        }
-      )
-      .addCase(currentUser.rejected, (state, action) => {
-        state.loading = false;
-        state.user = null;
-        state.isSignedIn = false;
-        state.isChecking = false;
-        state.error = action.error.message || "Failed to fetch current user";
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isLoading = false;
       })
-      // // Registration User
-      // .addCase(registerUser.pending, state => {
-      //   state.loading = true;
-      //   state.error = null;
-      // })
-      // .addCase(
-      //   registerUser.fulfilled,
-      //   (state, action: PayloadAction<UserAuth>) => {
-      //     state.user = action.payload;
-      //     state.isSignedIn = false;
-      //     state.loading = false;
-      //     state.error = null;
-      //   }
-      // )
-      // .addCase(registerUser.rejected, (state, action) => {
-      //   state.loading = false;
-      //   state.error = action.payload || 'Registration failed';
-      // })
-
-      // Login User
-      .addCase(loginUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(
-        loginUser.fulfilled,
-        (state, action: PayloadAction<UserAuth>) => {
-          state.user = action.payload;
-          state.isSignedIn = true;
-          state.loading = false;
-          state.error = null;
-        }
-      )
-      .addCase(loginUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload || "Login failed";
-      })
-      // Logout User
-      .addCase(logoutUser.pending, (state) => {
-        state.loading = true;
-        state.error = null;
+      .addCase(refreshToken.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoggedIn = true;
+        state.isLoading = false;
       })
       .addCase(logoutUser.fulfilled, (state) => {
         state.user = null;
-        state.isSignedIn = false;
-        state.loading = false;
-        state.error = null;
+        state.isLoggedIn = false;
+        state.isLoading = false;
       })
-      .addCase(logoutUser.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message || "Logout failed";
-      });
+      .addCase(requestPasswordReset.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.successMessage = action.payload;
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.successMessage = action.payload;
+      })
+      .addCase(refreshToken.rejected, (state, action) => {
+        state.user = null;
+        state.isLoggedIn = false;
+        state.isLoading = false;
+        state.error =
+          typeof action.payload === "string"
+            ? action.payload
+            : "Session expired";
+      })
+      .addMatcher(
+        isAnyOf(
+          registerUser.pending,
+          loginUser.pending,
+          logoutUser.pending,
+          refreshToken.pending,
+          requestPasswordReset.pending,
+          resetPassword.pending
+        ),
+        handlePending
+      )
+      .addMatcher(
+        isAnyOf(
+          registerUser.rejected,
+          loginUser.rejected,
+          logoutUser.rejected,
+          requestPasswordReset.rejected,
+          resetPassword.rejected
+        ),
+        handleRejected
+      );
   },
 });
 
+export const { resetAuthError } = authSlice.actions;
 export const authReducer = authSlice.reducer;

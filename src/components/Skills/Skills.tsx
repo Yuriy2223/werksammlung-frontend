@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { SubTitle } from "../../shared/SubTitle";
 import { Title } from "../../shared/Title";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 import { Languages } from "../../App.type";
 import {
   cardVariants,

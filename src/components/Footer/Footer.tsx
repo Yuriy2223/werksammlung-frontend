@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n/i18n";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 import { FooterContainer } from "./Footer.steled";
 
 export const Footer = () => {

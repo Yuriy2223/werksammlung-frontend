@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { fetchProfile } from "./operations";
-import { User } from "../../App.type";
+import { Profile } from "../../App.type";
 
 export interface UserState {
-  profile: User | null;
+  profile: Profile | null;
   loading: boolean;
   error: string | null;
 }
@@ -13,8 +13,8 @@ const initialState: UserState = {
   error: null,
 };
 
-const userSlice = createSlice({
-  name: "users",
+const profileSlice = createSlice({
+  name: "profile",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
@@ -35,4 +35,4 @@ const userSlice = createSlice({
   },
 });
 
-export const userReducer = userSlice.reducer;
+export const profileReducer = profileSlice.reducer;

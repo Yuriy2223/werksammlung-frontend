@@ -3,7 +3,7 @@ import { FileText } from "lucide-react";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { SocialContact } from "../SocialBlock/SocialBlock";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 import { API_URL } from "../../services/Api";
 import { Languages } from "../../App.type";
 import {

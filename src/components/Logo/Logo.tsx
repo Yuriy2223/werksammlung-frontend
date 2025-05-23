@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { LogoContainer } from "./Logo.styled";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 
