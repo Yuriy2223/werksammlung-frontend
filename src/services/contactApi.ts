@@ -1,8 +1,8 @@
 import { contactMeFormData } from "../App.type";
-import { publicInstance } from "./Api";
+import { Instance } from "./Api";
 
 export const sendMeContactApi = async (
   data: contactMeFormData
 ): Promise<void> => {
-  await publicInstance.post("/api/contacts/me", data);
+  await Instance.post("/api/contacts/me", data);
 };

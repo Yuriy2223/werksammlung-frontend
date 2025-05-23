@@ -5,7 +5,7 @@ import { Languages, Project } from "../../App.type";
 import { Title } from "../../shared/Title";
 import { SubTitle } from "../../shared/SubTitle";
 import { ProjectCard } from "../ProjectCard/ProjectCard";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 import {
   ProjectsContainer,
   ProjectsGrid,

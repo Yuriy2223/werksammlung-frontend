@@ -2,6 +2,11 @@ export type Language = "EN" | "DE" | "UA";
 export type Languages = "en" | "de" | "ua";
 
 export interface User {
+  id: string;
+  name: string;
+  email: string;
+}
+export interface Profile {
   _id: string;
   firstName: LangText;
   lastName: LangText;

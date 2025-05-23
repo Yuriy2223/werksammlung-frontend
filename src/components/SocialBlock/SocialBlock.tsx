@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import {
   containerVariants,

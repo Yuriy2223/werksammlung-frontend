@@ -4,10 +4,10 @@ import { Skills } from "../../components/Skills/Skills";
 import { Projects } from "../../components/Projects/Projects";
 import { Contact } from "../../components/Contact/Contact";
 import { useEffect } from "react";
-import { fetchProfile } from "../../redux/user/operations";
+import { fetchProfile } from "../../redux/profile/operations";
 import { useAppDispatch } from "../../redux/store";
 import { useSelector } from "react-redux";
-import { selectProfile } from "../../redux/user/selectors";
+import { selectProfile } from "../../redux/profile/selectors";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();

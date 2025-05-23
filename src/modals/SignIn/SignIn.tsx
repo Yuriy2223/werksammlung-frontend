@@ -20,7 +20,8 @@ import {
   ModalWrap,
   PasswordToggleButton,
 } from "./SignIn.styled";
-
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../redux/auth/operations";
 export interface FormData {
   email: string;
   password: string;
@@ -28,6 +29,7 @@ export interface FormData {
 
 export const ModalSignIn = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const modalType = useSelector(selectModalType);
   const { t, i18n } = useTranslation();
   const [showPassword, setShowPassword] = useState(false);
@@ -61,34 +63,24 @@ export const ModalSignIn = () => {
     </PasswordToggleButton>
   );
 
-  const onSubmit = async () => {
-    toast.error(t("modal.login.message.no"));
-    setShowAdminMessage(true);
-    reset();
-    clearErrors();
-
-    setTimeout(() => {
-      setShowAdminMessage(false);
-    }, 3000);
-
-    setTimeout(() => {
+  const onSubmit = async (data: FormData) => {
+    try {
+      await dispatch(loginUser(data)).unwrap();
+      toast.success(t("modal.login.message.yes") || "Login successful!");
+      reset();
+      clearErrors();
       dispatch(closeModal());
-    }, 3500);
+      navigate("/user");
+    } catch (error) {
+      toast.error(
+        error instanceof Error ? error.message : t("modal.login.message.no")
+      );
+      setShowAdminMessage(true);
+      setTimeout(() => {
+        setShowAdminMessage(false);
+      }, 3000);
+    }
   };
-  // const onSubmit = async (data: FormData) => {
-  //   try {
-  //     await dispatch(singInUser(data)).unwrap();
-  //     toast.success("Login successful!");
-  //     console.log(data);
-  //     reset();
-  //     dispatch(closeModal());
-  //     clearErrors();
-  //   } catch (error) {
-  //     toast.error(
-  //       error instanceof Error ? error.message : "Something went wrong"
-  //     );
-  //   }
-  // };
 
   return (
     <ModalWrap onSubmit={handleSubmit(onSubmit)}>

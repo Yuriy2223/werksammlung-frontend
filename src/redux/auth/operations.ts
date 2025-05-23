@@ -1,101 +1,97 @@
-// import { createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
-// import { setToken, TOKEN_KEY } from "../../services/Api";
-// import { UserAuth } from '../../App.types';
-// import { resetNoticesState } from "../notices/slice";
-// import {
-//   registerUserApi,
-//   loginUserApi,
-//   currentUserApi,
-//   RegisterData,
-//   logoutApi,
-//   LoginData,
-// } from "../../services/authApi";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  currentUserApi,
+  LoginData,
+  loginUserApi,
+  logoutApi,
+  refreshTokenApi,
+  RegisterData,
+  registerUserApi,
+  requestPasswordResetApi,
+  RequestResetData,
+  resetPasswordApi,
+  ResetPasswordData,
+} from "../../services/authApi";
+import { AxiosError } from "axios";
 
-// // Сurrent User
-// export const currentUser = createAsyncThunk<
-//   { user: UserAuth | null; token: string | null },
-//   void,
-//   { rejectValue: string }
-// >("auth/currentUser", async (_, { rejectWithValue }) => {
-//   const token = localStorage.getItem(TOKEN_KEY);
+function extractErrorMessage(
+  error: unknown,
+  fallback = "Something went wrong"
+): string {
+  if (error instanceof AxiosError) {
+    return error.response?.data?.message || fallback;
+  }
+  return fallback;
+}
 
-//   if (!token) {
-//     return rejectWithValue("No token found");
-//   }
+export const registerUser = createAsyncThunk(
+  "auth/register",
+  async (data: RegisterData, { rejectWithValue }) => {
+    try {
+      const { user } = await registerUserApi(data);
+      return user;
+    } catch (error) {
+      return rejectWithValue(extractErrorMessage(error, "Registration failed"));
+    }
+  }
+);
 
-//   setToken(token);
-//   try {
-//     const user = await currentUserApi();
-//     return { user: user ?? null, token };
-//   } catch (error) {
-//     setToken(null);
-//     return rejectWithValue(
-//       error instanceof Error ? error.message : "Failed to refresh user"
-//     );
-//   }
-// });
+export const loginUser = createAsyncThunk(
+  "auth/login",
+  async (data: LoginData, { rejectWithValue }) => {
+    try {
+      const { user } = await loginUserApi(data);
+      return user;
+    } catch (error) {
+      return rejectWithValue(extractErrorMessage(error, "Login failed"));
+    }
+  }
+);
 
-// // Login User
-// export const loginUser = createAsyncThunk<
-//   UserAuth,
-//   LoginData,
-//   { rejectValue: string }
-// >("auth/loginUser", async (data, { rejectWithValue }) => {
-//   try {
-//     const response = await loginUserApi(data);
-//     setToken(response.token);
-//     return response;
-//   } catch (error) {
-//     let message = "Login failed. Please try again.";
+export const logoutUser = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      await logoutApi();
+    } catch (error) {
+      return rejectWithValue(extractErrorMessage(error, "Logout failed"));
+    }
+  }
+);
 
-//     if (axios.isAxiosError(error)) {
-//       message = error.response?.data?.message?.trim() || message;
-//     }
+export const refreshToken = createAsyncThunk(
+  "auth/refresh",
+  async (_, { rejectWithValue }) => {
+    try {
+      await refreshTokenApi();
+      const user = await currentUserApi();
+      return user;
+    } catch {
+      return rejectWithValue("Session expired");
+    }
+  }
+);
 
-//     return rejectWithValue(message);
-//   }
-// });
+export const requestPasswordReset = createAsyncThunk(
+  "auth/requestReset",
+  async (data: RequestResetData, { rejectWithValue }) => {
+    try {
+      const { message } = await requestPasswordResetApi(data);
+      return message;
+    } catch (error) {
+      return rejectWithValue(extractErrorMessage(error, "Request failed"));
+    }
+  }
+);
 
-// // Logout
-// export const logoutUser = createAsyncThunk<void, void, { rejectValue: string }>(
-//   "auth/logOut",
-//   async (_, { dispatch, rejectWithValue }) => {
-//     try {
-//       await logoutApi();
-//       setToken(null);
-//       dispatch(resetNoticesState());
-//     } catch (error) {
-//       const message =
-//         error instanceof Error
-//           ? error.message
-//           : "Logout failed. Please try again.";
-//       return rejectWithValue(message);
-//     }
-//   }
-// );
-
-// // Register User
-// export const registerUser = createAsyncThunk<
-//   UserAuth,
-//   RegisterData,
-//   { rejectValue: string }
-// >("auth/registerUser", async (data, { rejectWithValue }) => {
-//   try {
-//     const response = await registerUserApi(data);
-//     setToken(response.token);
-//     return response;
-//   } catch (error) {
-//     let message = "Registration failed.";
-
-//     if (axios.isAxiosError(error)) {
-//       if (error.response?.data) {
-//         message =
-//           typeof error.response.data === "string"
-//             ? error.response.data
-//             : error.response.data.message || "Registration failed.";
-//       }
-//     }
-//     return rejectWithValue(message);
-//   }
-// });
+export const resetPassword = createAsyncThunk(
+  "auth/resetPassword",
+  async (data: ResetPasswordData, { rejectWithValue }) => {
+    try {
+      const { message } = await resetPasswordApi(data);
+      return message;
+    } catch (error) {
+      return rejectWithValue(extractErrorMessage(error, "Reset failed"));
+    }
+  }
+);

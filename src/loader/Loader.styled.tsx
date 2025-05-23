@@ -27,20 +27,20 @@ export const LoaderWrapper = styled.div`
 `;
 
 export const Ring = styled.div<{
-  size: number;
-  color: string;
-  duration: number;
-  reverse?: boolean;
+  $size: number;
+  $color: string;
+  $duration: number;
+  $reverse?: boolean;
 }>`
   position: absolute;
-  width: ${(props) => props.size}px;
-  height: ${(props) => props.size}px;
+  width: ${(props) => props.$size}px;
+  height: ${(props) => props.$size}px;
   border: 4px solid transparent;
-  border-top: 4px solid ${(props) => props.color};
+  border-top: 4px solid ${(props) => props.$color};
   border-radius: 50%;
-  animation: ${rotate} ${(props) => props.duration}s linear infinite;
-  animation-direction: ${(props) => (props.reverse ? "reverse" : "normal")};
-  filter: drop-shadow(0 0 6px ${(props) => props.color});
+  animation: ${rotate} ${(props) => props.$duration}s linear infinite;
+  animation-direction: ${(props) => (props.$reverse ? "reverse" : "normal")};
+  filter: drop-shadow(0 0 6px ${(props) => props.$color});
 `;
 
 export const Dot = styled.div`
