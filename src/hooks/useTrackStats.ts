@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { publicInstance } from "../services/Api";
+import { Instance } from "../services/Api";
 import axios from "axios";
 
 export const useTrackStats = () => {
@@ -11,11 +11,11 @@ export const useTrackStats = () => {
 
       try {
         if (sessionId) {
-          await publicInstance.patch(`/api/stats/${sessionId}`, {
+          await Instance.patch(`/api/stats/${sessionId}`, {
             additionalTime: durationInSeconds,
           });
         } else {
-          const res = await publicInstance.post("/api/stats", {
+          const res = await Instance.post("/api/stats", {
             timeSpent: durationInSeconds,
           });
 
@@ -29,7 +29,7 @@ export const useTrackStats = () => {
           axios.isAxiosError(err) &&
           (err.response?.status === 404 || err.response?.status === 400)
         ) {
-          const res = await publicInstance.post("/api/stats", {
+          const res = await Instance.post("/api/stats", {
             timeSpent: durationInSeconds,
           });
 

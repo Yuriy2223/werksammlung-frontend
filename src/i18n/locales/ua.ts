@@ -39,6 +39,7 @@ export const ua = {
     },
     buttons: {
       login: "Увійти",
+      logout: "Вийти",
       lang: "Мова",
       theme: "Тема",
       wiewcv: "Резюме",
@@ -82,6 +83,17 @@ export const ua = {
         message: {
           error: "Сталася помилка виходу",
           success: "Вихід виконано успішно",
+        },
+      },
+      register: {
+        title: "Реєстрація",
+        register: "Зареєструватися",
+        cancel: "Скасувати",
+        message: {
+          success: "Реєстрація пройшла успішно",
+          error: "Помилка під час реєстрації",
+          exists: "Користувач уже зареєстрований",
+          confirm_password: "Підтвердження пароля*",
         },
       },
       form: {

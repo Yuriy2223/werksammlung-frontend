@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { closeModal } from "../../redux/modal/slice";
-import { useAppDispatch } from "../../redux/store";
 import { X } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
+import { closeModal } from "../../redux/modal/slice";
+import { useAppDispatch } from "../../redux/store";
 import { ModalSignOut } from "../SignOut/SignOut";
-// import { ModalSingUp } from "../SignUp/SignUp";
+import { ModalSignUp } from "../SignUp/SignUp";
 import { ModalSignIn } from "../SignIn/SignIn";
 import {
   selectIsModalOpen,
@@ -45,8 +45,8 @@ export const ModalUniversal = () => {
 
   const renderModalContent = () => {
     switch (modalType) {
-      // case "ModalSingUp":
-      //   return <ModalSingUp {...modalProps} />;
+      case "ModalSignUp":
+        return <ModalSignUp {...modalProps} />;
       case "ModalSignIn":
         return <ModalSignIn {...modalProps} />;
       case "ModalSignOut":

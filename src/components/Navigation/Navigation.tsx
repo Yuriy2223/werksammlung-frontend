@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { NavList } from "./Navigation.styled";
 
@@ -12,7 +13,10 @@ export const Navigation: React.FC<NavigationProps> = ({
   onNavClick,
 }) => {
   const { t } = useTranslation();
-
+  const location = useLocation();
+  if (location.pathname.startsWith("/user")) {
+    return null;
+  }
   const navItems = [
     { id: "about", label: t("header.about") },
     { id: "skills", label: t("header.skills") },

@@ -1,27 +1,33 @@
 import { useTranslation } from "react-i18next";
-import { LogIn } from "lucide-react";
+import { LogIn, LogOut } from "lucide-react";
+import { useSelector } from "react-redux";
 import { useAppDispatch } from "../../redux/store";
 import { openModal } from "../../redux/modal/slice";
 import { ThemeSwitcher } from "../ThemeSwitcher/ThemeSwitcher";
 import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { BtnLogin, UserActionsWrapper } from "./UserActions.styled";
+import { selectLoggedIn } from "../../redux/auth/selectors";
 
 export const UserActions = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const isLoggedIn = useSelector(selectLoggedIn);
+
+  const handleAction = () => {
+    if (isLoggedIn) {
+      dispatch(openModal({ type: "ModalSignOut" }));
+    } else {
+      dispatch(openModal({ type: "ModalSignIn" }));
+    }
+  };
 
   return (
     <UserActionsWrapper>
       <ThemeSwitcher />
       <LanguageSwitcher />
-      <BtnLogin
-        type="button"
-        onClick={() => dispatch(openModal({ type: "ModalSignIn" }))}
-      >
-        {t("buttons.login")}
-        <span>
-          <LogIn size={22} />
-        </span>
+      <BtnLogin type="button" onClick={handleAction}>
+        {isLoggedIn ? t("buttons.logout") : t("buttons.login")}
+        <span>{isLoggedIn ? <LogOut size={22} /> : <LogIn size={22} />}</span>
       </BtnLogin>
     </UserActionsWrapper>
   );

@@ -10,6 +10,9 @@ import { closeModal } from "../../redux/modal/slice";
 import { selectModalType } from "../../redux/modal/selectors";
 import { Input } from "../../shared/Input";
 import { singInSchema } from "../../validation/singInSchema";
+import { loginUser } from "../../redux/auth/operations";
+import { LoginData } from "../../App.type";
+import { useNavigate } from "react-router-dom";
 import {
   BtnWrap,
   CancelBtn,
@@ -20,12 +23,6 @@ import {
   ModalWrap,
   PasswordToggleButton,
 } from "./SignIn.styled";
-import { useNavigate } from "react-router-dom";
-import { loginUser } from "../../redux/auth/operations";
-export interface FormData {
-  email: string;
-  password: string;
-}
 
 export const ModalSignIn = () => {
   const dispatch = useAppDispatch();
@@ -42,12 +39,12 @@ export const ModalSignIn = () => {
     formState: { errors },
     clearErrors,
     trigger,
-  } = useForm<FormData>({
+  } = useForm<LoginData>({
     resolver: yupResolver(singInSchema(t)),
   });
 
   useEffect(() => {
-    const errorFields = Object.keys(errors) as (keyof FormData)[];
+    const errorFields = Object.keys(errors) as (keyof LoginData)[];
     if (errorFields.length > 0) {
       trigger(errorFields);
     }
@@ -63,7 +60,7 @@ export const ModalSignIn = () => {
     </PasswordToggleButton>
   );
 
-  const onSubmit = async (data: FormData) => {
+  const onSubmit = async (data: LoginData) => {
     try {
       await dispatch(loginUser(data)).unwrap();
       toast.success(t("modal.login.message.yes") || "Login successful!");

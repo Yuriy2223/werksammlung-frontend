@@ -40,6 +40,7 @@ export const en = {
     },
     buttons: {
       login: "Login",
+      logout: "Logout",
       lang: "Lang",
       theme: "Theme",
       wiewcv: "View CV",
@@ -85,10 +86,21 @@ export const en = {
           success: "Logged out successfully",
         },
       },
+      register: {
+        title: "Registration",
+        register: "Sign up",
+        cancel: "Cancel",
+        message: {
+          success: "Registration successful",
+          error: "Registration failed",
+          exists: "User is already registered",
+        },
+      },
       form: {
         name: "Name*",
         email: "Email*",
         password: "Password*",
+        confirm_password: "Confirm Password*",
       },
     },
   },
