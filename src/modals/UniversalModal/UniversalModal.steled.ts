@@ -22,7 +22,6 @@ const rotate = keyframes`
 `;
 export const ModalContent = styled.div`
   width: 315px;
-  /* height: 400px; */
   position: relative;
   border-radius: 12px;
   padding: 30px 20px;
