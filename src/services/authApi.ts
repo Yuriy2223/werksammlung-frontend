@@ -1,25 +1,11 @@
-import { User } from "../App.type";
 import { Instance } from "./Api";
-
-export interface RegisterData {
-  name: string;
-  email: string;
-  password: string;
-}
-
-export interface LoginData {
-  email: string;
-  password: string;
-}
-
-export interface ResetPasswordData {
-  token: string;
-  password: string;
-}
-
-export interface RequestResetData {
-  email: string;
-}
+import {
+  LoginData,
+  RegisterData,
+  RequestResetData,
+  ResetPasswordData,
+  User,
+} from "../App.type";
 
 export const registerUserApi = async (
   data: RegisterData

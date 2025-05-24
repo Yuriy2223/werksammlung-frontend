@@ -21,7 +21,7 @@ import {
   PasswordToggleButton,
 } from "./SignUp.styled";
 
-export interface RegisterData {
+interface SignUpData {
   name: string;
   email: string;
   password: string;
@@ -42,7 +42,7 @@ export const ModalSignUp = () => {
     formState: { errors },
     clearErrors,
     trigger,
-  } = useForm<RegisterData>({
+  } = useForm<SignUpData>({
     resolver: yupResolver(signUpSchema(t)),
   });
 
@@ -56,26 +56,28 @@ export const ModalSignUp = () => {
     </PasswordToggleButton>
   );
 
-  const onSubmit = async (data: RegisterData) => {
+  const onSubmit = async (data: SignUpData) => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { confirmPassword, ...payload } = data;
 
     try {
       await dispatch(registerUser(payload)).unwrap();
-      toast.success(t("modal.signup.message.success"));
+      toast.success(t("modal.register.message.success"));
       reset();
       clearErrors();
       dispatch(closeModal());
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : t("modal.signup.message.error")
+        error instanceof Error
+          ? error.message
+          : t("modal.register.message.error")
       );
     }
   };
 
   return (
     <ModalWrap onSubmit={handleSubmit(onSubmit)}>
-      <ModalTitle>{t("modal.signup.title")}</ModalTitle>
+      <ModalTitle>{t("modal.register.title")}</ModalTitle>
 
       <ModalForm>
         <Input
@@ -126,9 +128,9 @@ export const ModalSignUp = () => {
 
         <BtnWrap>
           <CancelBtn type="button" onClick={() => dispatch(closeModal())}>
-            {t("modal.signup.cancel")}
+            {t("modal.register.cancel")}
           </CancelBtn>
-          <LogBtn type="submit">{t("modal.signup.register")}</LogBtn>
+          <LogBtn type="submit">{t("modal.register.register")}</LogBtn>
         </BtnWrap>
       </ModalForm>
     </ModalWrap>

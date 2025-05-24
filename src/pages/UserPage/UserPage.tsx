@@ -20,7 +20,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { format, parseISO, isSameDay, isValid } from "date-fns";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { selectLoggedIn } from "../../redux/auth/selectors";
 
 const Container = styled.div`
   padding: 2rem;
@@ -91,7 +91,7 @@ const UserPage = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [selectedDay, setSelectedDay] = useState<Date | null>(null);
-  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isLoggedIn = useSelector(selectLoggedIn);
 
   useEffect(() => {
     if (!isLoggedIn) return;
@@ -106,8 +106,8 @@ const UserPage = () => {
     return <Navigate to="/" replace />;
   }
 
-  if (loading) return <Container>🔄 Завантаження...</Container>;
-  if (!stats) return <Container>❌ Статистика недоступна</Container>;
+  if (loading) return <Container>Завантаження...</Container>;
+  if (!stats) return <Container>Статистика недоступна...</Container>;
 
   const safeParseISO = (dateStr?: string | null) => {
     if (!dateStr) return null;

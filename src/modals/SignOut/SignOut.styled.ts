@@ -8,7 +8,7 @@ export const ModalWrap = styled.div`
   position: relative;
 `;
 export const ModalTitle = styled(Title)`
-  margin-bottom: 30px;
+  margin-bottom: 100px;
 `;
 export const BtnWrap = styled.div`
   display: flex;

@@ -22,7 +22,7 @@ const rotate = keyframes`
 `;
 export const ModalContent = styled.div`
   width: 315px;
-  height: 400px;
+  /* height: 400px; */
   position: relative;
   border-radius: 12px;
   padding: 30px 20px;
@@ -41,29 +41,6 @@ export const ModalContent = styled.div`
     animation: ${rotate} 4s linear infinite;
     z-index: -2;
   }
-  /* &::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: conic-gradient(
-      from 0deg,
-      #ff4081 0deg 40deg,
-      transparent 40deg 90deg,
-      #00bcd4 90deg 130deg,
-      transparent 130deg 180deg,
-      #c6ff00 180deg 220deg,
-      transparent 220deg 270deg,
-      #7c4dff 270deg 310deg,
-      transparent 310deg 360deg
-    );
-    animation: ${rotate} 4s linear infinite;
-    z-index: -2;
-    filter: blur(10px);
-    opacity: 0.8;
-  } */
 
   &::after {
     content: "";

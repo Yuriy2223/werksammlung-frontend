@@ -31,13 +31,12 @@ const handlePending = (state: AuthState) => {
   state.successMessage = null;
 };
 
-const handleRejected = (state: AuthState, action: PayloadAction<unknown>) => {
+const handleRejected = (
+  state: AuthState,
+  action: PayloadAction<string | undefined>
+) => {
   state.isLoading = false;
-  if (typeof action.payload === "string") {
-    state.error = action.payload;
-  } else {
-    state.error = "Something went wrong";
-  }
+  state.error = action.payload ?? "Something went wrong";
 };
 
 const authSlice = createSlice({
@@ -83,10 +82,7 @@ const authSlice = createSlice({
         state.user = null;
         state.isLoggedIn = false;
         state.isLoading = false;
-        state.error =
-          typeof action.payload === "string"
-            ? action.payload
-            : "Session expired";
+        state.error = action.payload ?? "Session expired";
       })
       .addMatcher(
         isAnyOf(

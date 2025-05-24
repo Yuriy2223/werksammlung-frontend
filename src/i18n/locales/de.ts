@@ -41,6 +41,8 @@ export const de = {
     buttons: {
       // login: "Einloggen",
       login: "Login",
+      // logout: "Abmelden",
+      logout: "Logout",
       lang: "Sprache",
       theme: "Thema",
       wiewcv: "CV ansehen",
@@ -86,10 +88,21 @@ export const de = {
           success: "Erfolgreich abgemeldet",
         },
       },
+      register: {
+        title: "Registrierung",
+        register: "Registrieren",
+        cancel: "Abbrechen",
+        message: {
+          success: "Registrierung war erfolgreich",
+          error: "Registrierung fehlgeschlagen",
+          exists: "Benutzer ist bereits registriert",
+        },
+      },
       form: {
         name: "Name*",
         email: "E-Mail*",
         password: "Passwort*",
+        confirm_password: "Passwort bestätigen*",
       },
     },
   },
