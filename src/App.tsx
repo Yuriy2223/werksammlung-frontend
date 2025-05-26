@@ -1,7 +1,7 @@
 import {
   lazy,
   Suspense,
-  useEffect,
+  // useEffect,
   // useState
 } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
@@ -9,8 +9,6 @@ import { ToastContainer } from "react-toastify";
 import { Layout } from "./components/Layout/Layout.tsx";
 import { Loader } from "./loader/Loader.tsx";
 import { PrivateRoute } from "./routes/PrivateRoute.tsx";
-import { useAppDispatch } from "./redux/store.ts";
-import { refreshToken } from "./redux/auth/operations.ts";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.tsx"));
 const UserPage = lazy(() => import("./pages/UserPage/UserPage.tsx"));
@@ -19,12 +17,7 @@ const NotFoundPage = lazy(
 );
 
 export const App = () => {
-  const dispatch = useAppDispatch();
   // const [showLoader, setShowLoader] = useState(true);
-
-  useEffect(() => {
-    dispatch(refreshToken());
-  }, [dispatch]);
 
   // useEffect(() => {
   //   const timer = setTimeout(() => {

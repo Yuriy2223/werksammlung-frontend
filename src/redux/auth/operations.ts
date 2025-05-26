@@ -1,19 +1,21 @@
 import { AxiosError } from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { User } from "../../App.type";
 import { extractErrorMessage } from "../../utils/errorUtils";
 import {
-  currentUserApi,
   LoginData,
+  RegisterData,
+  RequestResetData,
+  ResetPasswordData,
+  User,
+} from "../../App.type";
+import {
+  currentUserApi,
   loginUserApi,
   logoutApi,
   refreshTokenApi,
-  RegisterData,
   registerUserApi,
   requestPasswordResetApi,
-  RequestResetData,
   resetPasswordApi,
-  ResetPasswordData,
 } from "../../services/authApi";
 
 export const registerUser = createAsyncThunk<
