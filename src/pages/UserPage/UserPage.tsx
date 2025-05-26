@@ -21,6 +21,8 @@ import { format, parseISO, isSameDay, isValid } from "date-fns";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { selectLoggedIn } from "../../redux/auth/selectors";
+// import { useAppDispatch } from "../../redux/store";
+// import { refreshToken } from "../../redux/auth/operations";
 
 const Container = styled.div`
   padding: 2rem;
@@ -86,12 +88,17 @@ const COLORS = [
 ];
 
 const UserPage = () => {
+  // const dispatch = useAppDispatch();
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
   const [startDate, setStartDate] = useState<Date | null>(null);
   const [endDate, setEndDate] = useState<Date | null>(null);
   const [selectedDay, setSelectedDay] = useState<Date | null>(null);
   const isLoggedIn = useSelector(selectLoggedIn);
+
+  // useEffect(() => {
+  //   dispatch(refreshToken());
+  // }, [dispatch]);
 
   useEffect(() => {
     if (!isLoggedIn) return;
