@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { RegisterData } from "../modals/SignUp/SignUp";
+import { RegisterData } from "../App.type";
 
 export const signUpSchema = (
   t: (key: string) => string

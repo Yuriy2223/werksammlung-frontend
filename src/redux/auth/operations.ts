@@ -56,6 +56,23 @@ export const logoutUser = createAsyncThunk<void, void, { rejectValue: string }>(
   }
 );
 
+// export const refreshToken = createAsyncThunk<
+//   User,
+//   void,
+//   { rejectValue: string }
+// >("auth/refresh", async (_, { rejectWithValue }) => {
+//   try {
+//     await refreshTokenApi();
+//     const user = await currentUserApi();
+//     return user;
+//   } catch (error) {
+//     const err = error as AxiosError;
+//     if (err.response?.status === 401) {
+//       return rejectWithValue("Session expired");
+//     }
+//     return rejectWithValue("Failed to refresh token");
+//   }
+// });
 export const refreshToken = createAsyncThunk<
   User,
   void,

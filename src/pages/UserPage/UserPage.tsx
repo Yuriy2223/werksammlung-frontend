@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { Instance } from "../../services/Api";
+// import { Instance } from "../../services/Api";
+import { privateInstance } from "../../services/Api";
 import {
   LineChart,
   Line,
@@ -103,7 +104,8 @@ const UserPage = () => {
   useEffect(() => {
     if (!isLoggedIn) return;
 
-    Instance.get("/api/stats")
+    privateInstance
+      .get("/api/stats")
       .then((res) => setStats(res.data))
       .catch((err) => console.error("Помилка завантаження статистики", err))
       .finally(() => setLoading(false));
