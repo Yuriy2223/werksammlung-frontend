@@ -1,9 +1,9 @@
 import * as yup from "yup";
-import { RegisterData } from "../App.type";
+import { SignUpData } from "../modals/SignUp/SignUp";
 
 export const signUpSchema = (
   t: (key: string) => string
-): yup.ObjectSchema<RegisterData> =>
+): yup.ObjectSchema<SignUpData> =>
   yup.object().shape({
     name: yup.string().required(t("modal.form.required")),
     email: yup

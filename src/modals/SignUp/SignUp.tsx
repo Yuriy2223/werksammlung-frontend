@@ -21,7 +21,7 @@ import {
   PasswordToggleButton,
 } from "./SignUp.styled";
 
-interface SignUpData {
+export interface SignUpData {
   name: string;
   email: string;
   password: string;
