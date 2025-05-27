@@ -1,9 +1,9 @@
 import * as yup from "yup";
-import { FormData } from "../modals/SignIn/SignIn";
+import { LoginData } from "../App.type";
 
 export const singInSchema = (
   t: (key: string) => string
-): yup.ObjectSchema<FormData> =>
+): yup.ObjectSchema<LoginData> =>
   yup.object({
     email: yup
       .string()
