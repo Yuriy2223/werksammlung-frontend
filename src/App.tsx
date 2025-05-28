@@ -1,9 +1,4 @@
-import {
-  lazy,
-  Suspense,
-  useEffect,
-  // useState
-} from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import { Layout } from "./components/Layout/Layout.tsx";
@@ -11,6 +6,9 @@ import { Loader } from "./loader/Loader.tsx";
 import { PrivateRoute } from "./routes/PrivateRoute.tsx";
 import { refreshToken } from "./redux/auth/operations.ts";
 import { useAppDispatch } from "./redux/store.ts";
+import { useSelector } from "react-redux";
+import { selectLoading, selectProfile } from "./redux/profile/selectors.ts";
+import { fetchProfile } from "./redux/profile/operations.ts";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.tsx"));
 const UserPage = lazy(() => import("./pages/UserPage/UserPage.tsx"));
@@ -19,36 +17,26 @@ const NotFoundPage = lazy(
 );
 
 export const App = () => {
-  // const [showLoader, setShowLoader] = useState(true);
   const dispatch = useAppDispatch();
-  // useEffect(() => {
-  //   dispatch(refreshToken());
-  //   .unwrap()
-  //   .catch(() => {
-  //     // якщо сесії нема або токен недійсний — ігноруємо
-  //   });
-  // }, [dispatch]);
+  const profile = useSelector(selectProfile);
+  const loading = useSelector(selectLoading);
 
   useEffect(() => {
-    // Просто запускаємо refresh без перевірки токена
     dispatch(refreshToken())
       .unwrap()
-      .catch(() => {
-        // Якщо сесія протермінована — можна показати повідомлення чи логаут
-      });
+      .catch(() => {});
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowLoader(false);
-  //   }, 1000);
+  useEffect(() => {
+    if (!profile && !loading) {
+      dispatch(fetchProfile());
+    }
+  }, [dispatch, profile, loading]);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+  if (loading || !profile) {
+    return <Loader />;
+  }
 
-  // if (showLoader) {
-  //   return <Loader />;
-  // }
   return (
     <>
       <Suspense fallback={<Loader />}>
