@@ -1,30 +1,34 @@
-import React, { useEffect } from "react";
+import { useEffect, FC, MouseEvent } from "react";
 import { CloseButton, BurgerMenuContainer, Overlay } from "./BurgerMenu.styled";
 import { Navigation } from "../Navigation/Navigation";
 import { X } from "lucide-react";
 import { UserActions } from "../UserActions/UserActions";
 
-export const BurgerMenu: React.FC<{
+interface BurgerMenuProps {
   isOpen: boolean;
   closeMenu: () => void;
   activeSection: string;
-  onNavClick: (e: React.MouseEvent<HTMLAnchorElement>, id: string) => void;
-}> = ({ isOpen, closeMenu, activeSection, onNavClick }) => {
+  onNavClick: (e: MouseEvent<HTMLAnchorElement>, id: string) => void;
+}
+
+export const BurgerMenu: FC<BurgerMenuProps> = ({
+  isOpen,
+  closeMenu,
+  activeSection,
+  onNavClick,
+}) => {
   useEffect(() => {
+    if (!isOpen) return;
+
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        closeMenu();
-      }
+      if (event.key === "Escape") closeMenu();
     };
 
-    if (isOpen) {
-      document.addEventListener("keydown", handleKeyDown);
-    }
-
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, closeMenu]);
+
+  if (!isOpen) return null;
 
   return (
     <Overlay $isOpen={isOpen} onClick={closeMenu}>
@@ -36,7 +40,7 @@ export const BurgerMenu: React.FC<{
           <X size={36} />
         </CloseButton>
         <Navigation activeSection={activeSection} onNavClick={onNavClick} />
-        <UserActions />
+        <UserActions closeMenu={closeMenu} />
       </BurgerMenuContainer>
     </Overlay>
   );
