@@ -8,7 +8,11 @@ import { LanguageSwitcher } from "../LanguageSwitcher/LanguageSwitcher";
 import { BtnLogin, UserActionsWrapper } from "./UserActions.styled";
 import { selectLoggedIn } from "../../redux/auth/selectors";
 
-export const UserActions = () => {
+interface UserActionsProps {
+  closeMenu?: () => void;
+}
+
+export const UserActions = ({ closeMenu }: UserActionsProps) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const isLoggedIn = useSelector(selectLoggedIn);
@@ -19,6 +23,7 @@ export const UserActions = () => {
     } else {
       dispatch(openModal({ type: "ModalSignIn" }));
     }
+    closeMenu?.();
   };
 
   return (
