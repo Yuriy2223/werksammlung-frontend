@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { useViewportAmount } from "../hooks/useViewportAmount";
 
-const WrapperSubTitle = styled.p`
+const MotionSubTitle = styled(motion.p)`
   text-align: center;
   color: ${({ theme }) => theme.colorText};
   font-weight: 500;
@@ -17,5 +19,20 @@ interface SubTitleProps {
 }
 
 export const SubTitle: React.FC<SubTitleProps> = ({ children }) => {
-  return <WrapperSubTitle>{children}</WrapperSubTitle>;
+  const viewportAmount = useViewportAmount();
+
+  return (
+    <MotionSubTitle
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0.1,
+        duration: 0.8,
+        ease: [0.25, 0.8, 0.25, 1],
+      }}
+      viewport={{ once: false, amount: viewportAmount }}
+    >
+      {children}
+    </MotionSubTitle>
+  );
 };

@@ -32,8 +32,19 @@ export const iconMap: Record<string, React.ComponentType> = {
   Compass: Locate,
   Docker: Cloud,
 };
-
-export const cardVariants = {
+export const itemVariants = {
+  hidden: { opacity: 0, y: 40, scale: 0.96 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.8, 0.25, 1],
+    },
+  },
+};
+export const cardVariant = {
   hidden: { opacity: 0, y: 50, scale: 0.95 },
   visible: {
     opacity: 1,
@@ -45,7 +56,7 @@ export const cardVariants = {
     },
   },
 };
-export const listVariants = {
+export const listVariant = {
   hidden: {},
   visible: {
     transition: {
@@ -54,7 +65,7 @@ export const listVariants = {
     },
   },
 };
-export const itemVariants = {
+export const itemVariant = {
   hidden: { opacity: 0, x: -10 },
   visible: {
     opacity: 1,

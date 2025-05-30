@@ -7,11 +7,11 @@ import { Title } from "../../shared/Title";
 import { selectProfile } from "../../redux/profile/selectors";
 import { Languages } from "../../App.type";
 import {
-  cardVariants,
+  cardVariant,
   iconMap,
-  itemVariants,
-  listVariants,
-} from "./Skils.const";
+  itemVariant,
+  listVariant,
+} from "../../shared/Animations.const";
 import {
   SkillsCard,
   Categories,
@@ -31,13 +31,7 @@ export const Skills = () => {
   return (
     <SkillsSections id="skills">
       <SkillsContainer>
-        <WrapperTitle
-          as={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
+        <WrapperTitle>
           <Title>{t("skills.title")}</Title>
           <SubTitle>{t("skills.subtitle")}</SubTitle>
         </WrapperTitle>
@@ -57,7 +51,7 @@ export const Skills = () => {
             return (
               <SkillsCard
                 key={categoryKey || index}
-                variants={cardVariants}
+                variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: false, amount: 0.3 }}
@@ -69,7 +63,7 @@ export const Skills = () => {
                 <CategoryTitle>{categoryName}</CategoryTitle>
 
                 <SkillList
-                  variants={listVariants}
+                  variants={listVariant}
                   initial="hidden"
                   animate="visible"
                   viewport={{ once: false, amount: 0.3 }}
@@ -81,7 +75,7 @@ export const Skills = () => {
                     const Icon = iconMap[skillName] ?? CheckCircle;
 
                     return (
-                      <motion.li key={key} variants={itemVariants}>
+                      <motion.li key={key} variants={itemVariant}>
                         <SkillLink to={link}>
                           <Icon /> {skillName}
                         </SkillLink>
