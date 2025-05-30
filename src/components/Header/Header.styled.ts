@@ -5,7 +5,10 @@ export const HeaderContainer = styled(Container)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+
+  @media (min-width: 1280px) {
+    padding: 20px;
+  }
 `;
 export const DesktopNavigayion = styled.div`
   display: none;

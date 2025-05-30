@@ -1,7 +1,9 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { useViewportAmount } from "../hooks/useViewportAmount";
 
-const WrapperTitle = styled.h2`
+const MotionTitle = styled(motion.h2)`
   text-align: center;
   font-weight: 700;
   line-height: 1.4;
@@ -17,5 +19,20 @@ interface TitleProps {
 }
 
 export const Title: React.FC<TitleProps> = ({ children }) => {
-  return <WrapperTitle>{children}</WrapperTitle>;
+  const viewportAmount = useViewportAmount();
+
+  return (
+    <MotionTitle
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        delay: 0,
+        duration: 0.7,
+        ease: [0.25, 0.8, 0.25, 1],
+      }}
+      viewport={{ once: false, amount: viewportAmount }}
+    >
+      {children}
+    </MotionTitle>
+  );
 };
