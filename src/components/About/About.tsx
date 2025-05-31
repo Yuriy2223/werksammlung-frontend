@@ -42,7 +42,6 @@ export const About = () => {
             initial={{ opacity: 0, x: -200 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            // viewport={{ once: false }}
             viewport={{ once: false, amount: viewportAmount }}
             style={{ flex: 1 }}
           >
@@ -60,7 +59,6 @@ export const About = () => {
             initial={{ opacity: 0, x: 200 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            // viewport={{ once: false }}
             viewport={{ once: false, amount: viewportAmount }}
             style={{ flex: 1 }}
           >
@@ -75,7 +73,6 @@ export const About = () => {
                     onClick={handleOpenCV}
                     initial={{ opacity: 0, x: 300 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    // viewport={{ once: false, amount: 0.6 }}
                     viewport={{ once: false, amount: viewportAmount }}
                     transition={{ duration: 2, ease: "linear" }}
                   >
