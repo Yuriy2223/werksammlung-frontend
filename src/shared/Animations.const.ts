@@ -32,15 +32,32 @@ export const iconMap: Record<string, React.ComponentType> = {
   Compass: Locate,
   Docker: Cloud,
 };
+export const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.6,
+      staggerDirection: -1,
+    },
+  },
+};
 export const itemVariants = {
-  hidden: { opacity: 0, y: 40, scale: 0.96 },
+  hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    y: 0,
-    scale: 1,
     transition: {
       duration: 0.5,
-      ease: [0.25, 0.8, 0.25, 1],
+      ease: "easeInOut",
+    },
+  },
+};
+export const containVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.4,
+      staggerChildren: 0.6,
     },
   },
 };

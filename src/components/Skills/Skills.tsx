@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import { SubTitle } from "../../shared/SubTitle";
 import { Title } from "../../shared/Title";
 import { selectProfile } from "../../redux/profile/selectors";
+import { useViewportAmount } from "../../hooks/useViewportAmount";
 import { Languages } from "../../App.type";
 import {
   cardVariant,
@@ -27,6 +28,7 @@ export const Skills = () => {
   const { t, i18n } = useTranslation();
   const lang = i18n.language.toLowerCase() as Languages;
   const profile = useSelector(selectProfile);
+  const viewportAmount = useViewportAmount();
 
   return (
     <SkillsSections id="skills">
@@ -54,7 +56,8 @@ export const Skills = () => {
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: false, amount: 0.3 }}
+                // viewport={{ once: false, amount: 0.3 }}
+                viewport={{ once: false, amount: viewportAmount }}
                 whileHover={{
                   scale: 1.03,
                   boxShadow: "0 0 20px currentColor",
@@ -66,7 +69,8 @@ export const Skills = () => {
                   variants={listVariant}
                   initial="hidden"
                   animate="visible"
-                  viewport={{ once: false, amount: 0.3 }}
+                  // viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: false, amount: viewportAmount }}
                 >
                   {items.map(({ name, link }, i) => {
                     const skillName = name?.[lang];
