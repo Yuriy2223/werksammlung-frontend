@@ -39,10 +39,12 @@ export interface Project {
   updatedAt: string;
 }
 export interface Category {
+  _id: string;
   category: LangText;
   items: Skill[];
 }
 export interface Skill {
+  _id: string;
   name: LangText;
   link: string;
 }

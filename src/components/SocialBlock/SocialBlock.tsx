@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
 import { selectProfile } from "../../redux/profile/selectors";
+import { useViewportAmount } from "../../hooks/useViewportAmount";
 import {
   containerVariants,
   containVariants,
@@ -14,13 +15,13 @@ import {
 
 export const SocialContact = () => {
   const profile = useSelector(selectProfile);
-
+  const viewportAmount = useViewportAmount();
   return (
     <SocialLinksContact
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.6 }}
+      viewport={{ once: false, amount: viewportAmount }}
     >
       <SocialLink
         href={profile?.telegram}
@@ -62,13 +63,13 @@ export const SocialContact = () => {
 
 export const SocialBlock = () => {
   const profile = useSelector(selectProfile);
-
+  const viewportAmount = useViewportAmount();
   return (
     <SocialLinks
       variants={containVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.6 }}
+      viewport={{ once: false, amount: viewportAmount }}
     >
       <SocialLink
         href={profile?.telegram}
@@ -119,13 +120,13 @@ export const SocialBlock = () => {
 
 export const SocialBlockMob = () => {
   const profile = useSelector(selectProfile);
-
+  const viewportAmount = useViewportAmount();
   return (
     <SocialLinks
       variants={containVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.6 }}
+      viewport={{ once: false, amount: viewportAmount }}
     >
       <SocialLink
         href={profile?.gitHub}

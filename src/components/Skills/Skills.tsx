@@ -39,24 +39,18 @@ export const Skills = () => {
         </WrapperTitle>
 
         <Categories>
-          {profile?.skills?.map(({ category, items }, index) => {
+          {profile?.skills?.map(({ _id: categoryId, category, items }) => {
             const categoryName =
               typeof category === "object" && category !== null
                 ? category[lang]
                 : category;
 
-            const categoryKey =
-              typeof category === "object" && category !== null
-                ? category["en"] || Object.values(category)[0]
-                : category;
-
             return (
               <SkillsCard
-                key={categoryKey || index}
+                key={categoryId}
                 variants={cardVariant}
                 initial="hidden"
                 whileInView="visible"
-                // viewport={{ once: false, amount: 0.3 }}
                 viewport={{ once: false, amount: viewportAmount }}
                 whileHover={{
                   scale: 1.03,
@@ -68,19 +62,21 @@ export const Skills = () => {
                 <SkillList
                   variants={listVariant}
                   initial="hidden"
-                  animate="visible"
-                  // viewport={{ once: false, amount: 0.3 }}
+                  whileInView="visible"
                   viewport={{ once: false, amount: viewportAmount }}
                 >
-                  {items.map(({ name, link }, i) => {
+                  {items.map(({ name, link, _id: skillId }) => {
                     const skillName = name?.[lang];
                     if (!skillName) return null;
-                    const key = name?.["en"] || Object.values(name)[0] || i;
                     const Icon = iconMap[skillName] ?? CheckCircle;
 
                     return (
-                      <motion.li key={key} variants={itemVariant}>
-                        <SkillLink to={link}>
+                      <motion.li key={skillId} variants={itemVariant}>
+                        <SkillLink
+                          to={link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <Icon /> {skillName}
                         </SkillLink>
                       </motion.li>
