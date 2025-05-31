@@ -1,9 +1,12 @@
 import { useSelector } from "react-redux";
-import { selectProfile } from "../../redux/profile/selectors";
 import { Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { selectProfile } from "../../redux/profile/selectors";
 import {
   containerVariants,
+  containVariants,
   itemVariants,
+} from "../../shared/Animations.const";
+import {
   SocialLink,
   SocialLinks,
   SocialLinksContact,
@@ -17,21 +20,21 @@ export const SocialContact = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.6 }}
+      viewport={{ once: false, amount: 0.6 }}
     >
       <SocialLink
         href={profile?.telegram}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Send size={20} />
       </SocialLink>
 
       <SocialLink
-        href="mailto:{profile?.email}"
+        href={`mailto:${profile?.email}`}
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Mail size={20} />
       </SocialLink>
@@ -40,7 +43,7 @@ export const SocialContact = () => {
         href={profile?.linkedin}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Linkedin size={20} />
       </SocialLink>
@@ -49,7 +52,7 @@ export const SocialContact = () => {
         href={profile?.gitHub}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Github size={20} />
       </SocialLink>
@@ -58,53 +61,55 @@ export const SocialContact = () => {
 };
 
 export const SocialBlock = () => {
+  const profile = useSelector(selectProfile);
+
   return (
     <SocialLinks
-      variants={containerVariants}
+      variants={containVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.6 }}
+      viewport={{ once: false, amount: 0.6 }}
     >
       <SocialLink
-        href="https://github.com"
+        href={profile?.telegram}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
-      >
-        <Github size={20} />
-      </SocialLink>
-
-      <SocialLink
-        href="https://github.com"
-        target="_blank"
-        variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Send size={20} />
       </SocialLink>
 
       <SocialLink
-        href="https://linkedin.com"
+        href={`mailto:${profile?.email}`}
+        variants={itemVariants}
+        whileHover={{ scale: 1.1 }}
+      >
+        <Mail size={20} />
+      </SocialLink>
+
+      <SocialLink
+        href={profile?.linkedin}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Linkedin size={20} />
       </SocialLink>
 
       <SocialLink
-        href="mailto:you@example.com"
+        href={profile?.gitHub}
+        target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
-        <Mail size={20} />
+        <Github size={20} />
       </SocialLink>
 
       <SocialLink
         href="https://www.google.com/maps/place/Запоріжжя"
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <MapPin size={20} />
       </SocialLink>
@@ -113,44 +118,43 @@ export const SocialBlock = () => {
 };
 
 export const SocialBlockMob = () => {
+  const profile = useSelector(selectProfile);
+
   return (
     <SocialLinks
-      variants={containerVariants}
+      variants={containVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.6 }}
+      viewport={{ once: false, amount: 0.6 }}
     >
       <SocialLink
-        href="https://github.com"
+        href={profile?.gitHub}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Github size={20} />
       </SocialLink>
-
       <SocialLink
-        href="https://github.com"
+        href={profile?.telegram}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Send size={20} />
       </SocialLink>
-
       <SocialLink
-        href="https://linkedin.com"
+        href={profile?.linkedin}
         target="_blank"
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Linkedin size={20} />
       </SocialLink>
-
       <SocialLink
-        href="mailto:you@example.com"
+        href={`mailto:${profile?.email}`}
         variants={itemVariants}
-        whileHover="whileHover"
+        whileHover={{ scale: 1.1 }}
       >
         <Mail size={20} />
       </SocialLink>

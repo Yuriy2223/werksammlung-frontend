@@ -39,22 +39,3 @@ export const SocialLink = styled(motion.a)`
     background-color: ${({ theme }) => theme.primary};
   }
 `;
-
-export const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      staggerChildren: 0.1,
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-export const itemVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: { opacity: 1, y: 0 },
-  whileHover: { scale: 1.1 },
-};

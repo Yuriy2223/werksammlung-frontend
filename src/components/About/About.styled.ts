@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Container } from "../../shared/Container";
 import { Button } from "../../shared/Button";
+import { motion } from "framer-motion";
 
 export const AboutSection = styled.section`
   background-color: ${({ theme }) => theme.tertiary};
@@ -8,10 +9,9 @@ export const AboutSection = styled.section`
 export const AboutContainer = styled(Container)`
   display: flex;
   flex-direction: column;
-  padding: 50px 20px 40px;
 
-  @media (min-width: 1280px) {
-    padding: 40px 20px;
+  @media (max-width: 1279px) {
+    padding: 50px 20px 40px;
   }
 `;
 export const AboutWrapTop = styled.div`
@@ -62,6 +62,7 @@ export const WrapperImg = styled.div`
     flex-shrink: 0;
     width: 290px;
     height: 290px;
+    border-radius: 12px;
 
     @media (min-width: 768px) {
       width: 440px;
@@ -133,6 +134,9 @@ export const ToContact = styled.div`
   @media (min-width: 1280px) {
     flex-direction: row;
   }
+`;
+export const AboutBtnWrapper = styled(motion.div)`
+  display: inline-block;
 `;
 export const AboutBtn = styled(Button)`
   width: 140px;

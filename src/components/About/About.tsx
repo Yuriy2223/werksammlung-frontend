@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { SocialContact } from "../SocialBlock/SocialBlock";
 import { selectProfile } from "../../redux/profile/selectors";
+import { useViewportAmount } from "../../hooks/useViewportAmount";
 import { API_URL } from "../../services/Api";
 import { Languages } from "../../App.type";
 import {
@@ -16,6 +17,7 @@ import {
   WrapperImg,
   AboutWrapTop,
   ToContact,
+  AboutBtnWrapper,
 } from "./About.styled";
 
 export const About = () => {
@@ -25,6 +27,7 @@ export const About = () => {
   const fullName = `${profile?.firstName?.[lang] || ""} ${
     profile?.lastName?.[lang] || ""
   }`;
+  const viewportAmount = useViewportAmount();
 
   const handleOpenCV = () => {
     if (!profile?._id) return;
@@ -39,13 +42,14 @@ export const About = () => {
             initial={{ opacity: 0, x: -200 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            viewport={{ once: false }}
+            // viewport={{ once: false }}
+            viewport={{ once: false, amount: viewportAmount }}
             style={{ flex: 1 }}
           >
             <WrapperImg>
               <img
-                width="400px"
-                height="400px"
+                width="500px"
+                height="500px"
                 src={profile?.avatarUrl}
                 alt={`${fullName} portrait`}
               />
@@ -56,7 +60,8 @@ export const About = () => {
             initial={{ opacity: 0, x: 200 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            viewport={{ once: false }}
+            // viewport={{ once: false }}
+            viewport={{ once: false, amount: viewportAmount }}
             style={{ flex: 1 }}
           >
             <WrapperContext>
@@ -66,9 +71,19 @@ export const About = () => {
                 <p>{t("about.full")}</p>
                 <p>{t("about.dev")}</p>
                 <ToContact>
-                  <AboutBtn onClick={handleOpenCV}>
-                    <FileText size={20} /> {t("buttons.wiewcv")}
-                  </AboutBtn>
+                  <AboutBtnWrapper
+                    onClick={handleOpenCV}
+                    initial={{ opacity: 0, x: 300 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    // viewport={{ once: false, amount: 0.6 }}
+                    viewport={{ once: false, amount: viewportAmount }}
+                    transition={{ duration: 2, ease: "linear" }}
+                  >
+                    <AboutBtn>
+                      <FileText size={20} /> {t("buttons.wiewcv")}
+                    </AboutBtn>
+                  </AboutBtnWrapper>
+
                   <SocialContact />
                 </ToContact>
               </ContextInner>
