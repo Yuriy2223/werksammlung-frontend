@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 export const useViewportAmount = (): number => {
-  const [amount, setAmount] = useState(0.5);
+  const [amount, setAmount] = useState(0.6);
 
   useEffect(() => {
     const updateAmount = () => {
@@ -10,9 +10,9 @@ export const useViewportAmount = (): number => {
       if (width <= 375) {
         setAmount(0);
       } else if (width <= 768) {
-        setAmount(0.2);
-      } else {
         setAmount(0.3);
+      } else {
+        setAmount(0.6);
       }
     };
 

@@ -40,18 +40,18 @@ const FilterBar = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-const FilterButton = styled.button<{ active: boolean }>`
+const FilterButton = styled.button<{ $active: boolean }>`
   padding: 0.4rem 0.9rem;
   border-radius: 8px;
   border: none;
   font-weight: 500;
   cursor: pointer;
-  background: ${({ active }) => (active ? "#6c5ce7" : "#e0e0e0")};
-  color: ${({ active }) => (active ? "#fff" : "#2d3748")};
+  background: ${({ $active }) => ($active ? "#6c5ce7" : "#e0e0e0")};
+  color: ${({ $active }) => ($active ? "#fff" : "#2d3748")};
   transition: background 0.2s;
 
   &:hover {
-    background: ${({ active }) => (active ? "#5e50d8" : "#d5d5d5")};
+    background: ${({ $active }) => ($active ? "#5e50d8" : "#d5d5d5")};
   }
 `;
 
@@ -76,7 +76,7 @@ const DurationBarChart = ({ data }: Props) => {
         {(["day", "week", "month"] as Period[]).map((p) => (
           <FilterButton
             key={p}
-            active={period === p}
+            $active={period === p}
             onClick={() => setPeriod(p)}
           >
             {p === "day" && "День"}

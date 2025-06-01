@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { parseISO, format, isValid } from "date-fns";
 import { Stats } from "./types";
 import { privateInstance } from "../../services/Api";
+import VisitsLineChartByMonth from "./VisitsLineChartByMonth";
 import { selectLoggedIn } from "../../redux/auth/selectors";
 import { FiltersPanel } from "./FiltersPanel";
 import CalendarCard from "./CalendarCard";
@@ -12,7 +13,6 @@ import DurationBarChart from "./DurationBarChart";
 import CountryPieChart from "./CountryPieChart";
 import { SummaryCard } from "./SummaryCard";
 import { ChartGrid, UserPageTitle, UserPageContainer } from "./UserPage.steled";
-import VisitsLineChartByMonth from "./VisitsLineChartByMonth";
 
 const UserPage = () => {
   const [stats, setStats] = useState<Stats | null>(null);
@@ -73,10 +73,6 @@ const UserPage = () => {
   const min = times.length ? Math.min(...times) : 0;
   const max = times.length ? Math.max(...times) : 0;
 
-  // const durationData = filterVisits.map((v, i) => ({
-  //   name: `#${i + 1}`,
-  //   duration: v.timeSpent,
-  // }));
   const buildDurationData = (
     visits: typeof filterVisits,
     groupBy: "day" | "week" | "month"
@@ -108,7 +104,6 @@ const UserPage = () => {
     week: buildDurationData(filterVisits, "week"),
     month: buildDurationData(filterVisits, "month"),
   };
-  /** */
 
   const countriesData = Object.entries(
     filterVisits.reduce((acc: Record<string, number>, v) => {
