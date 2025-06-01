@@ -25,7 +25,7 @@ export const ModalContent = styled.div`
   position: relative;
   border-radius: 12px;
   padding: 30px 20px;
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.bgPrimary};
   overflow: hidden;
   z-index: 1;
 
@@ -48,7 +48,7 @@ export const ModalContent = styled.div`
     left: 2px;
     right: 2px;
     bottom: 2px;
-    background-color: ${({ theme }) => theme.bgBody};
+    background-color: ${({ theme }) => theme.bgPrimary};
     border-radius: 10px;
     z-index: -1;
     box-shadow: inset 0 0 10px rgba(0, 255, 247, 0.2);
@@ -77,7 +77,7 @@ export const CloseButton = styled.button`
   justify-content: center;
 
   svg {
-    color: ${({ theme }) => theme.colorText};
+    color: ${({ theme }) => theme.textPrimary};
     transition: all 0.3s ease;
   }
 

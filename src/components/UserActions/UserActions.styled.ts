@@ -16,7 +16,6 @@ export const BtnLogin = styled(Button)`
   text-transform: uppercase;
 
   span {
-    /* color: ${({ theme }) => theme.accent}; */
     color: ${({ theme }) => theme.svg};
     transform: translateY(2px);
   }

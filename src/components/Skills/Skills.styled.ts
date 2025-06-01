@@ -4,7 +4,7 @@ import { Container } from "../../shared/Container";
 import { Link } from "react-router-dom";
 
 export const SkillsSections = styled.section`
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.bgPrimary};
 `;
 export const SkillsContainer = styled(Container)`
   padding: 40px 20px;
@@ -25,10 +25,10 @@ export const Categories = styled.div`
 export const SkillsCard = styled(motion.div)`
   border-radius: 12px;
   padding: 20px 40px;
-  background-color: ${({ theme }) => theme.secondary};
-  border: 1px solid ${({ theme }) => theme.colorText};
-  box-shadow: 0 0 8px ${({ theme }) => theme.colorText};
-  color: ${({ theme }) => theme.colorText};
+  background-color: ${({ theme }) => theme.bgSecondary};
+  border: 1px solid ${({ theme }) => theme.textPrimary};
+  box-shadow: 0 0 8px ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.textPrimary};
   transition: all 300ms ease;
 `;
 export const CategoryTitle = styled.h3`
@@ -48,7 +48,7 @@ export const SkillLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  color: ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
   position: relative;
   transition: all 300ms ease;
 
@@ -65,7 +65,7 @@ export const SkillLink = styled(Link)`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: ${({ theme }) => theme.colorText};
+    background-color: ${({ theme }) => theme.textPrimary};
     transform: scaleX(0);
     transform-origin: center;
     transition: transform 300ms ease, background-color 300ms ease;
@@ -85,3 +85,6 @@ export const SkillLink = styled(Link)`
     }
   }
 `;
+// export const SkillItem = styled(motion.li)`
+//   background-color: ${({ theme }) => theme.textPrimary};
+// `;

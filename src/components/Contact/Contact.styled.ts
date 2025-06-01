@@ -4,7 +4,7 @@ import { Button } from "../../shared/Button";
 import { motion } from "framer-motion";
 
 export const ContactSection = styled.section`
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.bgPrimary};
 `;
 export const ContactContainer = styled(Container)`
   padding: 40px 20px 60px;

@@ -22,6 +22,7 @@ import {
   SkillsSections,
   WrapperTitle,
   SkillLink,
+  // SkillItem,
 } from "./Skills.styled";
 
 export const Skills = () => {
@@ -72,6 +73,7 @@ export const Skills = () => {
 
                     return (
                       <motion.li key={skillId} variants={itemVariant}>
+                        {/* <SkillItem key={skillId} variants={itemVariant}> */}
                         <SkillLink
                           to={link}
                           target="_blank"

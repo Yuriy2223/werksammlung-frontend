@@ -4,7 +4,7 @@ import { Title } from "../../shared/Title";
 import { motion } from "framer-motion";
 
 export const ModalWrap = styled.div`
-  background-color: ${({ theme }) => theme.bgBody};
+  background-color: ${({ theme }) => theme.bgPrimary};
   position: relative;
 `;
 export const ModalForm = styled.form`

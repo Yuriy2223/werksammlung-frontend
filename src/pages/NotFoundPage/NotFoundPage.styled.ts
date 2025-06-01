@@ -18,20 +18,20 @@ export const Canvas = styled.canvas`
 export const Text = styled.div`
   z-index: 1;
   font-size: 34px;
-  color: ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
   margin-bottom: 30px;
 `;
 export const ToNavLink = styled(NavLink)`
   padding: 12px 20px;
   border-radius: 12px;
-  border: 1px solid ${({ theme }) => theme.colorText};
-  color: ${({ theme }) => theme.colorText};
+  border: 1px solid ${({ theme }) => theme.textPrimary};
+  color: ${({ theme }) => theme.textPrimary};
   background-color: ${({ theme }) => theme.secondary};
   z-index: 1;
 
   &:hover,
   &:active {
-    box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
-    background-color: ${({ theme }) => theme.bgBody};
+    box-shadow: 0 0 20px ${({ theme }) => theme.textPrimary};
+    background-color: ${({ theme }) => theme.bgPrimary};
   }
 `;

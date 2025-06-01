@@ -4,7 +4,7 @@ import { Button } from "../../shared/Button";
 import { motion } from "framer-motion";
 
 export const AboutSection = styled.section`
-  background-color: ${({ theme }) => theme.tertiary};
+  background-color: ${({ theme }) => theme.bgSecondary};
 `;
 export const AboutContainer = styled(Container)`
   display: flex;
@@ -90,14 +90,14 @@ export const ContextInner = styled.div`
     font-size: 26px;
     line-height: 1.4;
     font-weight: 600;
-    text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
+    text-shadow: -3px 3px 30px ${({ theme }) => theme.textPrimary};
   }
 
   h1 {
     font-size: 34px;
     line-height: 1.4;
     font-weight: 700;
-    text-shadow: -3px 3px 30px ${({ theme }) => theme.colorText};
+    text-shadow: -3px 3px 30px ${({ theme }) => theme.textPrimary};
   }
 
   @media (min-width: 768px) {
@@ -141,7 +141,7 @@ export const AboutBtnWrapper = styled(motion.div)`
 export const AboutBtn = styled(Button)`
   width: 140px;
   height: 46px;
-  box-shadow: 0 0 10px ${({ theme }) => theme.colorText};
+  box-shadow: 0 0 10px ${({ theme }) => theme.textPrimary};
 
   svg {
     color: ${({ theme }) => theme.svg};

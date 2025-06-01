@@ -24,8 +24,8 @@ export const BurgerMenuContainer = styled.div<{ $isOpen: boolean }>`
   width: 60%;
   max-width: 400px;
   height: 100vh;
-  background-color: ${({ theme }) => theme.bgBody};
-  box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
+  background-color: ${({ theme }) => theme.bgPrimary};
+  box-shadow: 0 0 20px ${({ theme }) => theme.textPrimary};
   transition: right 700ms ease;
 
   display: flex;
@@ -45,7 +45,7 @@ export const CloseButton = styled.button`
   right: 20px;
   border: none;
   background: transparent;
-  color: ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
 
   &:hover,
   &:active {
