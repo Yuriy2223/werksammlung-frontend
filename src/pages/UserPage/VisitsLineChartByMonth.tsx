@@ -16,14 +16,6 @@ const Card = styled.div`
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 `;
 
-// const monthlyData = [
-//   { month: "2024-01", count: 120 },
-//   { month: "2024-02", count: 140 },
-//   { month: "2024-03", count: 180 },
-//   { month: "2024-04", count: 200 },
-//   { month: "2024-05", count: 220 },
-// ];
-
 type Props = {
   data: { month: string; count: number }[];
 };
@@ -37,7 +29,6 @@ const VisitsLineChartByMonth = ({ data }: Props) => (
         <XAxis
           dataKey="month"
           tickFormatter={(month) => {
-            // Очікується формат YYYY-MM
             const [year, m] = month.split("-");
             return `${m}.${year}`;
           }}

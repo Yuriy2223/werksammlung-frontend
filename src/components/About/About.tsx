@@ -23,11 +23,11 @@ import {
 export const About = () => {
   const { t, i18n } = useTranslation();
   const profile = useSelector(selectProfile);
+  const viewportAmount = useViewportAmount();
   const lang = i18n.language.toLowerCase() as Languages;
   const fullName = `${profile?.firstName?.[lang] || ""} ${
     profile?.lastName?.[lang] || ""
   }`;
-  const viewportAmount = useViewportAmount();
 
   const handleOpenCV = () => {
     if (!profile?._id) return;
@@ -74,7 +74,10 @@ export const About = () => {
                     initial={{ opacity: 0, x: 300 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: false, amount: viewportAmount }}
-                    transition={{ duration: 2, ease: "linear" }}
+                    transition={{
+                      duration: 2,
+                      ease: "easeOut",
+                    }}
                   >
                     <AboutBtn>
                       <FileText size={20} /> {t("buttons.wiewcv")}

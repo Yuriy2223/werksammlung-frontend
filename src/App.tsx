@@ -9,6 +9,7 @@ import { useAppDispatch } from "./redux/store.ts";
 import { useSelector } from "react-redux";
 import { selectLoading, selectProfile } from "./redux/profile/selectors.ts";
 import { fetchProfile } from "./redux/profile/operations.ts";
+import { selectLoggedIn } from "./redux/auth/selectors.ts";
 
 const HomePage = lazy(() => import("./pages/HomePage/HomePage.tsx"));
 const UserPage = lazy(() => import("./pages/UserPage/UserPage.tsx"));
@@ -20,12 +21,12 @@ export const App = () => {
   const dispatch = useAppDispatch();
   const profile = useSelector(selectProfile);
   const loading = useSelector(selectLoading);
+  const isLoggedIn = useSelector(selectLoggedIn);
 
   useEffect(() => {
-    dispatch(refreshToken())
-      .unwrap()
-      .catch(() => {});
-  }, [dispatch]);
+    if (!isLoggedIn) return;
+    dispatch(refreshToken());
+  }, [dispatch, isLoggedIn]);
 
   useEffect(() => {
     if (!profile && !loading) {

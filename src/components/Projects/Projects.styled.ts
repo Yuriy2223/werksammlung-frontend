@@ -3,7 +3,8 @@ import { Container } from "../../shared/Container";
 import { motion } from "framer-motion";
 
 export const ProjectsSection = styled.section`
-  background-color: ${({ theme }) => theme.bgBody};
+  /* background-color: ${({ theme }) => theme.bgBody}; */
+  background-color: ${({ theme }) => theme.tertiary};
 `;
 export const ProjectsContainer = styled(Container)`
   padding: 40px 20px;
