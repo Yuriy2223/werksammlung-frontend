@@ -11,10 +11,10 @@ const sharedStyles = css<{
   padding: 12px;
   border: 2px solid
     ${({ $hasError, theme, $isFocused }) =>
-      $hasError ? theme.err : $isFocused ? theme.colorText : theme.hover};
+      $hasError ? theme.err : $isFocused ? theme.textPrimary : theme.hover};
   border-radius: 8px;
   outline: none;
-  color: ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
   transition: border-color 0.3s ease;
 
   ${({ height }) =>
@@ -25,7 +25,7 @@ const sharedStyles = css<{
 
   &:hover {
     border-color: ${({ $hasError, theme }) =>
-      $hasError ? theme.err : theme.colorText};
+      $hasError ? theme.err : theme.textPrimary};
   }
 `;
 const InputWrapper = styled.div<{ width: string }>`
@@ -39,12 +39,12 @@ const StyledInput = styled.input<{
   $isFocused: boolean;
 }>`
   ${sharedStyles}
-  background: ${({ theme }) => theme.bgBody};
+  background: ${({ theme }) => theme.bgPrimary};
 
   &:-webkit-autofill {
-    background-color: ${({ theme }) => theme.bgBody} !important;
-    box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgBody} inset !important;
-    -webkit-text-fill-color: ${({ theme }) => theme.colorText} !important;
+    background-color: ${({ theme }) => theme.bgPrimary} !important;
+    box-shadow: 0 0 0 1000px ${({ theme }) => theme.bgPrimary} inset !important;
+    -webkit-text-fill-color: ${({ theme }) => theme.textPrimary} !important;
     transition: background-color 5000s ease-in-out 0s;
   }
 `;
@@ -57,8 +57,9 @@ const StyledLabel = styled.label<{
   top: ${({ $isFloating }) => ($isFloating ? "-10px" : "50%")};
   transform: translateY(${({ $isFloating }) => ($isFloating ? "0" : "-50%")});
   font-size: ${({ $isFloating }) => ($isFloating ? "14px" : "16px")};
-  color: ${({ $hasError, theme }) => ($hasError ? theme.err : theme.colorText)};
-  background: ${({ theme }) => theme.bgBody};
+  color: ${({ $hasError, theme }) =>
+    $hasError ? theme.err : theme.textPrimary};
+  background: ${({ theme }) => theme.bgPrimary};
   padding: 0 6px;
   transition: all 0.2s ease;
   pointer-events: none;

@@ -10,15 +10,15 @@ const BtnWrapper = styled.button`
   justify-content: center;
   text-align: center;
   gap: 8px;
-  background-color: ${({ theme }) => theme.secondary};
-  color: ${({ theme }) => theme.colorText};
-  border: 1px solid ${({ theme }) => theme.colorText};
+  background-color: ${({ theme }) => theme.bgSecondary};
+  color: ${({ theme }) => theme.textPrimary};
+  border: 1px solid ${({ theme }) => theme.textPrimary};
 
   &:hover,
   &:active {
-    background-color: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.colorText};
-    box-shadow: 0 0 26px ${({ theme }) => theme.colorText};
+    background-color: ${({ theme }) => theme.bgPrimary};
+    color: ${({ theme }) => theme.textPrimary};
+    box-shadow: 0 0 26px ${({ theme }) => theme.textPrimary};
   }
 `;
 

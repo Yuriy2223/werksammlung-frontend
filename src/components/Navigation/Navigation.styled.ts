@@ -5,14 +5,10 @@ export const NavList = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-
   width: 200px;
   height: 260px;
 
   @media (min-width: 1280px) {
-    /* display: flex;
-    align-items: center;
-    justify-content: space-between; */
     flex-direction: row;
     width: 420px;
     height: auto;
@@ -26,17 +22,16 @@ export const NavList = styled.nav`
     text-decoration: none;
     background: linear-gradient(
       90deg,
-      ${({ theme }) => theme.colorText},
-      ${({ theme }) => theme.colorText}
+      ${({ theme }) => theme.textPrimary},
+      ${({ theme }) => theme.textPrimary}
     );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: transform 0.3s ease, background 0.4s ease;
 
     &:hover {
       transform: scale(1.05);
-      background: linear-gradient(90deg, #ff8a00, #e52e71, #9b00ff);
+      background: ${({ theme }) => theme.linear};
       background-size: 200%;
       animation: textFlow 2s linear infinite;
       background-clip: text;
@@ -58,7 +53,7 @@ export const NavList = styled.nav`
     }
 
     &.active {
-      background: linear-gradient(90deg, #ff8a00, #e52e71, #9b00ff);
+      background: ${({ theme }) => theme.linear};
       background-size: 300%;
       background-clip: text;
       -webkit-background-clip: text;
@@ -67,7 +62,7 @@ export const NavList = styled.nav`
 
       &::after {
         width: 50%;
-        background: linear-gradient(90deg, #ff8a00, #e52e71, #9b00ff);
+        background: ${({ theme }) => theme.linear};
         animation: underlineGlow 1.2s ease-in-out forwards;
       }
     }

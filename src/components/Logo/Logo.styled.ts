@@ -11,7 +11,7 @@ export const LogoContainer = styled(NavLink)`
     font-size: 20px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: ${({ theme }) => theme.colorText};
+    color: ${({ theme }) => theme.textPrimary};
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -20,8 +20,8 @@ export const LogoContainer = styled(NavLink)`
 
     &:hover {
       transform: scale(1.05) rotate(-4deg);
-      text-shadow: 0 0 20px ${({ theme }) => theme.colorText},
-        0 0 20px ${({ theme }) => theme.colorText};
+      text-shadow: 0 0 20px ${({ theme }) => theme.textPrimary},
+        0 0 20px ${({ theme }) => theme.textPrimary};
     }
   }
 

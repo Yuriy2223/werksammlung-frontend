@@ -3,62 +3,66 @@ import { DefaultTheme } from "styled-components";
 
 declare module "styled-components" {
   export interface DefaultTheme {
-    bgBody: string;
-    colorText: string;
-    primary: string;
-    secondary: string;
-    accent: string;
-    tertiary: string;
+    bgPrimary: string;
+    bgSecondary: string;
+    textPrimary: string;
     hover: string;
     svg: string;
     err: string;
     gradient: string;
+    linear: string;
   }
 }
 
-export type ThemeType = "light" | "dark" | "grey";
+export type ThemeType = "dark" | "grey" | "blue" | "green";
 
-export const lightTheme: DefaultTheme = {
-  bgBody: "var(--bgBody)",
-  colorText: "var(--colorText)",
-  primary: "var(--primary)",
-  secondary: "var(--secondary)",
-  accent: "var(--accent)",
-  tertiary: "var(--tertiary)",
+export const greenTheme: DefaultTheme = {
+  bgPrimary: "var(--bgPrimary)",
+  bgSecondary: "var(--bgSecondary)",
+  textPrimary: "var(--textPrimary)",
   hover: "var(--hover)",
   svg: "var(--svg)",
   err: "var(--err)",
   gradient: "var(--gradient)",
+  linear: "var(--linear)",
 };
 
-export const darkTheme: DefaultTheme = {
-  bgBody: "var(--bgBody2)",
-  colorText: "var(--colorText2)",
-  primary: "var(--primary2)",
-  secondary: "var(--secondary2)",
-  accent: "var(--accent2)",
-  tertiary: "var(--tertiary2)",
+export const blueTheme: DefaultTheme = {
+  bgPrimary: "var(--bgPrimary2)",
+  bgSecondary: "var(--bgSecondary2)",
+  textPrimary: "var(--textPrimary2)",
   hover: "var(--hover2)",
   svg: "var(--svg2)",
   err: "var(--err)",
   gradient: "var(--gradient)",
+  linear: "var(--linear)",
 };
 
 export const greyTheme: DefaultTheme = {
-  bgBody: "var(--bgBody3)",
-  colorText: "var(--colorText3)",
-  primary: "var(--primary3)",
-  secondary: "var(--secondary3)",
-  accent: "var(--accent3)",
-  tertiary: "var(--tertiary3)",
+  bgPrimary: "var(--bgPrimary3)",
+  bgSecondary: "var(--bgSecondary3)",
+  textPrimary: "var(--textPrimary3)",
   hover: "var(--hover3)",
   svg: "var(--svg3)",
   err: "var(--err)",
   gradient: "var(--gradient)",
+  linear: "var(--linear)",
+};
+
+export const darkTheme: DefaultTheme = {
+  bgPrimary: "var(--bgPrimary4)",
+  bgSecondary: "var(--bgSecondary4)",
+  textPrimary: "var(--textPrimary4)",
+  hover: "var(--hover4)",
+  svg: "var(--svg4)",
+  err: "var(--err)",
+  gradient: "var(--gradient)",
+  linear: "var(--linear)",
 };
 
 export const themes = {
-  light: lightTheme,
   dark: darkTheme,
   grey: greyTheme,
+  blue: blueTheme,
+  green: greenTheme,
 };

@@ -30,7 +30,7 @@ export const BurgerBtn = styled.button`
   outline: none;
   border: none;
   padding: 4px;
-  color: ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
 
   svg {
     transition: all 300ms ease;

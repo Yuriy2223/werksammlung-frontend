@@ -30,19 +30,19 @@ export const CardFace = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px;
-  color: ${({ theme }) => theme.colorText};
-  background-color: ${({ theme }) => theme.secondary};
-  border: 1px solid ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
+  background-color: ${({ theme }) => theme.bgPrimary};
+  border: 1px solid ${({ theme }) => theme.textPrimary};
 
   @media (min-width: 768px) {
     padding: 20px;
   }
 `;
 export const FrontFace = styled(CardFace)`
-  box-shadow: 0 0 8px ${({ theme }) => theme.colorText};
+  box-shadow: 0 0 8px ${({ theme }) => theme.textPrimary};
 `;
 export const BackFace = styled(CardFace)`
-  box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
+  box-shadow: 0 0 20px ${({ theme }) => theme.textPrimary};
   transform: rotateY(180deg);
   justify-content: space-between;
 `;
@@ -63,7 +63,7 @@ export const ProjectTitle = styled.h3`
   white-space: nowrap;
 `;
 export const TechTag = styled.span`
-  color: ${({ theme }) => theme.colorText};
+  color: ${({ theme }) => theme.textPrimary};
 `;
 export const ProjectTechnologies = styled.div`
   display: flex;
@@ -116,9 +116,9 @@ export const LinkProject = styled.a`
   justify-content: center;
   gap: 10px;
   border-radius: 8px;
-  color: ${({ theme }) => theme.colorText};
-  border: 2px solid ${({ theme }) => theme.colorText};
-  background-color: ${({ theme }) => theme.secondary};
+  color: ${({ theme }) => theme.textPrimary};
+  border: 2px solid ${({ theme }) => theme.textPrimary};
+  background-color: ${({ theme }) => theme.bgSecondary};
 
   svg {
     transition: all 0.3s ease;
@@ -127,7 +127,7 @@ export const LinkProject = styled.a`
 
   &:hover,
   &:active {
-    box-shadow: 0 0 20px ${({ theme }) => theme.colorText};
-    background-color: ${({ theme }) => theme.primary};
+    box-shadow: 0 0 20px ${({ theme }) => theme.textPrimary};
+    background-color: ${({ theme }) => theme.bgSecondary};
   }
 `;
