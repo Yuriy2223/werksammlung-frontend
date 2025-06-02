@@ -26,7 +26,7 @@ export const SocialLink = styled(motion.a)`
   justify-content: center;
   color: ${({ theme }) => theme.textPrimary};
   border: 2px solid ${({ theme }) => theme.textPrimary};
-  background-color: ${({ theme }) => theme.secondary};
+  background-color: ${({ theme }) => theme.bgSecondary};
 
   svg {
     transition: all 0.3s ease;
