@@ -83,7 +83,7 @@ export const SuccessMessage = styled(motion.div)`
   font-weight: 500;
   font-size: 16px;
   color: #4caf50;
-  background-color: ${({ theme }) => theme.secondary};
+  background-color: ${({ theme }) => theme.bgSecondary};
   border: 1px solid ${({ theme }) => theme.svg};
   display: flex;
   align-items: center;

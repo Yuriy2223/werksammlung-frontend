@@ -26,7 +26,7 @@ export const ToNavLink = styled(NavLink)`
   border-radius: 12px;
   border: 1px solid ${({ theme }) => theme.textPrimary};
   color: ${({ theme }) => theme.textPrimary};
-  background-color: ${({ theme }) => theme.secondary};
+  background-color: ${({ theme }) => theme.bgSecondary};
   z-index: 1;
 
   &:hover,
