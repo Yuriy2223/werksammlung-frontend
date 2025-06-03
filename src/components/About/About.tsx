@@ -47,8 +47,8 @@ export const About = () => {
           >
             <WrapperImg>
               <img
-                width="500px"
-                height="500px"
+                // width="500px"
+                // height="500px"
                 src={profile?.avatarUrl}
                 alt={`${fullName} portrait`}
               />
