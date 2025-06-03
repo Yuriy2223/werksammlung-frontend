@@ -11,7 +11,8 @@ export const AboutContainer = styled(Container)`
   flex-direction: column;
 
   @media (max-width: 1279px) {
-    padding: 50px 20px 40px;
+    padding-top: 50px;
+    padding-bottom: 40px;
   }
 `;
 export const AboutWrapTop = styled.div`
