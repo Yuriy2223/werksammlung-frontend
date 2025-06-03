@@ -13,8 +13,8 @@ i18n
   .init({
     resources: {
       EN: en,
-      UA: ua,
       DE: de,
+      UA: ua,
     },
     lng: store.getState().language.currentLanguage,
     fallbackLng: "EN",

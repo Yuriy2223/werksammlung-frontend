@@ -37,7 +37,6 @@ export const ModalMessage = styled(motion.div)`
   max-width: 300px;
   word-wrap: break-word;
   white-space: normal;
-  box-sizing: border-box;
 
   @media (max-width: 768px) {
     max-width: 400px;

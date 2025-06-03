@@ -12,7 +12,7 @@ export const Variables = css`
     --bgSecondary: #cfdcd7;
     --textPrimary: #274b42;
     --svg: #3f6a8e;
-    --hover2: #a6bcb5;
+    --hover: #a6bcb5;
 
     /*  Theme blue */
     --bgPrimary2: #e8f1f7;
@@ -36,20 +36,3 @@ export const Variables = css`
     --hover4: #007c91;
   }
 `;
-
-// --bgPrimary: #; // беграунд колір (боді)
-// --bgSecondary: #; // беграунд другий колір (боді)
-// --textPrimary: #; // колір тексту основний
-// --textSecondary: #; // колір тексту другий
-// --accent: #; // запасний колір
-// --tertiary: #; // колір для тіней
-// --svg: #; // колір іконок svg
-// --hover: #; // колір наведення (ховер)
-// --err: #; // колір помилок
-// --gradient: conic-gradient(
-//   from 0deg,
-//   #ff007a,
-//   #1951c5,
-//   #00bcd4,
-//   #ff007a
-// ); // модальне вікно щось схоже на бордер красивий

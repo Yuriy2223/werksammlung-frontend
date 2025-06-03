@@ -24,11 +24,20 @@ const UserPage = () => {
 
   useEffect(() => {
     if (!isLoggedIn) return;
-    privateInstance
-      .get("/api/stats")
-      .then((res) => setStats(res.data))
-      .catch((err) => console.error("Помилка завантаження статистики", err))
-      .finally(() => setLoading(false));
+
+    const fetchStats = async () => {
+      try {
+        await new Promise((r) => setTimeout(r, 600));
+        const res = await privateInstance.get("/api/stats");
+        setStats(res.data);
+      } catch (err) {
+        console.error("Помилка завантаження статистики", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStats();
   }, [isLoggedIn]);
 
   if (!isLoggedIn) return <Navigate to="/" replace />;
