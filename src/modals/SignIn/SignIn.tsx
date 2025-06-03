@@ -89,7 +89,6 @@ export const ModalSignIn = () => {
           label={t("modal.form.email")}
           autoComplete="new-email"
           type="email"
-          width="100%"
           onClearError={() => clearErrors("email")}
           onValidate={() => trigger("email")}
           error={errors.email?.message}
@@ -99,7 +98,6 @@ export const ModalSignIn = () => {
           label={t("modal.form.password")}
           autoComplete="new-password"
           type={showPassword ? "text" : "password"}
-          width="100%"
           onClearError={() => clearErrors("password")}
           onValidate={() => trigger("password")}
           error={errors.password?.message}

@@ -68,7 +68,6 @@ export const TechTag = styled.span`
 export const ProjectTechnologies = styled.div`
   display: flex;
   align-items: center;
-  /* flex-wrap: wrap; */
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -76,7 +75,7 @@ export const ProjectTechnologies = styled.div`
 `;
 export const ProjectDescription = styled.p`
   width: 100%;
-  height: 238px;
+  height: 236px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

@@ -1,7 +1,7 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 import { Button } from "../../shared/Button";
 import { Title } from "../../shared/Title";
-import { motion } from "framer-motion";
 
 export const ModalWrap = styled.div`
   background-color: ${({ theme }) => theme.bgPrimary};
@@ -45,13 +45,12 @@ export const ModalMessage = styled(motion.div)`
   padding: 10px;
   border-radius: 12px;
   color: #fff;
-  background-color: #ff5f5f;
+  background-color: ${({ theme }) => theme.err};
   text-align: center;
   width: calc(100vw - 40px);
   max-width: 300px;
-  word-wrap: break-word;
-  white-space: normal;
-  box-sizing: border-box;
+  /* word-wrap: break-word;
+  white-space: normal; */
 
   @media (max-width: 768px) {
     max-width: 400px;

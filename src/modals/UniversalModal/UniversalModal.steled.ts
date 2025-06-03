@@ -24,7 +24,7 @@ export const ModalContent = styled.div`
   width: 315px;
   position: relative;
   border-radius: 12px;
-  padding: 30px 20px;
+  padding: 50px 20px;
   background-color: ${({ theme }) => theme.bgPrimary};
   overflow: hidden;
   z-index: 1;
