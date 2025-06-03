@@ -1,61 +1,94 @@
-import styled from "styled-components";
-import { keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
-const rotate = keyframes`
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+const sweep = keyframes`
+  0% {
+    mask-position: 180% 0%;
+    -webkit-mask-position: 180% 0%;
+  }
+  100% {
+    mask-position: -80% 0%;
+    -webkit-mask-position: -80% 0%;
+  }
 `;
 
-const pulse = keyframes`
-  0%, 100% { transform: scale(1); opacity: 0.6; }
-  50% { transform: scale(1.2); opacity: 1; }
+const dotFade = keyframes`
+  0%, 20% {
+    opacity: 0;
+  }
+  30%, 50% {
+    opacity: 1;
+  }
+  60%, 100% {
+    opacity: 0;
+  }
 `;
 
-const fadeInUp = keyframes`
-  0% { opacity: 0; transform: translateY(10px); }
-  100% { opacity: 1; transform: translateY(0); }
-`;
-
-export const LoaderWrapper = styled.div`
+export const LoaderOverlay = styled.div`
+  height: 100vh;
+  width: 100vw;
+  background-color: #0d0d0d;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const LoaderContainer = styled.div`
+  display: flex;
   flex-direction: column;
-  height: 100vh;
-  background-color: #0d0d0d;
+  align-items: center;
+`;
+
+export const LoadingText = styled.div`
+  font-size: 22px;
+  font-weight: 400;
+  color: transparent;
   position: relative;
-`;
+  display: flex;
+  align-items: center;
 
-export const Ring = styled.div<{
-  $size: number;
-  $color: string;
-  $duration: number;
-  $reverse?: boolean;
-}>`
-  position: absolute;
-  width: ${(props) => props.$size}px;
-  height: ${(props) => props.$size}px;
-  border: 4px solid transparent;
-  border-top: 4px solid ${(props) => props.$color};
-  border-radius: 50%;
-  animation: ${rotate} ${(props) => props.$duration}s linear infinite;
-  animation-direction: ${(props) => (props.$reverse ? "reverse" : "normal")};
-  filter: drop-shadow(0 0 6px ${(props) => props.$color});
-`;
+  background: linear-gradient(120deg, #888 0%, #fff 45%, #888 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
 
-export const Dot = styled.div`
-  width: 12px;
-  height: 12px;
-  background-color: #ffffff;
-  border-radius: 50%;
-  animation: ${pulse} 1.4s infinite ease-in-out;
-  position: absolute;
-`;
+  mask-image: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  -webkit-mask-image: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 1) 50%,
+    rgba(0, 0, 0, 0) 90%
+  );
+  mask-size: 260% 100%;
+  -webkit-mask-size: 260% 100%;
 
-export const Title = styled.h1`
-  margin-top: 170px;
-  font-size: 1.2rem;
-  color: #ffffffbb;
-  font-family: "Courier New", Courier, monospace;
-  animation: ${fadeInUp} 1.4s ease-out;
+  animation: ${sweep} 6s linear infinite;
+`;
+export const Dots = styled.span`
+  display: inline-flex;
+  margin-left: 8px;
+  gap: 8px;
+
+  span {
+    color: white;
+    font-size: 26px;
+    opacity: 0;
+    animation: ${dotFade} 1.5s ease-in-out infinite;
+  }
+
+  span:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  span:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+
+  span:nth-child(3) {
+    animation-delay: 0.6s;
+  }
 `;
