@@ -39,11 +39,11 @@ export const About = () => {
       <AboutContainer>
         <AboutWrapTop>
           <motion.div
-          // initial={{ opacity: 0, x: -200 }}
-          // whileInView={{ opacity: 1, x: 0 }}
-          // transition={{ duration: 1 }}
-          // viewport={{ once: false, amount: viewportAmount }}
-          // style={{ flex: 1 }}
+            initial={{ opacity: 0, x: -200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: viewportAmount }}
+            style={{ flex: 1 }}
           >
             <WrapperImg>
               <img
@@ -56,11 +56,11 @@ export const About = () => {
           </motion.div>
 
           <motion.div
-          // initial={{ opacity: 0, x: 200 }}
-          // whileInView={{ opacity: 1, x: 0 }}
-          // transition={{ duration: 1 }}
-          // viewport={{ once: false, amount: viewportAmount }}
-          // style={{ flex: 1 }}
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: viewportAmount }}
+            style={{ flex: 1 }}
           >
             <WrapperContext>
               <ContextInner>
@@ -70,13 +70,13 @@ export const About = () => {
                 <p>{t("about.dev")}</p>
                 <ToContact>
                   <AboutBtnWrapper
-                  // initial={{ opacity: 0, x: 300 }}
-                  // whileInView={{ opacity: 1, x: 0 }}
-                  // viewport={{ once: false, amount: viewportAmount }}
-                  // transition={{
-                  //   duration: 2,
-                  //   ease: "easeOut",
-                  // }}
+                    initial={{ opacity: 0, x: 300 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: false, amount: viewportAmount }}
+                    transition={{
+                      duration: 2,
+                      ease: "easeOut",
+                    }}
                   >
                     <AboutBtn onClick={handleOpenCV}>
                       <FileText size={20} /> {t("buttons.wiewcv")}
@@ -91,10 +91,10 @@ export const About = () => {
         </AboutWrapTop>
         <AboutWrapBottom>
           <motion.div
-          // initial={{ opacity: 0, y: 200 }}
-          // whileInView={{ opacity: 1, y: 0 }}
-          // transition={{ duration: 1 }}
-          // viewport={{ once: false, amount: viewportAmount }}
+            initial={{ opacity: 0, y: 200 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: viewportAmount }}
           >
             <p>{profile?.about[lang]}</p>
           </motion.div>
