@@ -22,12 +22,22 @@ interface ProjectCardProps {
   lang: Languages;
 }
 
+const isTouchDevice = () => {
+  return navigator.maxTouchPoints > 0;
+};
+
 export const ProjectCard: React.FC<ProjectCardProps> = ({ project, lang }) => {
   const [isFlipped, setIsFlipped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
+  // const handleClick = () => {
+  //   if (window.matchMedia("(hover: none)").matches) {
+  //     setIsFlipped((prev) => !prev);
+  //   }
+  // };
+
   const handleClick = () => {
-    if (window.matchMedia("(hover: none)").matches) {
+    if (isTouchDevice()) {
       setIsFlipped((prev) => !prev);
     }
   };
