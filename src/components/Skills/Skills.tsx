@@ -20,7 +20,7 @@ import {
   SkillList,
   SkillsContainer,
   SkillsSections,
-  WrapperTitle,
+  // WrapperTitle,
   SkillLink,
   // SkillItem,
 } from "./Skills.styled";
@@ -34,10 +34,10 @@ export const Skills = () => {
   return (
     <SkillsSections id="skills">
       <SkillsContainer>
-        <WrapperTitle>
-          <Title>{t("skills.title")}</Title>
-          <SubTitle>{t("skills.subtitle")}</SubTitle>
-        </WrapperTitle>
+        {/* <WrapperTitle> */}
+        <Title>{t("skills.title")}</Title>
+        <SubTitle>{t("skills.subtitle")}</SubTitle>
+        {/* </WrapperTitle> */}
 
         <Categories>
           {profile?.skills?.map(({ _id: categoryId, category, items }) => {

@@ -10,6 +10,7 @@ const MotionSubTitle = styled(motion.p)`
   line-height: 1.4;
   font-size: 24px;
   text-shadow: -2px 2px 10px ${({ theme }) => theme.textPrimary};
+  margin-bottom: 40px;
 `;
 
 interface SubTitleProps {
