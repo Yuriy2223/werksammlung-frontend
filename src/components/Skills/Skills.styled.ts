@@ -9,10 +9,6 @@ export const SkillsSections = styled.section`
 export const SkillsContainer = styled(Container)`
   padding: 40px 20px;
 `;
-// export const WrapperTitle = styled(motion.div)`
-//   margin-bottom: 40px;
-//   text-align: center;
-// `;
 export const Categories = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -85,6 +81,3 @@ export const SkillLink = styled(Link)`
     }
   }
 `;
-// export const SkillItem = styled(motion.li)`
-//   background-color: ${({ theme }) => theme.textPrimary};
-// `;
