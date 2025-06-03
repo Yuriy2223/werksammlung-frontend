@@ -8,7 +8,6 @@ export const useViewportAmount = (): number => {
       const width = window.innerWidth;
 
       if (width <= 375) {
-        // setAmount(0);
         setAmount(0.1);
       } else if (width <= 768) {
         setAmount(0.3);

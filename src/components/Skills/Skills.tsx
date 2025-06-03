@@ -20,9 +20,7 @@ import {
   SkillList,
   SkillsContainer,
   SkillsSections,
-  // WrapperTitle,
   SkillLink,
-  // SkillItem,
 } from "./Skills.styled";
 
 export const Skills = () => {
@@ -34,10 +32,8 @@ export const Skills = () => {
   return (
     <SkillsSections id="skills">
       <SkillsContainer>
-        {/* <WrapperTitle> */}
         <Title>{t("skills.title")}</Title>
         <SubTitle>{t("skills.subtitle")}</SubTitle>
-        {/* </WrapperTitle> */}
 
         <Categories>
           {profile?.skills?.map(({ _id: categoryId, category, items }) => {
@@ -73,7 +69,6 @@ export const Skills = () => {
 
                     return (
                       <motion.li key={skillId} variants={itemVariant}>
-                        {/* <SkillItem key={skillId} variants={itemVariant}> */}
                         <SkillLink
                           to={link}
                           target="_blank"
